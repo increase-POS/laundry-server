@@ -1,0 +1,959 @@
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\POS_Server.dll.config
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\POS_Server.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\POS_Server.pdb
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csc.exe
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csc.exe.config
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csc.rsp
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csi.exe
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csi.exe.config
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csi.rsp
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.AppContext.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Console.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.Compression.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.Pipes.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Claims.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.ValueTuple.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.XPath.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\vbc.exe
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\vbc.exe.config
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\vbc.rsp
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\Antlr3.Runtime.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.SqlServer.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\Newtonsoft.Json.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Net.Http.Formatting.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Helpers.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.WebHost.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Mvc.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Optimization.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Razor.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Deployment.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Razor.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\WebGrease.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.SqlServer.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\Newtonsoft.Json.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Net.Http.Formatting.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Helpers.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.WebHost.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Mvc.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Optimization.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Razor.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Deployment.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Razor.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\Antlr3.Runtime.pdb
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.dll
+F:\انكريس\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.pdb
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\POS_Server.dll.config
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\POS_Server.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\POS_Server.pdb
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csc.exe
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csc.exe.config
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csc.rsp
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csi.exe
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csi.exe.config
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\csi.rsp
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.AppContext.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Console.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.Compression.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.IO.Pipes.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Claims.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.ValueTuple.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.XPath.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\vbc.exe
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\vbc.exe.config
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\vbc.rsp
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Antlr3.Runtime.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.SqlServer.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Newtonsoft.Json.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Net.Http.Formatting.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Helpers.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.WebHost.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Mvc.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Optimization.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Razor.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Deployment.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Razor.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\WebGrease.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\EntityFramework.SqlServer.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Newtonsoft.Json.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Net.Http.Formatting.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Helpers.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Http.WebHost.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Mvc.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Optimization.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.Razor.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Deployment.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Web.WebPages.Razor.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Antlr3.Runtime.pdb
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.pdb
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\BouncyCastle.Crypto.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Buffers.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Memory.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Numerics.Vectors.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Text.Encodings.Web.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Text.Json.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Threading.Tasks.Extensions.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.ValueTuple.dll
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\BouncyCastle.Crypto.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.pdb
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Buffers.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Memory.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Numerics.Vectors.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Text.Encodings.Web.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Text.Json.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.Threading.Tasks.Extensions.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\bin\System.ValueTuple.xml
+F:\increase\برنامج المبيعات\POS_Server\POS_Server\obj\Debug\POS_Server.csprojAssemblyReference.cache
+D:\NPOS_Server\POS_Server\bin\POS_Server.dll.config
+D:\NPOS_Server\POS_Server\bin\POS_Server.dll
+D:\NPOS_Server\POS_Server\bin\POS_Server.pdb
+D:\NPOS_Server\POS_Server\bin\roslyn\csc.exe
+D:\NPOS_Server\POS_Server\bin\roslyn\csc.exe.config
+D:\NPOS_Server\POS_Server\bin\roslyn\csc.rsp
+D:\NPOS_Server\POS_Server\bin\roslyn\csi.exe
+D:\NPOS_Server\POS_Server\bin\roslyn\csi.exe.config
+D:\NPOS_Server\POS_Server\bin\roslyn\csi.rsp
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NPOS_Server\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NPOS_Server\POS_Server\bin\roslyn\System.AppContext.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Console.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.IO.Compression.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.IO.Pipes.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Security.Claims.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.ValueTuple.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Xml.XPath.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NPOS_Server\POS_Server\bin\roslyn\vbc.exe
+D:\NPOS_Server\POS_Server\bin\roslyn\vbc.exe.config
+D:\NPOS_Server\POS_Server\bin\roslyn\vbc.rsp
+D:\NPOS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe
+D:\NPOS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+D:\NPOS_Server\POS_Server\bin\Antlr3.Runtime.dll
+D:\NPOS_Server\POS_Server\bin\BouncyCastle.Crypto.dll
+D:\NPOS_Server\POS_Server\bin\EntityFramework.dll
+D:\NPOS_Server\POS_Server\bin\EntityFramework.SqlServer.dll
+D:\NPOS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+D:\NPOS_Server\POS_Server\bin\Newtonsoft.Json.dll
+D:\NPOS_Server\POS_Server\bin\System.Buffers.dll
+D:\NPOS_Server\POS_Server\bin\System.Memory.dll
+D:\NPOS_Server\POS_Server\bin\System.Net.Http.Formatting.dll
+D:\NPOS_Server\POS_Server\bin\System.Numerics.Vectors.dll
+D:\NPOS_Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\NPOS_Server\POS_Server\bin\System.Text.Encodings.Web.dll
+D:\NPOS_Server\POS_Server\bin\System.Text.Json.dll
+D:\NPOS_Server\POS_Server\bin\System.Threading.Tasks.Extensions.dll
+D:\NPOS_Server\POS_Server\bin\System.ValueTuple.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.Helpers.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.Http.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.Http.WebHost.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.Mvc.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.Optimization.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.Razor.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.WebPages.Deployment.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.WebPages.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.WebPages.Razor.dll
+D:\NPOS_Server\POS_Server\bin\WebGrease.dll
+D:\NPOS_Server\POS_Server\bin\BouncyCastle.Crypto.xml
+D:\NPOS_Server\POS_Server\bin\EntityFramework.xml
+D:\NPOS_Server\POS_Server\bin\EntityFramework.SqlServer.xml
+D:\NPOS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.pdb
+D:\NPOS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.xml
+D:\NPOS_Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\NPOS_Server\POS_Server\bin\System.Buffers.xml
+D:\NPOS_Server\POS_Server\bin\System.Memory.xml
+D:\NPOS_Server\POS_Server\bin\System.Numerics.Vectors.xml
+D:\NPOS_Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\NPOS_Server\POS_Server\bin\System.Text.Encodings.Web.xml
+D:\NPOS_Server\POS_Server\bin\System.Text.Json.xml
+D:\NPOS_Server\POS_Server\bin\System.Threading.Tasks.Extensions.xml
+D:\NPOS_Server\POS_Server\bin\System.ValueTuple.xml
+D:\NPOS_Server\POS_Server\bin\Newtonsoft.Json.xml
+D:\NPOS_Server\POS_Server\bin\System.Net.Http.Formatting.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.Helpers.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.Http.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.Http.WebHost.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.Mvc.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.Optimization.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.Razor.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.WebPages.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.WebPages.Deployment.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.WebPages.Razor.xml
+D:\NPOS_Server\POS_Server\bin\Antlr3.Runtime.pdb
+D:\NPOS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NPOS_Server\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+D:\NPOS_Server\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+D:\NPOS_Server\POS_Server\obj\Debug\POS_Server.dll
+D:\NPOS_Server\POS_Server\obj\Debug\POS_Server.pdb
+D:\Project\ser\POS_Server\POS_Server\bin\POS_Server.dll.config
+D:\Project\ser\POS_Server\POS_Server\bin\POS_Server.dll
+D:\Project\ser\POS_Server\POS_Server\bin\POS_Server.pdb
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\csc.exe
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\csc.exe.config
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\csc.rsp
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\csi.exe
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\csi.exe.config
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\csi.rsp
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.AppContext.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Console.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.IO.Compression.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.IO.Pipes.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Security.Claims.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.ValueTuple.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Xml.XPath.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\vbc.exe
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\vbc.exe.config
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\vbc.rsp
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe
+D:\Project\ser\POS_Server\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+D:\Project\ser\POS_Server\POS_Server\bin\Antlr3.Runtime.dll
+D:\Project\ser\POS_Server\POS_Server\bin\BouncyCastle.Crypto.dll
+D:\Project\ser\POS_Server\POS_Server\bin\EntityFramework.dll
+D:\Project\ser\POS_Server\POS_Server\bin\EntityFramework.SqlServer.dll
+D:\Project\ser\POS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.dll
+D:\Project\ser\POS_Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Project\ser\POS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project\ser\POS_Server\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\ser\POS_Server\POS_Server\bin\Newtonsoft.Json.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Buffers.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Memory.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Net.Http.Formatting.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Numerics.Vectors.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Text.Encodings.Web.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Text.Json.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Threading.Tasks.Extensions.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.ValueTuple.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Helpers.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Http.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Http.WebHost.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Mvc.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Optimization.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Razor.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.WebPages.Deployment.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.WebPages.dll
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.WebPages.Razor.dll
+D:\Project\ser\POS_Server\POS_Server\bin\WebGrease.dll
+D:\Project\ser\POS_Server\POS_Server\bin\BouncyCastle.Crypto.xml
+D:\Project\ser\POS_Server\POS_Server\bin\EntityFramework.xml
+D:\Project\ser\POS_Server\POS_Server\bin\EntityFramework.SqlServer.xml
+D:\Project\ser\POS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.pdb
+D:\Project\ser\POS_Server\POS_Server\bin\ICSharpCode.SharpZipLib.xml
+D:\Project\ser\POS_Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Buffers.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Memory.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Numerics.Vectors.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Text.Encodings.Web.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Text.Json.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Threading.Tasks.Extensions.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.ValueTuple.xml
+D:\Project\ser\POS_Server\POS_Server\bin\Newtonsoft.Json.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Net.Http.Formatting.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Helpers.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Http.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Http.WebHost.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Mvc.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Optimization.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.Razor.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.WebPages.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.WebPages.Deployment.xml
+D:\Project\ser\POS_Server\POS_Server\bin\System.Web.WebPages.Razor.xml
+D:\Project\ser\POS_Server\POS_Server\bin\Antlr3.Runtime.pdb
+D:\Project\ser\POS_Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\ser\POS_Server\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+D:\Project\ser\POS_Server\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+D:\Project\ser\POS_Server\POS_Server\obj\Debug\POS_Server.dll
+D:\Project\ser\POS_Server\POS_Server\obj\Debug\POS_Server.pdb
+D:\Project\ser\POS_Server\POS_Server\bin\LinqKit.dll
+D:\Project\ser\POS_Server\POS_Server\bin\LinqKit.xml
+D:\Project\ser\POS_Server\POS_Server\obj\Debug\POS_Server.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\obj\Debug\POS_Server.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\obj\Debug\POS_Server.pdb
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\POS_Server.dll.config
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\POS_Server.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\POS_Server.pdb
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\csc.exe
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\csc.exe.config
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\csc.rsp
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\csi.exe
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\csi.exe.config
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\csi.rsp
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.AppContext.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Console.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.IO.Compression.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Security.Claims.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.ValueTuple.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\vbc.exe
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\vbc.exe.config
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\vbc.rsp
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Antlr3.Runtime.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\BouncyCastle.Crypto.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\EntityFramework.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\LinqKit.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Buffers.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Memory.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Net.Http.Formatting.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Numerics.Vectors.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Text.Encodings.Web.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Text.Json.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.ValueTuple.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Helpers.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Http.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Http.WebHost.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Mvc.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Optimization.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Razor.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.WebPages.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\WebGrease.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\BouncyCastle.Crypto.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\EntityFramework.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\ICSharpCode.SharpZipLib.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\LinqKit.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Buffers.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Memory.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Numerics.Vectors.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Text.Encodings.Web.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Text.Json.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.ValueTuple.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Net.Http.Formatting.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Helpers.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Http.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Http.WebHost.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Mvc.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Optimization.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Razor.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.WebPages.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Antlr3.Runtime.pdb
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+C:\Users\dina\Desktop\POS_Server.dll.config
+C:\Users\dina\Desktop\POS_Server.xml
+C:\Users\dina\Desktop\POS_Server.dll
+C:\Users\dina\Desktop\POS_Server.pdb
+C:\Users\Administrator\Documents\POS-ServerTest\bin\POS_Server.dll.config
+C:\Users\Administrator\Documents\POS-ServerTest\bin\POS_Server.dll
+C:\Users\Administrator\Documents\POS-ServerTest\bin\POS_Server.pdb
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\POS_Server.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\obj\Debug\POS_Server.csproj.AssemblyReference.cache
+D:\NPOS_Server\POS_Server\bin\POS_Server.xml
+D:\NPOS_Server\POS_Server\bin\LinqKit.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.IdentityModel.Logging.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.IdentityModel.Tokens.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.Owin.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.Owin.Security.dll
+D:\NPOS_Server\POS_Server\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NPOS_Server\POS_Server\bin\Owin.dll
+D:\NPOS_Server\POS_Server\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\NPOS_Server\POS_Server\bin\System.Web.Http.Owin.dll
+D:\NPOS_Server\POS_Server\bin\LinqKit.xml
+D:\NPOS_Server\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\NPOS_Server\POS_Server\bin\Microsoft.IdentityModel.Logging.xml
+D:\NPOS_Server\POS_Server\bin\Microsoft.IdentityModel.Tokens.xml
+D:\NPOS_Server\POS_Server\bin\Microsoft.Owin.xml
+D:\NPOS_Server\POS_Server\bin\Microsoft.Owin.Security.xml
+D:\NPOS_Server\POS_Server\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NPOS_Server\POS_Server\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\NPOS_Server\POS_Server\bin\System.Web.Http.Owin.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Owin.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Owin.Security.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Owin.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Http.Owin.dll
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Owin.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Owin.Security.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Administrator\Documents\POS-ServerTest\POS_Server\bin\System.Web.Http.Owin.xml
+D:\ServerNew\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+D:\ServerNew\POS_Server\bin\POS_Server.dll.config
+D:\ServerNew\POS_Server\bin\POS_Server.xml
+D:\ServerNew\POS_Server\bin\POS_Server.dll
+D:\ServerNew\POS_Server\bin\POS_Server.pdb
+D:\ServerNew\POS_Server\bin\roslyn\csc.exe
+D:\ServerNew\POS_Server\bin\roslyn\csc.exe.config
+D:\ServerNew\POS_Server\bin\roslyn\csc.rsp
+D:\ServerNew\POS_Server\bin\roslyn\csi.exe
+D:\ServerNew\POS_Server\bin\roslyn\csi.exe.config
+D:\ServerNew\POS_Server\bin\roslyn\csi.rsp
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+D:\ServerNew\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ServerNew\POS_Server\bin\roslyn\System.AppContext.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Console.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.IO.Compression.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.IO.Pipes.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Security.Claims.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.ValueTuple.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Xml.XPath.dll
+D:\ServerNew\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\ServerNew\POS_Server\bin\roslyn\vbc.exe
+D:\ServerNew\POS_Server\bin\roslyn\vbc.exe.config
+D:\ServerNew\POS_Server\bin\roslyn\vbc.rsp
+D:\ServerNew\POS_Server\bin\roslyn\VBCSCompiler.exe
+D:\ServerNew\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+D:\ServerNew\POS_Server\bin\Antlr3.Runtime.dll
+D:\ServerNew\POS_Server\bin\BouncyCastle.Crypto.dll
+D:\ServerNew\POS_Server\bin\EntityFramework.dll
+D:\ServerNew\POS_Server\bin\EntityFramework.SqlServer.dll
+D:\ServerNew\POS_Server\bin\ICSharpCode.SharpZipLib.dll
+D:\ServerNew\POS_Server\bin\LinqKit.dll
+D:\ServerNew\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\ServerNew\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ServerNew\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ServerNew\POS_Server\bin\Microsoft.IdentityModel.Logging.dll
+D:\ServerNew\POS_Server\bin\Microsoft.IdentityModel.Tokens.dll
+D:\ServerNew\POS_Server\bin\Microsoft.Owin.dll
+D:\ServerNew\POS_Server\bin\Microsoft.Owin.Security.dll
+D:\ServerNew\POS_Server\bin\Microsoft.Owin.Security.OAuth.dll
+D:\ServerNew\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+D:\ServerNew\POS_Server\bin\Newtonsoft.Json.dll
+D:\ServerNew\POS_Server\bin\Owin.dll
+D:\ServerNew\POS_Server\bin\System.Buffers.dll
+D:\ServerNew\POS_Server\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\ServerNew\POS_Server\bin\System.Memory.dll
+D:\ServerNew\POS_Server\bin\System.Net.Http.Formatting.dll
+D:\ServerNew\POS_Server\bin\System.Numerics.Vectors.dll
+D:\ServerNew\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\ServerNew\POS_Server\bin\System.Text.Encodings.Web.dll
+D:\ServerNew\POS_Server\bin\System.Text.Json.dll
+D:\ServerNew\POS_Server\bin\System.Threading.Tasks.Extensions.dll
+D:\ServerNew\POS_Server\bin\System.ValueTuple.dll
+D:\ServerNew\POS_Server\bin\System.Web.Helpers.dll
+D:\ServerNew\POS_Server\bin\System.Web.Http.dll
+D:\ServerNew\POS_Server\bin\System.Web.Http.Owin.dll
+D:\ServerNew\POS_Server\bin\System.Web.Http.WebHost.dll
+D:\ServerNew\POS_Server\bin\System.Web.Mvc.dll
+D:\ServerNew\POS_Server\bin\System.Web.Optimization.dll
+D:\ServerNew\POS_Server\bin\System.Web.Razor.dll
+D:\ServerNew\POS_Server\bin\System.Web.WebPages.Deployment.dll
+D:\ServerNew\POS_Server\bin\System.Web.WebPages.dll
+D:\ServerNew\POS_Server\bin\System.Web.WebPages.Razor.dll
+D:\ServerNew\POS_Server\bin\WebGrease.dll
+D:\ServerNew\POS_Server\bin\BouncyCastle.Crypto.xml
+D:\ServerNew\POS_Server\bin\EntityFramework.xml
+D:\ServerNew\POS_Server\bin\EntityFramework.SqlServer.xml
+D:\ServerNew\POS_Server\bin\ICSharpCode.SharpZipLib.pdb
+D:\ServerNew\POS_Server\bin\ICSharpCode.SharpZipLib.xml
+D:\ServerNew\POS_Server\bin\LinqKit.xml
+D:\ServerNew\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\ServerNew\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\ServerNew\POS_Server\bin\Microsoft.IdentityModel.Logging.xml
+D:\ServerNew\POS_Server\bin\Microsoft.IdentityModel.Tokens.xml
+D:\ServerNew\POS_Server\bin\Microsoft.Owin.xml
+D:\ServerNew\POS_Server\bin\Microsoft.Owin.Security.xml
+D:\ServerNew\POS_Server\bin\Microsoft.Owin.Security.OAuth.xml
+D:\ServerNew\POS_Server\bin\System.Buffers.xml
+D:\ServerNew\POS_Server\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\ServerNew\POS_Server\bin\System.Memory.xml
+D:\ServerNew\POS_Server\bin\System.Numerics.Vectors.xml
+D:\ServerNew\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\ServerNew\POS_Server\bin\System.Text.Encodings.Web.xml
+D:\ServerNew\POS_Server\bin\System.Text.Json.xml
+D:\ServerNew\POS_Server\bin\System.Threading.Tasks.Extensions.xml
+D:\ServerNew\POS_Server\bin\System.ValueTuple.xml
+D:\ServerNew\POS_Server\bin\System.Web.Http.Owin.xml
+D:\ServerNew\POS_Server\bin\Newtonsoft.Json.xml
+D:\ServerNew\POS_Server\bin\System.Net.Http.Formatting.xml
+D:\ServerNew\POS_Server\bin\System.Web.Helpers.xml
+D:\ServerNew\POS_Server\bin\System.Web.Http.xml
+D:\ServerNew\POS_Server\bin\System.Web.Http.WebHost.xml
+D:\ServerNew\POS_Server\bin\System.Web.Mvc.xml
+D:\ServerNew\POS_Server\bin\System.Web.Optimization.xml
+D:\ServerNew\POS_Server\bin\System.Web.Razor.xml
+D:\ServerNew\POS_Server\bin\System.Web.WebPages.xml
+D:\ServerNew\POS_Server\bin\System.Web.WebPages.Deployment.xml
+D:\ServerNew\POS_Server\bin\System.Web.WebPages.Razor.xml
+D:\ServerNew\POS_Server\bin\Antlr3.Runtime.pdb
+D:\ServerNew\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ServerNew\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+D:\ServerNew\POS_Server\obj\Debug\POS_Server.dll
+D:\ServerNew\POS_Server\obj\Debug\POS_Server.pdb
+D:\ServerNew\POS_Server\obj\Debug\POS_Server.csprojAssemblyReference.cache
+\\DESKTOP-NS2EFD4\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.csprojAssemblyReference.cache
+\\DESKTOP-NS2EFD4\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+\\DESKTOP-NS2EFD4\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.dll
+\\DESKTOP-NS2EFD4\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.pdb
+D:\servers\Restaurant-Server\POS_Server\bin\POS_Server.dll.config
+D:\servers\Restaurant-Server\POS_Server\bin\POS_Server.xml
+D:\servers\Restaurant-Server\POS_Server\bin\POS_Server.dll
+D:\servers\Restaurant-Server\POS_Server\bin\POS_Server.pdb
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\csc.exe
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\csc.exe.config
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\csc.rsp
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\csi.exe
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\csi.exe.config
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\csi.rsp
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.AppContext.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Console.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.IO.Compression.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.IO.Pipes.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Security.Claims.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.ValueTuple.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Xml.XPath.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\vbc.exe
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\vbc.exe.config
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\vbc.rsp
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\VBCSCompiler.exe
+D:\servers\Restaurant-Server\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+D:\servers\Restaurant-Server\POS_Server\bin\Antlr3.Runtime.dll
+D:\servers\Restaurant-Server\POS_Server\bin\BouncyCastle.Crypto.dll
+D:\servers\Restaurant-Server\POS_Server\bin\EntityFramework.dll
+D:\servers\Restaurant-Server\POS_Server\bin\EntityFramework.SqlServer.dll
+D:\servers\Restaurant-Server\POS_Server\bin\ICSharpCode.SharpZipLib.dll
+D:\servers\Restaurant-Server\POS_Server\bin\LinqKit.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.IdentityModel.Logging.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.IdentityModel.Tokens.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Owin.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Owin.Security.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Owin.Security.OAuth.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Newtonsoft.Json.dll
+D:\servers\Restaurant-Server\POS_Server\bin\Owin.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Buffers.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Memory.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Net.Http.Formatting.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Numerics.Vectors.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Text.Encodings.Web.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Text.Json.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Threading.Tasks.Extensions.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.ValueTuple.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Helpers.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Http.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Http.Owin.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Http.WebHost.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Mvc.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Optimization.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Razor.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.WebPages.Deployment.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.WebPages.dll
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.WebPages.Razor.dll
+D:\servers\Restaurant-Server\POS_Server\bin\WebGrease.dll
+D:\servers\Restaurant-Server\POS_Server\bin\BouncyCastle.Crypto.xml
+D:\servers\Restaurant-Server\POS_Server\bin\EntityFramework.xml
+D:\servers\Restaurant-Server\POS_Server\bin\EntityFramework.SqlServer.xml
+D:\servers\Restaurant-Server\POS_Server\bin\ICSharpCode.SharpZipLib.pdb
+D:\servers\Restaurant-Server\POS_Server\bin\ICSharpCode.SharpZipLib.xml
+D:\servers\Restaurant-Server\POS_Server\bin\LinqKit.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.IdentityModel.Logging.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.IdentityModel.Tokens.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Owin.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Owin.Security.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.Owin.Security.OAuth.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Buffers.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Memory.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Numerics.Vectors.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Text.Encodings.Web.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Text.Json.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Threading.Tasks.Extensions.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.ValueTuple.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Http.Owin.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Newtonsoft.Json.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Net.Http.Formatting.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Helpers.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Http.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Http.WebHost.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Mvc.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Optimization.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.Razor.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.WebPages.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.WebPages.Deployment.xml
+D:\servers\Restaurant-Server\POS_Server\bin\System.Web.WebPages.Razor.xml
+D:\servers\Restaurant-Server\POS_Server\bin\Antlr3.Runtime.pdb
+D:\servers\Restaurant-Server\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+D:\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+D:\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.dll
+D:\servers\Restaurant-Server\POS_Server\obj\Debug\POS_Server.pdb
+D:\myproj\Res-Server\serverfolder\POS_Server\obj\Debug\POS_Server.csproj.CoreCompileInputs.cache
+D:\myproj\Res-Server\serverfolder\POS_Server\obj\Debug\POS_Server.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\obj\Debug\POS_Server.pdb
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\POS_Server.dll.config
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\POS_Server.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\POS_Server.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\POS_Server.pdb
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\csc.exe
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\csc.exe.config
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\csc.rsp
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\csi.exe
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\csi.exe.config
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\csi.rsp
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.Managed.Core.targets
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.AppContext.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Collections.Immutable.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Console.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.IO.Compression.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.IO.FileSystem.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.IO.Pipes.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Reflection.Metadata.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Security.AccessControl.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Security.Claims.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Security.Principal.Windows.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.ValueTuple.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Xml.XmlDocument.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Xml.XPath.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\vbc.exe
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\vbc.exe.config
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\vbc.rsp
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\VBCSCompiler.exe
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\roslyn\VBCSCompiler.exe.config
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Antlr3.Runtime.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\BouncyCastle.Crypto.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\EntityFramework.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\EntityFramework.SqlServer.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\ICSharpCode.SharpZipLib.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\LinqKit.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.IdentityModel.Logging.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.IdentityModel.Tokens.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Owin.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Owin.Security.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Owin.Security.OAuth.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Web.Infrastructure.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Newtonsoft.Json.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Owin.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Buffers.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Memory.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Net.Http.Formatting.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Numerics.Vectors.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Text.Encodings.Web.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Text.Json.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Threading.Tasks.Extensions.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.ValueTuple.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Helpers.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Http.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Http.Owin.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Http.WebHost.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Mvc.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Optimization.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Razor.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.WebPages.Deployment.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.WebPages.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.WebPages.Razor.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\WebGrease.dll
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\BouncyCastle.Crypto.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\EntityFramework.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\EntityFramework.SqlServer.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\ICSharpCode.SharpZipLib.pdb
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\ICSharpCode.SharpZipLib.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\LinqKit.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.IdentityModel.Logging.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.IdentityModel.Tokens.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Owin.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Owin.Security.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.Owin.Security.OAuth.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Buffers.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Memory.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Numerics.Vectors.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Text.Encodings.Web.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Text.Json.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Threading.Tasks.Extensions.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.ValueTuple.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Http.Owin.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Newtonsoft.Json.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Net.Http.Formatting.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Helpers.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Http.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Http.WebHost.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Mvc.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Optimization.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.Razor.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.WebPages.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.WebPages.Deployment.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\System.Web.WebPages.Razor.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Antlr3.Runtime.pdb
+D:\myproj\Res-Server\serverfolder\POS_Server\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\myproj\Res-Server\serverfolder\POS_Server\obj\Debug\POS_Server.csproj.CopyComplete
+D:\myproj\Res-Server\serverfolder\POS_Server\obj\Debug\POS_Server.csprojAssemblyReference.cache

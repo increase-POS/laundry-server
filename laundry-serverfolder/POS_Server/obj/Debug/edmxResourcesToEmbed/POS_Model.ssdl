@@ -1,0 +1,2137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="incposdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="agents">
+    <Key>
+      <PropertyRef Name="agentId" />
+    </Key>
+    <Property Name="agentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="code" Type="varchar" MaxLength="100" />
+    <Property Name="company" Type="varchar" MaxLength="100" />
+    <Property Name="address" Type="text" />
+    <Property Name="details" Type="text" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="100" />
+    <Property Name="mobile" Type="varchar" MaxLength="100" />
+    <Property Name="image" Type="text" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="accType" Type="varchar" MaxLength="50" />
+    <Property Name="balance" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="isDefault" Type="tinyint" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="notes" Type="text" />
+    <Property Name="isActive" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="barcodes">
+    <Key>
+      <PropertyRef Name="barcodeId" />
+    </Key>
+    <Property Name="barcodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="barcode" Type="varchar" MaxLength="200" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="invoiceId" Type="int" />
+    <Property Name="coponeId" Type="int" />
+    <Property Name="codeType" Type="tinyint" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="branches">
+    <Key>
+      <PropertyRef Name="branchId" />
+    </Key>
+    <Property Name="branchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="100" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="details" Type="text" />
+    <Property Name="address" Type="text" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="100" />
+    <Property Name="mobile" Type="varchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="notes" Type="text" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'incposdb.dbo.branchesUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="branchesUsers">
+    <Key>
+      <PropertyRef Name="branchsUsersId" />
+    </Key>
+    <Property Name="branchsUsersId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="branchId" Type="int" />
+    <Property Name="userId" Type="int" />
+  </EntityType>
+  <EntityType Name="cashTransfer">
+    <Key>
+      <PropertyRef Name="cashTransId" />
+    </Key>
+    <Property Name="cashTransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transType" Type="tinyint" />
+    <Property Name="posId" Type="int" />
+    <Property Name="userId" Type="int" />
+    <Property Name="agentId" Type="int" />
+    <Property Name="invId" Type="int" />
+    <Property Name="transNum" Type="varchar" MaxLength="50" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="cash" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="createUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="categoryId" />
+    </Key>
+    <Property Name="categoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryCode" Type="varchar" MaxLength="100" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="details" Type="text" />
+    <Property Name="image" Type="text" />
+    <Property Name="isActive" Type="smallint" />
+    <Property Name="taxes" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="parentId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="notes" Type="text" />
+  </EntityType>
+  <EntityType Name="invoices">
+    <Key>
+      <PropertyRef Name="invoiceId" />
+    </Key>
+    <Property Name="invoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="invNumber" Type="varchar" MaxLength="100" />
+    <Property Name="agentId" Type="int" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="invType" Type="varchar" MaxLength="50" />
+    <Property Name="total" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="totalNet" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="paid" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="deserved" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="deservedDate" Type="date" />
+    <Property Name="invDate" Type="date" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="invoiceMainId" Type="int" />
+    <Property Name="invCase" Type="varchar" MaxLength="50" />
+    <Property Name="invTime" Type="datetime" />
+    <Property Name="notes" Type="text" />
+  </EntityType>
+  <EntityType Name="items">
+    <Key>
+      <PropertyRef Name="itemId" />
+    </Key>
+    <Property Name="itemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="details" Type="text" />
+    <Property Name="type" Type="tinyint" Nullable="false" />
+    <Property Name="image" Type="text" />
+    <Property Name="taxes" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="isActive" Type="tinyint" />
+    <Property Name="min" Type="int" />
+    <Property Name="max" Type="int" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="parentId" Type="int" />
+    <Property Name="barcodeId" Type="int" />
+    <Property Name="serialnum" Type="varchar" MaxLength="200" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="minUnitId" Type="int" />
+    <Property Name="maxUnitId" Type="int" />
+  </EntityType>
+  <EntityType Name="itemsDates">
+    <Key>
+      <PropertyRef Name="itemDateId" />
+    </Key>
+    <Property Name="itemDateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="endDate" Type="date" />
+    <Property Name="locationId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="itemsLocations">
+    <Key>
+      <PropertyRef Name="itemsLocId" />
+    </Key>
+    <Property Name="itemsLocId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="locationId" Type="int" />
+    <Property Name="quantity" Type="bigint" />
+    <Property Name="quantityMod" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="barcodeId" Type="int" />
+  </EntityType>
+  <EntityType Name="itemsMaterials">
+    <Key>
+      <PropertyRef Name="itemMatId" />
+    </Key>
+    <Property Name="itemMatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="materialId" Type="int" />
+    <Property Name="quantity" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="unitId" Type="int" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="18" />
+  </EntityType>
+  <EntityType Name="itemsProp">
+    <Key>
+      <PropertyRef Name="itemPropId" />
+    </Key>
+    <Property Name="itemPropId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="propertyItemId" Type="int" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="barcodeId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="itemsTransfer">
+    <Key>
+      <PropertyRef Name="itemsTransId" />
+    </Key>
+    <Property Name="itemsTransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="quantity" Type="bigint" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="invoiceId" Type="int" />
+    <Property Name="discount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="discountType" Type="smallint" />
+    <Property Name="locationIdNew" Type="int" />
+    <Property Name="locationIdOld" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="notes" Type="text" />
+  </EntityType>
+  <EntityType Name="itemsUnits">
+    <Key>
+      <PropertyRef Name="itemUnitId" />
+    </Key>
+    <Property Name="itemUnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="unitId" Type="int" />
+    <Property Name="unitValue" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="defaultSale" Type="smallint" />
+    <Property Name="defaultPurchase" Type="smallint" />
+    <Property Name="priceId" Type="int" />
+    <Property Name="barcodeId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="locations">
+    <Key>
+      <PropertyRef Name="locationId" />
+    </Key>
+    <Property Name="locationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="x" Type="varchar" MaxLength="100" />
+    <Property Name="y" Type="varchar" MaxLength="100" />
+    <Property Name="z" Type="varchar" MaxLength="100" />
+    <Property Name="branchId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="offers">
+    <Key>
+      <PropertyRef Name="offerId" />
+    </Key>
+    <Property Name="offerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="offerType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="operations">
+    <Key>
+      <PropertyRef Name="operationId" />
+    </Key>
+    <Property Name="operationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="side" Type="varchar" MaxLength="50" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="invoiceId" Type="int" />
+    <Property Name="ordercase" Type="varchar" MaxLength="100" />
+    <Property Name="userId" Type="int" />
+    <Property Name="prior" Type="int" />
+    <Property Name="type" Type="smallint" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="orderscontents">
+    <Key>
+      <PropertyRef Name="contentId" />
+    </Key>
+    <Property Name="contentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderId" Type="int" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="quantity" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="invoiceId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="pos">
+    <Key>
+      <PropertyRef Name="posId" />
+    </Key>
+    <Property Name="posId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="100" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="balance" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="branchId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'incposdb.dbo.posUsers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="posUsers">
+          <Property Name="posUserId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="posId" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="createUserId" Type="int" />
+          <Property Name="updateUserId" Type="int" />
+        </EntityType>-->
+  <EntityType Name="prices">
+    <Key>
+      <PropertyRef Name="priceId" />
+    </Key>
+    <Property Name="priceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="price" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="itemUnitId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="barcodeId" Type="int" />
+  </EntityType>
+  <EntityType Name="properties">
+    <Key>
+      <PropertyRef Name="propertyId" />
+    </Key>
+    <Property Name="propertyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="propertiesItems">
+    <Key>
+      <PropertyRef Name="propertyItemId" />
+    </Key>
+    <Property Name="propertyItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="propertyId" Type="int" />
+    <Property Name="isDefault" Type="smallint" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="serials">
+    <Key>
+      <PropertyRef Name="serialId" />
+    </Key>
+    <Property Name="serialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemId" Type="int" />
+    <Property Name="serialNum" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="units">
+    <Key>
+      <PropertyRef Name="unitId" />
+    </Key>
+    <Property Name="unitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="isSmallest" Type="smallint" />
+    <Property Name="smallestId" Type="int" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="parentid" Type="int" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nchar" MaxLength="100" />
+    <Property Name="password" Type="nchar" MaxLength="100" />
+    <Property Name="name" Type="nchar" MaxLength="100" />
+    <Property Name="lastname" Type="nchar" MaxLength="100" />
+    <Property Name="job" Type="nchar" MaxLength="100" />
+    <Property Name="workHours" Type="nchar" MaxLength="100" />
+    <Property Name="details" Type="text" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="mobile" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="address" Type="text" />
+    <Property Name="isActive" Type="smallint" />
+    <Property Name="notes" Type="text" />
+  </EntityType>
+  <Association Name="FK_agents_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="agents" Type="Self.agents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="agents">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agents_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="agents" Type="Self.agents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="agents">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_barcodes_invoices">
+    <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoices">
+        <PropertyRef Name="invoiceId" />
+      </Principal>
+      <Dependent Role="barcodes">
+        <PropertyRef Name="invoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_barcodes_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="barcodes">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_barcodes_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="barcodes">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_barcodes_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="barcodes">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_barcodes_users2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="barcodes">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_barcodes_users3">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="barcodes">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_branches_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="branches" Type="Self.branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="branches">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_branches_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="branches" Type="Self.branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="branches">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_branchesUsers_branches">
+    <End Role="branches" Type="Self.branches" Multiplicity="0..1" />
+    <End Role="branchesUsers" Type="Self.branchesUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="branches">
+        <PropertyRef Name="branchId" />
+      </Principal>
+      <Dependent Role="branchesUsers">
+        <PropertyRef Name="branchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_branchesUsers_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="branchesUsers" Type="Self.branchesUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="branchesUsers">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_agents">
+    <End Role="agents" Type="Self.agents" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agents">
+        <PropertyRef Name="agentId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="agentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_invoices">
+    <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoices">
+        <PropertyRef Name="invoiceId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="invId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_pos">
+    <End Role="pos" Type="Self.pos" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pos">
+        <PropertyRef Name="posId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="posId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_users2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_users3">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cashTransfer_users4">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="cashTransfer" Type="Self.cashTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="cashTransfer">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_categories_categories">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="categories1" Type="Self.categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="categories1">
+        <PropertyRef Name="parentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_categories_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="categories" Type="Self.categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="categories">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_categories_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="categories" Type="Self.categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="categories">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_agents">
+    <End Role="agents" Type="Self.agents" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agents">
+        <PropertyRef Name="agentId" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="agentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_invoices">
+    <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+    <End Role="invoices1" Type="Self.invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoices">
+        <PropertyRef Name="invoiceId" />
+      </Principal>
+      <Dependent Role="invoices1">
+        <PropertyRef Name="invoiceMainId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_users2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoices_users3">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="invoices" Type="Self.invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="invoices">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_barcodes">
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="barcodes">
+        <PropertyRef Name="barcodeId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="barcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_categories">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="items1" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="items1">
+        <PropertyRef Name="parentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_units">
+    <End Role="units" Type="Self.units" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="units">
+        <PropertyRef Name="unitId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="minUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_units1">
+    <End Role="units" Type="Self.units" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="units">
+        <PropertyRef Name="unitId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="maxUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_users2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_items_users3">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="items" Type="Self.items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_locations">
+    <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locations">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_users2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_users3">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_users4">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsDates_users5">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsDates" Type="Self.itemsDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsDates">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsLocations_barcodes">
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="0..1" />
+    <End Role="itemsLocations" Type="Self.itemsLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="barcodes">
+        <PropertyRef Name="barcodeId" />
+      </Principal>
+      <Dependent Role="itemsLocations">
+        <PropertyRef Name="barcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsLocations_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="itemsLocations" Type="Self.itemsLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="itemsLocations">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsLocations_locations">
+    <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+    <End Role="itemsLocations" Type="Self.itemsLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locations">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="itemsLocations">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsLocations_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsLocations" Type="Self.itemsLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsLocations">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsLocations_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsLocations" Type="Self.itemsLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsLocations">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsLocations_users2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsLocations" Type="Self.itemsLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsLocations">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsLocations_users3">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsLocations" Type="Self.itemsLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsLocations">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsMaterials_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="itemsMaterials" Type="Self.itemsMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="itemsMaterials">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsMaterials_items1">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="itemsMaterials" Type="Self.itemsMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="itemsMaterials">
+        <PropertyRef Name="materialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsMaterials_units">
+    <End Role="units" Type="Self.units" Multiplicity="0..1" />
+    <End Role="itemsMaterials" Type="Self.itemsMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="units">
+        <PropertyRef Name="unitId" />
+      </Principal>
+      <Dependent Role="itemsMaterials">
+        <PropertyRef Name="unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsProp_barcodes">
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="0..1" />
+    <End Role="itemsProp" Type="Self.itemsProp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="barcodes">
+        <PropertyRef Name="barcodeId" />
+      </Principal>
+      <Dependent Role="itemsProp">
+        <PropertyRef Name="barcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsProp_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="itemsProp" Type="Self.itemsProp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="itemsProp">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsProp_propertiesItems">
+    <End Role="propertiesItems" Type="Self.propertiesItems" Multiplicity="0..1" />
+    <End Role="itemsProp" Type="Self.itemsProp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="propertiesItems">
+        <PropertyRef Name="propertyItemId" />
+      </Principal>
+      <Dependent Role="itemsProp">
+        <PropertyRef Name="propertyItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsProp_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsProp" Type="Self.itemsProp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsProp">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsProp_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsProp" Type="Self.itemsProp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsProp">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsTransfer_invoices">
+    <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoices">
+        <PropertyRef Name="invoiceId" />
+      </Principal>
+      <Dependent Role="itemsTransfer">
+        <PropertyRef Name="invoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsTransfer_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="itemsTransfer">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsTransfer_locations">
+    <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locations">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="itemsTransfer">
+        <PropertyRef Name="locationIdNew" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsTransfer_locations1">
+    <End Role="locations" Type="Self.locations" Multiplicity="0..1" />
+    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locations">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="itemsTransfer">
+        <PropertyRef Name="locationIdOld" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsTransfer_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsTransfer">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsTransfer_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsTransfer">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsUnits_barcodes">
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="0..1" />
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="barcodes">
+        <PropertyRef Name="barcodeId" />
+      </Principal>
+      <Dependent Role="itemsUnits">
+        <PropertyRef Name="barcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsUnits_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="itemsUnits">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsUnits_prices">
+    <End Role="prices" Type="Self.prices" Multiplicity="0..1" />
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prices">
+        <PropertyRef Name="priceId" />
+      </Principal>
+      <Dependent Role="itemsUnits">
+        <PropertyRef Name="priceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsUnits_units">
+    <End Role="units" Type="Self.units" Multiplicity="0..1" />
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="units">
+        <PropertyRef Name="unitId" />
+      </Principal>
+      <Dependent Role="itemsUnits">
+        <PropertyRef Name="unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsUnits_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsUnits">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itemsUnits_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itemsUnits">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_locations_branches">
+    <End Role="branches" Type="Self.branches" Multiplicity="0..1" />
+    <End Role="locations" Type="Self.locations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="branches">
+        <PropertyRef Name="branchId" />
+      </Principal>
+      <Dependent Role="locations">
+        <PropertyRef Name="branchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_locations_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="locations" Type="Self.locations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="locations">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_locations_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="locations" Type="Self.locations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="locations">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operations_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="operations" Type="Self.operations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="operations">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_operations_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="operations" Type="Self.operations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="operations">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_invoices">
+    <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoices">
+        <PropertyRef Name="invoiceId" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="invoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_users2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderscontents_invoices">
+    <End Role="invoices" Type="Self.invoices" Multiplicity="0..1" />
+    <End Role="orderscontents" Type="Self.orderscontents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoices">
+        <PropertyRef Name="invoiceId" />
+      </Principal>
+      <Dependent Role="orderscontents">
+        <PropertyRef Name="invoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderscontents_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="orderscontents" Type="Self.orderscontents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="orderscontents">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderscontents_orders">
+    <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
+    <End Role="orderscontents" Type="Self.orderscontents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orders">
+        <PropertyRef Name="orderId" />
+      </Principal>
+      <Dependent Role="orderscontents">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderscontents_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="orderscontents" Type="Self.orderscontents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="orderscontents">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderscontents_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="orderscontents" Type="Self.orderscontents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="orderscontents">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pos_branches">
+    <End Role="branches" Type="Self.branches" Multiplicity="0..1" />
+    <End Role="pos" Type="Self.pos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="branches">
+        <PropertyRef Name="branchId" />
+      </Principal>
+      <Dependent Role="pos">
+        <PropertyRef Name="branchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pos_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="pos" Type="Self.pos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="pos">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pos_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="pos" Type="Self.pos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="pos">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prices_barcodes">
+    <End Role="barcodes" Type="Self.barcodes" Multiplicity="0..1" />
+    <End Role="prices" Type="Self.prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="barcodes">
+        <PropertyRef Name="barcodeId" />
+      </Principal>
+      <Dependent Role="prices">
+        <PropertyRef Name="barcodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prices_itemsUnits">
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="0..1" />
+    <End Role="prices" Type="Self.prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="itemsUnits">
+        <PropertyRef Name="itemUnitId" />
+      </Principal>
+      <Dependent Role="prices">
+        <PropertyRef Name="itemUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prices_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="prices" Type="Self.prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="prices">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prices_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="prices" Type="Self.prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="prices">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_properties_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="properties" Type="Self.properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="properties">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_properties_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="properties" Type="Self.properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="properties">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_propertiesItems_properties">
+    <End Role="properties" Type="Self.properties" Multiplicity="0..1" />
+    <End Role="propertiesItems" Type="Self.propertiesItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="properties">
+        <PropertyRef Name="propertyId" />
+      </Principal>
+      <Dependent Role="propertiesItems">
+        <PropertyRef Name="propertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_propertiesItems_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="propertiesItems" Type="Self.propertiesItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="propertiesItems">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_propertiesItems_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="propertiesItems" Type="Self.propertiesItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="propertiesItems">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_serials_items">
+    <End Role="items" Type="Self.items" Multiplicity="0..1" />
+    <End Role="serials" Type="Self.serials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="itemId" />
+      </Principal>
+      <Dependent Role="serials">
+        <PropertyRef Name="itemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_units_units">
+    <End Role="units" Type="Self.units" Multiplicity="0..1" />
+    <End Role="units1" Type="Self.units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="units">
+        <PropertyRef Name="unitId" />
+      </Principal>
+      <Dependent Role="units1">
+        <PropertyRef Name="parentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_units_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="units" Type="Self.units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="units">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_units_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="units" Type="Self.units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="units">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="incposdbModelStoreContainer">
+    <EntitySet Name="agents" EntityType="Self.agents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="barcodes" EntityType="Self.barcodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="branches" EntityType="Self.branches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cashTransfer" EntityType="Self.cashTransfer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="invoices" EntityType="Self.invoices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="items" EntityType="Self.items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemsDates" EntityType="Self.itemsDates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemsLocations" EntityType="Self.itemsLocations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemsMaterials" EntityType="Self.itemsMaterials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemsProp" EntityType="Self.itemsProp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemsTransfer" EntityType="Self.itemsTransfer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itemsUnits" EntityType="Self.itemsUnits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="offers" EntityType="Self.offers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="operations" EntityType="Self.operations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderscontents" EntityType="Self.orderscontents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pos" EntityType="Self.pos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prices" EntityType="Self.prices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="properties" EntityType="Self.properties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="propertiesItems" EntityType="Self.propertiesItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="serials" EntityType="Self.serials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="units" EntityType="Self.units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="branchesUsers" EntityType="Self.branchesUsers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [branchesUsers].[branchsUsersId] AS [branchsUsersId], 
+    [branchesUsers].[branchId] AS [branchId], 
+    [branchesUsers].[userId] AS [userId]
+    FROM [dbo].[branchesUsers] AS [branchesUsers]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_agents_users" Association="Self.FK_agents_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="agents" EntitySet="agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agents_users1" Association="Self.FK_agents_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="agents" EntitySet="agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_barcodes_invoices" Association="Self.FK_barcodes_invoices">
+      <End Role="invoices" EntitySet="invoices" />
+      <End Role="barcodes" EntitySet="barcodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_barcodes_items" Association="Self.FK_barcodes_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="barcodes" EntitySet="barcodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_barcodes_users" Association="Self.FK_barcodes_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="barcodes" EntitySet="barcodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_barcodes_users1" Association="Self.FK_barcodes_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="barcodes" EntitySet="barcodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_barcodes_users2" Association="Self.FK_barcodes_users2">
+      <End Role="users" EntitySet="users" />
+      <End Role="barcodes" EntitySet="barcodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_barcodes_users3" Association="Self.FK_barcodes_users3">
+      <End Role="users" EntitySet="users" />
+      <End Role="barcodes" EntitySet="barcodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_branches_users" Association="Self.FK_branches_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="branches" EntitySet="branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_branches_users1" Association="Self.FK_branches_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="branches" EntitySet="branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_branchesUsers_branches" Association="Self.FK_branchesUsers_branches">
+      <End Role="branches" EntitySet="branches" />
+      <End Role="branchesUsers" EntitySet="branchesUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_branchesUsers_users" Association="Self.FK_branchesUsers_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="branchesUsers" EntitySet="branchesUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_agents" Association="Self.FK_cashTransfer_agents">
+      <End Role="agents" EntitySet="agents" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_invoices" Association="Self.FK_cashTransfer_invoices">
+      <End Role="invoices" EntitySet="invoices" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_pos" Association="Self.FK_cashTransfer_pos">
+      <End Role="pos" EntitySet="pos" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_users" Association="Self.FK_cashTransfer_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_users1" Association="Self.FK_cashTransfer_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_users2" Association="Self.FK_cashTransfer_users2">
+      <End Role="users" EntitySet="users" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_users3" Association="Self.FK_cashTransfer_users3">
+      <End Role="users" EntitySet="users" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cashTransfer_users4" Association="Self.FK_cashTransfer_users4">
+      <End Role="users" EntitySet="users" />
+      <End Role="cashTransfer" EntitySet="cashTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_categories_categories" Association="Self.FK_categories_categories">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="categories1" EntitySet="categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_categories_users" Association="Self.FK_categories_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="categories" EntitySet="categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_categories_users1" Association="Self.FK_categories_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="categories" EntitySet="categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_agents" Association="Self.FK_invoices_agents">
+      <End Role="agents" EntitySet="agents" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_invoices" Association="Self.FK_invoices_invoices">
+      <End Role="invoices" EntitySet="invoices" />
+      <End Role="invoices1" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_users" Association="Self.FK_invoices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_users1" Association="Self.FK_invoices_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_users2" Association="Self.FK_invoices_users2">
+      <End Role="users" EntitySet="users" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoices_users3" Association="Self.FK_invoices_users3">
+      <End Role="users" EntitySet="users" />
+      <End Role="invoices" EntitySet="invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_barcodes" Association="Self.FK_items_barcodes">
+      <End Role="barcodes" EntitySet="barcodes" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_categories" Association="Self.FK_items_categories">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_items" Association="Self.FK_items_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="items1" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_units" Association="Self.FK_items_units">
+      <End Role="units" EntitySet="units" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_units1" Association="Self.FK_items_units1">
+      <End Role="units" EntitySet="units" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_users" Association="Self.FK_items_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_users1" Association="Self.FK_items_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_users2" Association="Self.FK_items_users2">
+      <End Role="users" EntitySet="users" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_items_users3" Association="Self.FK_items_users3">
+      <End Role="users" EntitySet="users" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_items" Association="Self.FK_itemsDates_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_locations" Association="Self.FK_itemsDates_locations">
+      <End Role="locations" EntitySet="locations" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_users" Association="Self.FK_itemsDates_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_users1" Association="Self.FK_itemsDates_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_users2" Association="Self.FK_itemsDates_users2">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_users3" Association="Self.FK_itemsDates_users3">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_users4" Association="Self.FK_itemsDates_users4">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsDates_users5" Association="Self.FK_itemsDates_users5">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsDates" EntitySet="itemsDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsLocations_barcodes" Association="Self.FK_itemsLocations_barcodes">
+      <End Role="barcodes" EntitySet="barcodes" />
+      <End Role="itemsLocations" EntitySet="itemsLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsLocations_items" Association="Self.FK_itemsLocations_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="itemsLocations" EntitySet="itemsLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsLocations_locations" Association="Self.FK_itemsLocations_locations">
+      <End Role="locations" EntitySet="locations" />
+      <End Role="itemsLocations" EntitySet="itemsLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsLocations_users" Association="Self.FK_itemsLocations_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsLocations" EntitySet="itemsLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsLocations_users1" Association="Self.FK_itemsLocations_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsLocations" EntitySet="itemsLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsLocations_users2" Association="Self.FK_itemsLocations_users2">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsLocations" EntitySet="itemsLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsLocations_users3" Association="Self.FK_itemsLocations_users3">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsLocations" EntitySet="itemsLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsMaterials_items" Association="Self.FK_itemsMaterials_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="itemsMaterials" EntitySet="itemsMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsMaterials_items1" Association="Self.FK_itemsMaterials_items1">
+      <End Role="items" EntitySet="items" />
+      <End Role="itemsMaterials" EntitySet="itemsMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsMaterials_units" Association="Self.FK_itemsMaterials_units">
+      <End Role="units" EntitySet="units" />
+      <End Role="itemsMaterials" EntitySet="itemsMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsProp_barcodes" Association="Self.FK_itemsProp_barcodes">
+      <End Role="barcodes" EntitySet="barcodes" />
+      <End Role="itemsProp" EntitySet="itemsProp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsProp_items" Association="Self.FK_itemsProp_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="itemsProp" EntitySet="itemsProp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsProp_propertiesItems" Association="Self.FK_itemsProp_propertiesItems">
+      <End Role="propertiesItems" EntitySet="propertiesItems" />
+      <End Role="itemsProp" EntitySet="itemsProp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsProp_users" Association="Self.FK_itemsProp_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsProp" EntitySet="itemsProp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsProp_users1" Association="Self.FK_itemsProp_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsProp" EntitySet="itemsProp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsTransfer_invoices" Association="Self.FK_itemsTransfer_invoices">
+      <End Role="invoices" EntitySet="invoices" />
+      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsTransfer_items" Association="Self.FK_itemsTransfer_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsTransfer_locations" Association="Self.FK_itemsTransfer_locations">
+      <End Role="locations" EntitySet="locations" />
+      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsTransfer_locations1" Association="Self.FK_itemsTransfer_locations1">
+      <End Role="locations" EntitySet="locations" />
+      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsTransfer_users" Association="Self.FK_itemsTransfer_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsTransfer_users1" Association="Self.FK_itemsTransfer_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsUnits_barcodes" Association="Self.FK_itemsUnits_barcodes">
+      <End Role="barcodes" EntitySet="barcodes" />
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsUnits_items" Association="Self.FK_itemsUnits_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsUnits_prices" Association="Self.FK_itemsUnits_prices">
+      <End Role="prices" EntitySet="prices" />
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsUnits_units" Association="Self.FK_itemsUnits_units">
+      <End Role="units" EntitySet="units" />
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsUnits_users" Association="Self.FK_itemsUnits_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itemsUnits_users1" Association="Self.FK_itemsUnits_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_locations_branches" Association="Self.FK_locations_branches">
+      <End Role="branches" EntitySet="branches" />
+      <End Role="locations" EntitySet="locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_locations_users" Association="Self.FK_locations_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="locations" EntitySet="locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_locations_users1" Association="Self.FK_locations_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="locations" EntitySet="locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operations_users" Association="Self.FK_operations_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="operations" EntitySet="operations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_operations_users1" Association="Self.FK_operations_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="operations" EntitySet="operations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_invoices" Association="Self.FK_orders_invoices">
+      <End Role="invoices" EntitySet="invoices" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_users" Association="Self.FK_orders_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_users1" Association="Self.FK_orders_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_users2" Association="Self.FK_orders_users2">
+      <End Role="users" EntitySet="users" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderscontents_invoices" Association="Self.FK_orderscontents_invoices">
+      <End Role="invoices" EntitySet="invoices" />
+      <End Role="orderscontents" EntitySet="orderscontents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderscontents_items" Association="Self.FK_orderscontents_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="orderscontents" EntitySet="orderscontents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderscontents_orders" Association="Self.FK_orderscontents_orders">
+      <End Role="orders" EntitySet="orders" />
+      <End Role="orderscontents" EntitySet="orderscontents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderscontents_users" Association="Self.FK_orderscontents_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="orderscontents" EntitySet="orderscontents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderscontents_users1" Association="Self.FK_orderscontents_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="orderscontents" EntitySet="orderscontents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pos_branches" Association="Self.FK_pos_branches">
+      <End Role="branches" EntitySet="branches" />
+      <End Role="pos" EntitySet="pos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pos_users" Association="Self.FK_pos_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="pos" EntitySet="pos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pos_users1" Association="Self.FK_pos_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="pos" EntitySet="pos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prices_barcodes" Association="Self.FK_prices_barcodes">
+      <End Role="barcodes" EntitySet="barcodes" />
+      <End Role="prices" EntitySet="prices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prices_itemsUnits" Association="Self.FK_prices_itemsUnits">
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+      <End Role="prices" EntitySet="prices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prices_users" Association="Self.FK_prices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="prices" EntitySet="prices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prices_users1" Association="Self.FK_prices_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="prices" EntitySet="prices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_properties_users" Association="Self.FK_properties_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="properties" EntitySet="properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_properties_users1" Association="Self.FK_properties_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="properties" EntitySet="properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_propertiesItems_properties" Association="Self.FK_propertiesItems_properties">
+      <End Role="properties" EntitySet="properties" />
+      <End Role="propertiesItems" EntitySet="propertiesItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_propertiesItems_users" Association="Self.FK_propertiesItems_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="propertiesItems" EntitySet="propertiesItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_propertiesItems_users1" Association="Self.FK_propertiesItems_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="propertiesItems" EntitySet="propertiesItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_serials_items" Association="Self.FK_serials_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="serials" EntitySet="serials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_units_units" Association="Self.FK_units_units">
+      <End Role="units" EntitySet="units" />
+      <End Role="units1" EntitySet="units" />
+    </AssociationSet>
+    <AssociationSet Name="FK_units_users" Association="Self.FK_units_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="units" EntitySet="units" />
+    </AssociationSet>
+    <AssociationSet Name="FK_units_users1" Association="Self.FK_units_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="units" EntitySet="units" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
