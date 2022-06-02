@@ -21,8 +21,8 @@ namespace POS_Server.Controllers
         [Route("Get")]
         public string Get(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -80,6 +80,7 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
+
         [HttpPost]
         [Route("GetItemToDestroy")]
         public string GetItemToDestroy(string token)
@@ -142,7 +143,8 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
-         [HttpPost]
+
+       [HttpPost]
         [Route("GetShortageItem")]
         public string GetShortageItem(string token)
         {
@@ -205,47 +207,7 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
-        // GET api/<controller>  Get medal By ID 
-        [HttpPost]
-        [Route("GetByID")]
-        public string GetByID(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-            int cId = 0;
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var list = entity.inventoryItemLocation
-                   .Where(c => c.id == cId)
-                   .Select(c => new {
-                       c.id,
-                       c.isDestroyed,
-                       c.amount,
-                       c.amountDestroyed,
-                       c.realAmount,
-                       c.itemLocationId,
-                       c.inventoryId,
-                        c.isActive,
-                       c.notes,
-                     
-                       c.createDate,
-                       c.updateDate,
-                       c.createUserId,
-                       c.updateUserId,
-                   
-                   })
-                   .FirstOrDefault();
-                     
-                    return TokenManager.GenerateToken(list);
-                }
-            }
-        }
+        
         // add or update 
         [HttpPost]
         [Route("Save")]
@@ -337,6 +299,7 @@ var strP = TokenManager.GetPrincipal(token);
 
             }
         }
+
         [HttpPost]
         [Route("distroyItem")]
         public string distroyItem(string token)
@@ -388,13 +351,14 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
+
         [HttpPost]
         [Route("fallItem")]
         public string fallItem(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -439,80 +403,7 @@ var strP = TokenManager.GetPrincipal(token);
             }
           return TokenManager.GenerateToken(message);
         }
-        [HttpPost]
-        [Route("Delete")]
-        public string Delete(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int id = 0;
-                int userId = 0;
-                Boolean final = false;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        id = int.Parse(c.Value);
-                    }
-                    else if (c.Type == "userId")
-                    {
-                        userId = int.Parse(c.Value);
-                    }
-                    else if (c.Type == "final")
-                    {
-                        final = bool.Parse(c.Value);
-                    }
-                }
 
-                if (final)
-                {
-                    try
-                    {
-                        using (incposdbEntities entity = new incposdbEntities())
-                        {
-
-                            inventoryItemLocation Deleterow = entity.inventoryItemLocation.Find(id);
-                            entity.inventoryItemLocation.Remove(Deleterow);
-                            message = entity.SaveChanges().ToString();
-                            return TokenManager.GenerateToken(message);
-                        }
-                    }
-                    catch
-                    {
-                        message = "0";
-                        return TokenManager.GenerateToken(message);
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        using (incposdbEntities entity = new incposdbEntities())
-                        {
-
-                            inventoryItemLocation Obj = entity.inventoryItemLocation.Find(id);
-                           Obj.isActive = 0;
-                            Obj.updateUserId = userId;
-                            Obj.updateDate = DateTime.Now;
-                            message = entity.SaveChanges().ToString();
-                            return TokenManager.GenerateToken(message);
-                        }
-                    }
-                    catch
-                    {
-                        message = "0";
-                        return TokenManager.GenerateToken(message);
-                    }
-                }
-            }
-        }
+       
     }
 }

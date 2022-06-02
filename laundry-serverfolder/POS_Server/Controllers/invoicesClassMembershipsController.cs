@@ -20,7 +20,7 @@ namespace POS_Server.Controllers
         public string GetAll(string token)
         {
             token = TokenManager.readToken(HttpContext.Current.Request);
-            Boolean canDelete = false;
+
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
@@ -52,16 +52,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
-        /*
-   public int invClassMemberId { get; set; }
-        public Nullable<int> membershipId { get; set; }
-        public Nullable<int> invClassId { get; set; }
-        public string notes { get; set; }
-        public Nullable<System.DateTime> createDate { get; set; }
-        public Nullable<System.DateTime> updateDate { get; set; }
-        public Nullable<int> createUserId { get; set; }
-        public Nullable<int> updateUserId { get; set; }
-         * */
+      
         [HttpPost]
         [Route("GetById")]
         public string GetById(string token)
@@ -106,173 +97,8 @@ namespace POS_Server.Controllers
                 }
             }
         }
-
-        [HttpPost]
-        [Route("Save")]
-        public string Save(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                string invClassMemberId = "";
-                invoicesClassMemberships newObject = null;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemObject")
-                    {
-                        invClassMemberId = c.Value.Replace("\\", string.Empty);
-                        invClassMemberId = invClassMemberId.Trim('"');
-                        newObject = JsonConvert.DeserializeObject<invoicesClassMemberships>(invClassMemberId, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
-                        break;
-                    }
-                }
-                if (newObject.updateUserId == 0 || newObject.updateUserId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.updateUserId = id;
-                }
-                if (newObject.createUserId == 0 || newObject.createUserId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.createUserId = id;
-                }
-                if (newObject.membershipId == 0 || newObject.membershipId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.membershipId = id;
-                }
-                if (newObject.invClassId == 0 || newObject.invClassId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.invClassId = id;
-                }
-                try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        invoicesClassMemberships tmpObject = new invoicesClassMemberships();
-                        var bankEntity = entity.Set<invoicesClassMemberships>();
-                        if (newObject.invClassMemberId == 0)
-                        {
-                            newObject.createDate = DateTime.Now;
-                            newObject.updateDate = DateTime.Now;
-                            newObject.updateUserId = newObject.createUserId;
-                            tmpObject = bankEntity.Add(newObject);
-                            entity.SaveChanges();
-                            message = tmpObject.invClassMemberId.ToString(); ;
-                        }
-                        else
-                        {
-                            tmpObject = entity.invoicesClassMemberships.Where(p => p.invClassMemberId == newObject.invClassMemberId).FirstOrDefault();
-
-                            tmpObject.updateDate = DateTime.Now;
-                            tmpObject.invClassMemberId = newObject.invClassMemberId;
-                            tmpObject.membershipId = newObject.membershipId;
-                            tmpObject.invClassId = newObject.invClassId;
-                            tmpObject.notes = newObject.notes;
-                            tmpObject.createDate = newObject.createDate;
-
-                            tmpObject.createUserId = newObject.createUserId;
-                            tmpObject.updateUserId = newObject.updateUserId;
-
-
-
-
-                            entity.SaveChanges();
-                            message = tmpObject.invClassMemberId.ToString();
-
-                        }
-                        return TokenManager.GenerateToken(message);
-                    }
-                }
-
-                catch
-                {
-                    message = "0";
-                    return TokenManager.GenerateToken(message);
-                }
-            }
-        }
-
-        [HttpPost]
-        [Route("Delete")]
-        public string Delete(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int invClassMemberId = 0;
-                int userId = 0;
-                Boolean final = false;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        invClassMemberId = int.Parse(c.Value);
-                    }
-                    else if (c.Type == "userId")
-                    {
-                        userId = int.Parse(c.Value);
-                    }
-                    else if (c.Type == "final")
-                    {
-                        final = bool.Parse(c.Value);
-                    }
-                }
-                if (final)
-                {
-                    try
-                    {
-                        using (incposdbEntities entity = new incposdbEntities())
-                        {
-
-                            invoicesClassMemberships objDelete = entity.invoicesClassMemberships.Find(invClassMemberId);
-                            entity.invoicesClassMemberships.Remove(objDelete);
-                            message = entity.SaveChanges().ToString();
-                            return TokenManager.GenerateToken(message);
-                        }
-                    }
-                    catch
-                    {
-                        return TokenManager.GenerateToken("0");
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        using (incposdbEntities entity = new incposdbEntities())
-                        {
-
-                            invoicesClassMemberships objDelete = entity.invoicesClassMemberships.Find(invClassMemberId);
-
-                            objDelete.updateUserId = userId;
-                            objDelete.updateDate = DateTime.Now;
-                            message = entity.SaveChanges().ToString();
-                            return TokenManager.GenerateToken(message);
-                        }
-                    }
-                    catch
-                    {
-                        return TokenManager.GenerateToken("0");
-                    }
-                }
-            }
-        }
+       
+        
         //update branches list by userId
         [HttpPost]
         [Route("UpdateInvclassByMembershipId")]

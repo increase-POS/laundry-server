@@ -23,218 +23,13 @@ namespace POS_Server.Controllers
     public class dashController : ApiController
     {
 
-        // for Dashboard
-        //  
-        [HttpPost]
-        [Route("Getdashsalpur")]
-        public string Getdashsalpur(string token)
-        {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int mainBranchId = 0;
-                int userId = 0;
-
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "mainBranchId")
-                    {
-                        mainBranchId = int.Parse(c.Value);
-                    }
-                    else if (c.Type == "userId")
-                    {
-                        userId = int.Parse(c.Value);
-                    }
-
-                }
-                try
-                {
-                    StatisticsController sts = new StatisticsController();
-                    List<int> brIds = sts.AllowedBranchsId(mainBranchId, userId);
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        var invListm = (from I in entity.invoices
-
-                                        join BC in entity.branches on I.branchCreatorId equals BC.branchId into JBC
-
-                                        //pbw pb  sb
-                                        from JBCC in JBC.DefaultIfEmpty()
-                                        where (brIds.Contains(JBCC.branchId) && (I.invType == "p" || I.invType == "pw" || I.invType == "s" || I.invType == "pbw" || I.invType == "pb" || I.invType == "sb" || I.invType == "ss" || I.invType == "ts"))
-
-                                        select new
-                                        {
-                                            I.invoiceId,
-                                            // I.invNumber,
-                                            //  I.agentId,
-                                            //  I.posId,
-                                            I.invType,
-                                            //  I.total,
-                                            //I.totalNet,
-
-
-                                            //
-                                            I.branchCreatorId,
-                                            branchCreatorName = JBCC.name,
-
-                                        }).ToList();
-
-
-                        //   var group2invlist = invListm.GroupBy(g => new { g.invType, g.branchCreatorId }).Select(g => new
-
-                        var list = invListm.GroupBy(g => g.branchCreatorId).Select(g => new
-                        {
-                            invType = g.FirstOrDefault().invType,
-                            branchCreatorId = g.FirstOrDefault().branchCreatorId,
-                            branchCreatorName = g.FirstOrDefault().branchCreatorName,
-                            purCount = g.Where(i => (i.invType == "p" || i.invType == "pw")).Count(),
-                            saleCount = g.Where(i => i.invType == "s" || i.invType == "ss" || i.invType == "ts").Count(),
-                            purBackCount = g.Where(i => (i.invType == "pbw" || i.invType == "pb")).Count(),
-                            saleBackCount = g.Where(i => i.invType == "sb").Count(),
-                        }).ToList();
-                        /*
-                        .GroupBy(s =>  s.branchCreatorId ).Select(s => new
-                        {
-                            invType = s.FirstOrDefault().invType,
-                            branchCreatorId = s.FirstOrDefault().branchCreatorId,
-                            branchCreatorName = s.FirstOrDefault().branchCreatorName,
-                            purCount = s.Where(i => (i.invType == "p" || i.invType == "pw")).Count(),
-
-                            saleCount = s.Where(i => i.invType == "s").Count(),
-                        }
-                            ).ToList();
-                            */
-
-                        /*
-                           var result = temp.GroupBy(s => new { s.updateUserId, s.cUserAccName }).Select(s => new
-            {
-                updateUserId = s.FirstOrDefault().updateUserId,
-                cUserAccName = s.FirstOrDefault().cUserAccName,
-                count = s.Count()
-            });
-                         * */
-                        return TokenManager.GenerateToken(list);
-
-                    }
-
-                }
-                catch
-                {
-                    return TokenManager.GenerateToken("0");
-                }
-
-
-            }
-
-          
-        }
-
-
-        [HttpPost]
-        [Route("GetAgentCount")]
-        public string GetAgentCount(string token)
-        {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-
-
-
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                //int mainBranchId = 0;
-                //int userId = 0;
-
-                //IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                //foreach (Claim c in claims)
-                //{
-                //    if (c.Type == "mainBranchId")
-                //    {
-                //        mainBranchId = int.Parse(c.Value);
-                //    }
-                //    else if (c.Type == "userId")
-                //    {
-                //        userId = int.Parse(c.Value);
-                //    }
-
-                //}
-                try
-                {
-                    //StatisticsController sts = new StatisticsController();
-                    //List<int> brIds = sts.AllowedBranchsId(mainBranchId, userId);
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        var invListm = (from A in entity.agents
-                                        select new
-                                        {
-                                            //  A.agentId,                                     
-                                            A.type,
-                                        }).ToList();
-
-
-                        //   var group2invlist = invListm.GroupBy(g => new { g.invType, g.branchCreatorId }).Select(g => new
-
-                        var list = invListm.GroupBy(g => g.type).Select(g => new
-                        {
-                            type = g.FirstOrDefault().type,
-
-                            vendorCount = g.Where(i => i.type == "v").Count(),
-                            customerCount = g.Where(i => i.type == "c").Count(),
-                            grp = 1,
-                        }).ToList().GroupBy(g => g.grp).Select(c => new
-                        {
-
-                            vendorCount = c.Sum(d => d.vendorCount),
-                            customerCount = c.Sum(d => d.customerCount),
-                        }).ToList();
-
-                        //g.FirstOrDefault().type=="v"
-
-                        return TokenManager.GenerateToken(list);
-
-                    }
-                }
-                catch
-                {
-                    return TokenManager.GenerateToken("0");
-                }
-
-
-
-            }
-        
-
-
-        }
-
-
+        // for Dashboard    
+      
         //عدد المستخدمين المتصلين والغير متصلين  حاليا في كل فرع 
         [HttpPost]
         [Route("Getuseronline")]
         public string Getuseronline(string token)
         {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-
-
 
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
@@ -430,13 +225,6 @@ namespace POS_Server.Controllers
         [Route("GetuseronlineInfo")]
         public string GetuseronlineInfo(string token)
         {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-
-
-
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
@@ -552,13 +340,6 @@ namespace POS_Server.Controllers
         public string GetBrachonline(string token)
         {
 
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-
-
-
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
@@ -654,10 +435,6 @@ namespace POS_Server.Controllers
         [Route("GetdashsalpurDay")]
         public string GetdashsalpurDay(string token)
         {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
             int mainBranchId = 0;
             int userId = 0;
 
@@ -759,13 +536,6 @@ namespace POS_Server.Controllers
         [Route("Getbestseller")]
         public string Getbestseller(string token)
         {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-
-
-
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
@@ -887,13 +657,10 @@ namespace POS_Server.Controllers
 
         // كمية العناصر في الفروع
 
-        //  [HttpPost]
         [HttpPost]
         [Route("GetIUStorage")]
         public string GetIUStorage(string token)
         {
-            // public ResponseVM GetPurinv(string token)string IUList
-
             token = TokenManager.readToken(HttpContext.Current.Request);
 
             var strP = TokenManager.GetPrincipal(token);
@@ -1079,13 +846,6 @@ namespace POS_Server.Controllers
         [Route("GetTotalPurSale")]
         public string GetTotalPurSale(string token)
         {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-
-
-
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
@@ -1270,8 +1030,6 @@ namespace POS_Server.Controllers
         [Route("GetCashBalance")]
         public string GetCashBalance(string token)
         {
-
-
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
@@ -1382,13 +1140,6 @@ namespace POS_Server.Controllers
         [Route("GetBestOf")]
         public string GetBestOf(string token)
         {
-            // public string Get(string token)
-
-            // public ResponseVM GetPurinv(string token)
-
-
-
-
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization

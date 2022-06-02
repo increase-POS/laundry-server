@@ -18,45 +18,20 @@ namespace POS_Server.Controllers
         // GET api/<controller>
         [HttpPost]
         [Route("GetAllCountries")]
-      public string   GetAllCountries(string token)
-        {
-
-            // public ResponseVM GetPurinv(string token)
-
-            //int mainBranchId, int userId    DateTime? date=new DateTime?();
-           
+        public string   GetAllCountries(string token)
+        { 
             
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
             }
             else
-            {
-                //int mainBranchId = 0;
-                //int userId = 0;
-
-                //IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                //foreach (Claim c in claims)
-                //{
-                //    if (c.Type == "mainBranchId")
-                //    {
-                //        mainBranchId = int.Parse(c.Value);
-                //    }
-                //    else if (c.Type == "userId")
-                //    {
-                //        userId = int.Parse(c.Value);
-                //    }
-
-                //}
-
-                // DateTime cmpdate = DateTime.Now.AddDays(newdays);
+            {               
                 try
                 {
-
-                   
+                
                     using (incposdbEntities entity = new incposdbEntities())
                     {
 
@@ -81,106 +56,25 @@ namespace POS_Server.Controllers
                 }
 
             }
-
-            //var re = Request;
-            //
-            //string token = "";
-
-            //if (headers.Contains("APIKey"))
-            //{
-            //    token = headers.GetValues("APIKey").First();
-            //}
-            //Validation validation = new Validation();
-            //bool valid = validation.CheckApiKey(token);
-
-            //if (valid) // APIKey is valid
-            //{
-            //    using (incposdbEntities entity = new incposdbEntities())
-            //    {
-            //        var countrylist = entity.countriesCodes
-            //             .Select(c => new {
-            //                 c.countryId,
-            //                 c.code,
-            //             }).ToList();
-
-
-            //        if (countrylist == null)
-            //           return NotFound();
-            //        else
-            //            return Ok(countrylist);
-            //    }
-            //}
-            //else
-            //    return NotFound();
-
-
+            
         }
-
-
-        //[HttpPost]
-        //[Route("GetAllCities")]
-        //public IHttpActionResult GetAllCities()
-        //{
-        //   
-        //    
-        //    string token = "";
-
-        //    if (headers.Contains("APIKey"))
-        //    {
-        //        token = headers.GetValues("APIKey").First();
-        //    }
-        //    Validation validation = new Validation();
-        //    bool valid = validation.CheckApiKey(token);
-
-        //    if (valid) // APIKey is valid
-        //    {
-        //        using (incposdbEntities entity = new incposdbEntities())
-        //        {
-        //            var countrylist = entity.countriesCodes
-        //                 .Select(c => new {
-        //                     c.countryId,
-        //                     c.code,
-        //                     c.isDefault,
-        //                 }).ToList();
-
-
-        //            if (countrylist == null)
-        //            { return Ok(countrylist); }
-        //            //return ("no");
-        //            //return NotFound();
-        //            else
-        //            { return Ok(countrylist);}
-                        
-        //        }
-        //    }
-        //    else
-        //        return NotFound();
-        //}
-
-
+       
 
         [HttpPost]
         [Route("GetAllRegion")]
-      public string   GetAllRegion(string token)
+        public string   GetAllRegion(string token)
         {
-            // public ResponseVM GetPurinv(string token)
 
-            //int mainBranchId, int userId    DateTime? date=new DateTime?();
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
             }
             else
-            {
-        
+            {      
                 try
                 {
-
 
                     using (incposdbEntities entity = new incposdbEntities())
                     {
@@ -210,54 +104,16 @@ namespace POS_Server.Controllers
 
             }
 
-            //var re = Request;
-            //
-            //string token = "";
-
-            //if (headers.Contains("APIKey"))
-            //{
-            //    token = headers.GetValues("APIKey").First();
-            //}
-            //Validation validation = new Validation();
-            //bool valid = validation.CheckApiKey(token);
-
-            //if (valid) // APIKey is valid
-            //{
-            //    using (incposdbEntities entity = new incposdbEntities())
-            //    {
-            //        var countrylist = entity.countriesCodes
-            //             .Select(c => new {
-            //                 c.countryId,
-            //                 c.code,
-            //                 c.currency,
-            //                 c.name,
-            //                 c.isDefault,
-            //                 c.currencyId,
-
-            //             }).ToList();
-
-
-            //        if (countrylist == null)
-            //            return NotFound();
-            //        else
-            //            return Ok(countrylist);
-            //    }
-            //}
-            //else
-            //    return NotFound();
         }
 
         [HttpPost]
         [Route("UpdateIsdefault")]
-      public string   UpdateIsdefault(string token)
+        public string   UpdateIsdefault(string token)
         {
-            //int countryId
-            string message = "";
-           
+            string message = "";                   
             
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -388,227 +244,6 @@ namespace POS_Server.Controllers
             //}
             //return message;
         }
-
-        [HttpPost]
-        [Route("GetByID")]
-      public string   GetByID(string token)
-        {
-
-            // public ResponseVM GetPurinv(string token)
-
-            //int mainBranchId, int userId    DateTime? date=new DateTime?();
-           
             
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int Id = 0;
-               // int userId = 0;
-
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "Id")
-                    {
-                        Id = int.Parse(c.Value);
-                    }
-                 
-
-                }
-
-                // DateTime cmpdate = DateTime.Now.AddDays(newdays);
-                try
-                {
-
-
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-
-
-                        var list = entity.countriesCodes
-                   .Where(c => c.countryId == Id)
-                   .Select(c => new
-                   {
-                       c.countryId,
-                       c.code,
-                       c.currency,
-                       c.name,
-                       c.isDefault,
-                       c.currencyId,
-                   })
-                   .FirstOrDefault();
-
-                        return TokenManager.GenerateToken(list);
-
-                    }
-
-                }
-                catch
-                {
-                    return TokenManager.GenerateToken("0");
-                }
-
-            }
-
-
-            //var re = Request;
-            //
-            //string token = "";
-            //int cId = 0;
-            //if (headers.Contains("APIKey"))
-            //{
-            //    token = headers.GetValues("APIKey").First();
-            //}
-            //if (headers.Contains("Id"))
-            //{
-            //    cId = Convert.ToInt32(headers.GetValues("Id").First());
-            //}
-            //Validation validation = new Validation();
-            //bool valid = validation.CheckApiKey(token);
-
-            //if (valid)
-            //{
-            //    using (incposdbEntities entity = new incposdbEntities())
-            //    {
-            //        var list = entity.countriesCodes
-            //       .Where(c => c.countryId == cId)
-            //       .Select(c => new {
-            //           c.countryId,
-            //           c.code,
-            //           c.currency,
-            //           c.name,
-            //           c.isDefault,
-            //           c.currencyId,
-            //       })
-            //       .FirstOrDefault();
-
-            //        if (list == null)
-            //            return NotFound();
-            //        else
-            //            return Ok(list);
-            //    }
-            //}
-            //else
-            //    return NotFound();
-        }
-
-        [HttpPost]
-        [Route("GetisDefault")]
-      public string   GetisDefault(string token)
-        {
-
-            // public ResponseVM GetPurinv(string token)
-
-            //int mainBranchId, int userId    DateTime? date=new DateTime?();
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                //int mainBranchId = 0;
-               int isDefault = 0;
-
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "isDefault")
-                    {
-                        isDefault = int.Parse(c.Value);
-                    }
-               
-
-                }
-
-                // DateTime cmpdate = DateTime.Now.AddDays(newdays);
-                try
-                {
-
-
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-
-
-                        var list = entity.countriesCodes
-                   .Where(c => c.isDefault == isDefault)
-                   .Select(c => new
-                   {
-                       c.countryId,
-                       c.code,
-                       c.currency,
-                       c.name,
-                       c.isDefault,
-                       c.currencyId,
-                   })
-                   .FirstOrDefault();
-
-
-                        return TokenManager.GenerateToken(list);
-
-                    }
-
-                }
-                catch
-                {
-                    return TokenManager.GenerateToken("0");
-                }
-
-            }
-
-
-
-            //var re = Request;
-            //
-            //string token = "";
-            //int cId = 0;
-            //if (headers.Contains("APIKey"))
-            //{
-            //    token = headers.GetValues("APIKey").First();
-            //}
-            //if (headers.Contains("isDefault"))
-            //{
-            //    cId = Convert.ToInt32(headers.GetValues("isDefault").First());
-            //}
-            //Validation validation = new Validation();
-            //bool valid = validation.CheckApiKey(token);
-
-            //if (valid)
-            //{
-            //    using (incposdbEntities entity = new incposdbEntities())
-            //    {
-            //        var list = entity.countriesCodes
-            //       .Where(c => c.isDefault == cId)
-            //       .Select(c => new {
-            //           c.countryId,
-            //           c.code,
-            //           c.currency,
-            //           c.name,
-            //           c.isDefault,
-            //           c.currencyId,
-            //       })
-            //       .FirstOrDefault();
-
-            //        if (list == null)
-            //            return NotFound();
-            //        else
-            //            return Ok(list);
-            //    }
-            //}
-            //else
-            //    return NotFound();
-        }
-
-
     }
 }

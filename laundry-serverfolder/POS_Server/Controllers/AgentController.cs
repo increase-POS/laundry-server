@@ -577,54 +577,7 @@ namespace POS_Server.Controllers
             }
 
         }
-        [HttpPost]
-        [Route("UpdateBalance")]
-        public string UpdateBalance(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int agentId = 0;
-                decimal balance = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "agentId")
-                    {
-                        agentId = int.Parse(c.Value);
-                    }
-                    else if (c.Type == "balance")
-                    {
-                        balance = int.Parse(c.Value);
-                    }
-                }
-                try
-                {
-                    agents agent;
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        var agentEntity = entity.Set<agents>();
-                        agent = entity.agents.Where(p => p.agentId == agentId).First();
-                        agent.balance = balance;
-                        entity.SaveChanges();
-                    }
-                    message = agent.agentId.ToString();
-                    return TokenManager.GenerateToken(message);
-                }
-
-                catch
-                {
-                    message = "0";
-                    return TokenManager.GenerateToken(message);
-                }
-            }
-        }
+       
 
         [HttpPost]
         [Route("GetLastNumOfCode")]
@@ -740,81 +693,7 @@ namespace POS_Server.Controllers
             }
         }
 
-        /*
-       //  old
-           [HttpPost]
-        [Route("GetAgentsByMembershipId")]
-        public string GetAgentsByMembershipId(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
 
-                int membershipId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        membershipId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var List = (from S in entity.agentMemberships
-                                join B in entity.agents on S.agentId equals B.agentId into JB
-                                join U in entity.memberships on S.membershipId equals U.membershipId into JU
-                                from JBB in JB.DefaultIfEmpty()
-                                from JUU in JU.DefaultIfEmpty()
-                                where S.membershipId == membershipId
-                                select new AgentModel()
-                                {
-                                    agentId = JBB.agentId,
-                                    name = JBB.name,
-                                    code = JBB.code,
-                                    company = JBB.company,
-                                    address = JBB.address,
-                                    email = JBB.email,
-                                    phone = JBB.phone,
-                                    mobile = JBB.mobile,
-                                    image = JBB.image,
-                                    type = JBB.type,
-                                    accType = JBB.accType,
-                                    balance = JBB.balance,
-                                    balanceType = JBB.balanceType,
-                                    notes = JBB.notes,
-                                    isActive = JBB.isActive,
-                                    createDate = JBB.createDate,
-                                    updateDate = JBB.updateDate,
-                                    maxDeserve = JBB.maxDeserve,
-                                    fax = JBB.fax,
-                                    isLimited = JBB.isLimited,
-                                    payType = JBB.payType,
-                                    canReserve = JBB.canReserve,
-                                    disallowReason = JBB.disallowReason,
-                                    residentSecId = JBB.residentSecId,
-                                    GPSAddress = JBB.GPSAddress,
-
-                                    agentMembershipsId = S.agentMembershipsId,
-                                  
-                                    membershipId = S.membershipId,
-                                
-
-
-                                }).ToList();
-                    return TokenManager.GenerateToken(List);
-
-
-                }
-            }
-        }
-
-         * */
         public int UpdateMembershipId(int agentId,int membershipId)
         {
            

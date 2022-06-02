@@ -21,10 +21,6 @@ namespace POS_Server.Controllers
         [Route("Get")]
         public string Get(string token)
         {
-            //public string GetByGroupId(string token)string tableName, int tableId
-            //{
-
-
             token = TokenManager.readToken(HttpContext.Current.Request);
                 var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
@@ -125,11 +121,11 @@ namespace POS_Server.Controllers
                 ////else
                 //return NotFound();
             }
+
         [HttpPost]
         [Route("GetCount")]
         public string GetCount(string token)
         {
-            //string tableName, int tableId
 
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
@@ -226,6 +222,7 @@ namespace POS_Server.Controllers
             ////else
             //return NotFound();
         }
+
         [Route("PostImage")]
         public IHttpActionResult PostImage()
         {
@@ -318,14 +315,8 @@ namespace POS_Server.Controllers
         [HttpPost]
         [Route("saveImageDoc")]
         public string saveImageDoc(string token)
-        {
-            //public String Save(string token)string docImageObject
-            //{
-
-            //string Object
+        {          
             string message = "";
-
-
 
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
@@ -472,17 +463,12 @@ namespace POS_Server.Controllers
 
 
         }
+
         [HttpPost]
         [Route("UpdateImage")]
         public string UpdateImage(string token)
         {
-            //public String Save(string token)string docImageObject
-            //{
-
-            //string Object
             string message = "";
-
-
 
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);
@@ -594,17 +580,12 @@ namespace POS_Server.Controllers
             //else
             //    return 0;
         }
+
         [HttpPost]
         [Route("Delete")]
         public string Delete(string token)
         {
-            //public String Save(string token)int docId
-            //{
-
-            //string Object
             string message = "";
-
-
 
             token = TokenManager.readToken(HttpContext.Current.Request);
             var strP = TokenManager.GetPrincipal(token);

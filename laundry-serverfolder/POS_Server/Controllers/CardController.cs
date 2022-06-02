@@ -23,9 +23,9 @@ namespace POS_Server.Controllers
         [Route("Get")]
         public string Get(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             Boolean canDelete = false;
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -74,100 +74,16 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
-        // GET api/<controller>  Get card By ID 
-        [HttpPost]
-        [Route("GetcardByID")]
-        public string GetByID(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int cId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        cId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var card = entity.cards
-                   .Where(c => c.cardId == cId)
-                   .Select(c => new {
-                       c.cardId,
-                       c.name,
-                       c.notes,
-                       c.createDate,
-                       c.updateDate,
-                       c.createUserId,
-                       c.updateUserId,
-                       c.isActive,
-                   c.hasProcessNum,
-                       image = c.image,
-                   })
-                   .FirstOrDefault();
-                    return TokenManager.GenerateToken(card);
-                }
-            }
-        }
-        // GET api/<controller>  Get card By is active
-        [HttpPost]
-        [Route("GetByisActive")]
-        public string GetByisActive(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int isActive = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "isActive")
-                    {
-                        isActive = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var card = entity.cards
-                   .Where(c => c.isActive == isActive)
-                   .Select(c => new {
-                       c.cardId,
-                       c.name,
-                       c.notes,
-                       c.createDate,
-                       c.updateDate,
-                       c.createUserId,
-                       c.updateUserId,
-                       c.isActive,
-                  c.hasProcessNum,
-                        c.image,
-                   })
-                   .ToList();
-                    return TokenManager.GenerateToken(card);
-                }
-            }
-        }
+        
+       
         // add or update card 
         [HttpPost]
         [Route("Save")]
         public string Save(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -234,13 +150,14 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
+
         [HttpPost]
         [Route("Delete")]
         public string Delete(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -307,6 +224,7 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
+
         [HttpGet]
         [Route("GetImage")]
         public HttpResponseMessage GetImage(string imageName)
@@ -325,13 +243,14 @@ var strP = TokenManager.GetPrincipal(token);
 
             return response;
         }
+
         [HttpPost]
         [Route("UpdateImage")]
         public string UpdateImage(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);

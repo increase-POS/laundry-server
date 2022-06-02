@@ -81,6 +81,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
+
         [HttpPost]
         [Route("GetEffictive")]
         public string GetEffictive(string token)
@@ -126,6 +127,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
+
         [HttpPost]
         [Route("GetEffictiveByMemberShipID")]
         public string GetEffictiveByMemberShipID(string token)
@@ -283,114 +285,8 @@ namespace POS_Server.Controllers
                 }
             }
         }
-        // GET api/<controller>  Get Coupon By Code 
-        [HttpPost]
-        [Route("GetCouponByCode")]
-        public string GetCouponByCode(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                string code = "";
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        code = c.Value;
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var coupon = entity.coupons
-                   .Where(c => c.code == code)
-                   .Select(c => new
-                   {
-                       c.cId,
-                       c.name,
-                       c.code,
-                       c.isActive,
-                       c.discountType,
-                       c.discountValue,
-                       c.startDate,
-                       c.endDate,
-                       c.notes,
-                       c.quantity,
-                       c.remainQ,
-                       c.invMin,
-                       c.invMax,
-                       c.createDate,
-                       c.updateDate,
-                       c.createUserId,
-                       c.updateUserId,
-                       c.barcode,
-                        c.forAgents,
-                   })
-                   .FirstOrDefault();
-
-                    return TokenManager.GenerateToken(coupon);
-                }
-            }
-        }
-        // GET api/<controller>  Get Coupon By Barcode
-        [HttpPost]
-        [Route("GetCouponByBarcode")]
-        public string GetcouponByBarcode(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                string barcode = "";
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        barcode = c.Value;
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var coupon = entity.coupons
-                   .Where(c => c.barcode == barcode)
-                   .Select(c => new
-                   {
-                       c.cId,
-                       c.name,
-                       c.code,
-                       c.isActive,
-                       c.discountType,
-                       c.discountValue,
-                       c.startDate,
-                       c.endDate,
-                       c.notes,
-                       c.quantity,
-                       c.remainQ,
-                       c.invMin,
-                       c.invMax,
-                       c.createDate,
-                       c.updateDate,
-                       c.createUserId,
-                       c.updateUserId,
-                       c.barcode,
-                    c.forAgents,
-                   })
-                   .FirstOrDefault();
-
-                    return TokenManager.GenerateToken(coupon);
-                }
-            }
-        }
+       
+        
         // GET api/<controller>  Get Coupon By code
         [HttpPost]
         [Route("IsExistcode")]
@@ -432,59 +328,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
-        // GET api/<controller>  Get Coupon By is active
-        [HttpPost]
-        [Route("GetByisActive")]
-        public string GetByisActive(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int isActive = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        isActive = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var coupon = entity.coupons
-                   .Where(c => c.isActive == isActive)
-                   .Select(c => new
-                   {
-                       c.cId,
-                       c.name,
-                       c.code,
-                       c.isActive,
-                       c.discountType,
-                       c.discountValue,
-                       c.startDate,
-                       c.endDate,
-                       c.notes,
-                       c.quantity,
-                       c.remainQ,
-                       c.invMin,
-                       c.invMax,
-                       c.createDate,
-                       c.updateDate,
-                       c.createUserId,
-                       c.updateUserId,
-                  c.forAgents,
-                   })
-                   .ToList();
-
-                    return TokenManager.GenerateToken(coupon);
-                }
-            }
-        }
+       
         // add or update coupon 
         [HttpPost]
         [Route("Save")]

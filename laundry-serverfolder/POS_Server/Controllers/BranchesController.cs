@@ -87,6 +87,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
+
         [HttpPost]
         [Route("GetAll")]
         public string GetAll(string token)
@@ -125,6 +126,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
+
         [HttpPost]
         [Route("GetActive")]
         public string GetActive(string token)
@@ -242,85 +244,8 @@ namespace POS_Server.Controllers
                 }
             }
         }
-        [HttpPost]
-        [Route("GetBranchTreeByID")]
-        public string GetBranchTreeByID(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
 
-            List<branches> treebranch = new List<branches>();
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int branchId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        branchId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    int parentid = branchId; // if want to show the last category 
-                    while (parentid > 0)
-                    {
-                        branches tempbranch = new branches();
-                        var branch = entity.branches.Where(c => c.branchId == parentid)
-                            .Select(p => new
-                            {
-
-                                p.branchId,
-                                p.code,
-                                p.name,
-                                p.address,
-                                p.email,
-                                p.phone,
-                                p.mobile,
-                                p.createDate,
-                                p.updateDate,
-                                p.createUserId,
-                                p.updateUserId,
-                                p.notes,
-                                p.parentId,
-                                p.isActive,
-                                p.type,
-
-                            }).FirstOrDefault();
-
-                        tempbranch.branchId = branch.branchId;
-                        tempbranch.code = branch.code;
-                        tempbranch.name = branch.name;
-                        tempbranch.address = branch.address;
-                        tempbranch.email = branch.email;
-                        tempbranch.phone = branch.phone;
-                        tempbranch.mobile = branch.mobile;
-                        tempbranch.createDate = branch.createDate;
-                        tempbranch.updateDate = branch.updateDate;
-                        tempbranch.createUserId = branch.createUserId;
-                        tempbranch.updateUserId = branch.updateUserId;
-                        tempbranch.notes = branch.notes;
-                        tempbranch.parentId = branch.parentId;
-                        tempbranch.isActive = branch.isActive;
-                        tempbranch.type = branch.type;
-
-
-
-                        parentid = (int)tempbranch.parentId;
-
-                        treebranch.Add(tempbranch);
-
-                    }
-                    return TokenManager.GenerateToken(treebranch);
-
-                }
-            }
-        }
+       
         // get Get All branches or stores by type Without Main branch which has id=1  ;
         #region
         [HttpPost]
@@ -392,99 +317,7 @@ namespace POS_Server.Controllers
             }
         }
         #endregion
-        [HttpPost]
-        [Route("GetBalance")]
-        public string GetBalance(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            string type = "";
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "type")
-                    {
-                        type = c.Value;
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var branchesList = (from p in entity.pos
-                                        join b in entity.branches on p.branchId equals b.branchId into Jb
-                                        from Jbb in Jb.DefaultIfEmpty()
-                                        where type == "all" ? true : Jbb.type == type
-                                        group new { p, Jbb } by (Jbb.branchId) into g
-                                        select new
-                                        {
-                                            //DateTime.Compare((DateTime)IO.startDate, DateTime.Now) <= 0
-                                            branchId = g.Key,
-                                            name = g.Select(t => t.Jbb.name).FirstOrDefault(),
-                                            balance = g.Sum(x => x.p.balance)
-                                        }).ToList();
-                    return TokenManager.GenerateToken(branchesList);
-                }
-            }
-        }
-        [HttpPost]
-        [Route("GetJoindBrByBranchId")]
-        public string GetJoindBrByBranchId(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int branchId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        branchId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var branchesList = (from b in entity.branches
-
-                                        join S in entity.branchStore on b.branchId equals S.storeId into JS
-                                        from JSS in JS.DefaultIfEmpty()
-                                        where JSS.branchId == branchId
-                                        select new BranchModel
-                                        {
-                                            branchId = b.branchId,
-                                            address = b.address,
-                                            createDate = b.createDate,
-                                            createUserId = b.createUserId,
-                                            email = b.email,
-                                            mobile = b.mobile,
-                                            name = b.name,
-                                            code = b.code,
-                                            notes = b.notes,
-                                            parentId = b.parentId,
-                                            phone = b.phone,
-                                            updateDate = b.updateDate,
-                                            updateUserId = b.updateUserId,
-                                            isActive = b.isActive,
-                                            type = b.type
-
-                                        })
-                        .ToList();
-                    return TokenManager.GenerateToken(branchesList);
-
-                }
-            }
-        }
-
+             
         [HttpPost]
         [Route("BranchesByBranchandUser")]
         public string BranchesByBranchandUser(string token)
@@ -520,64 +353,7 @@ namespace POS_Server.Controllers
             }
         }
 
-
-        //
-        [HttpPost]
-        [Route("GetByBranchStor")]
-        public string GetByBranchStor(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int mainBranchId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "mainBranchId")
-                    {
-                        mainBranchId = int.Parse(c.Value);
-                    }
-                }
-                var List = BranchesByBranch(mainBranchId);
-                return TokenManager.GenerateToken(List);
-            }
-        }
-
-
-        //
-        //
-        [HttpPost]
-        [Route("GetByBranchUser")]
-        public string GetByBranchUser(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int userId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "userId")
-                    {
-                        userId = int.Parse(c.Value);
-                    }
-                }
-                var List = BranchesByUser(userId);
-                return TokenManager.GenerateToken(List);
-
-            }
-        }
-
+     
         public List<BranchModel> BranchesByBranch(int mainBranchId)
         {
             // List<branches> blist = new List<branches>();
@@ -972,6 +748,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
+
         [HttpPost]
         [Route("Delete")]
         public string Delete(string token)

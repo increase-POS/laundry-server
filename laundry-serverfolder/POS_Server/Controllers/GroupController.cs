@@ -23,13 +23,9 @@ namespace POS_Server.Controllers
         [Route("Get")]
         public string Get(string token)
         {
-            //  public string Get(string token)
 
-
-
-
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -38,24 +34,7 @@ namespace POS_Server.Controllers
             {
                 bool canDelete = false;
 
-                //int mainBranchId = 0;
-                //int userId = 0;
-
-                //IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                //foreach (Claim c in claims)
-                //{
-                //    if (c.Type == "mainBranchId")
-                //    {
-                //        mainBranchId = int.Parse(c.Value);
-                //    }
-                //    else if (c.Type == "userId")
-                //    {
-                //        userId = int.Parse(c.Value);
-                //    }
-
-                //}
-
-
+               
                 try
                 {
                     using (incposdbEntities entity = new incposdbEntities())
@@ -170,64 +149,13 @@ namespace POS_Server.Controllers
         }
 
 
-
-        // GET api/<controller>  Get medal By ID 
-        //[HttpPost]
-        //[Route("GetByID")]
-        //public IHttpActionResult GetByID()
-        //{
-        //    var re = Request;
-        //    var headers = re.Headers;
-        //    string token = "";
-        //    int cId = 0;
-        //    if (headers.Contains("APIKey"))
-        //    {
-        //        token = headers.GetValues("APIKey").First();
-        //    }
-        //    if (headers.Contains("Id"))
-        //    {
-        //        cId = Convert.ToInt32(headers.GetValues("Id").First());
-        //    }
-        //    Validation validation = new Validation();
-        //    bool valid = validation.CheckApiKey(token);
-
-        //    if (valid)
-        //    {
-        //        using (incposdbEntities entity = new incposdbEntities())
-        //        {
-        //            var list = entity.groups
-        //           .Where(c => c.groupId == cId)
-        //           .Select(c => new {
-        //               c.groupId,
-        //               c.name,
-        //               c.notes,
-        //               c.createDate,
-        //               c.updateDate,
-        //               c.createUserId,
-        //               c.updateUserId,
-
-        //             c.isActive,
-        //           })
-        //           .FirstOrDefault();
-
-        //            if (list == null)
-        //                return NotFound();
-        //            else
-        //                return Ok(list);
-        //        }
-        //    }
-        //    else
-        //        return NotFound();
-        //}
-
-
         // GET api/<controller>  ارجاع قائمة المستخدمين التابعين للمجموعة
         [HttpPost]
         [Route("GetUsersByGroupId")]
         public string GetUsersByGroupId(string token)
         {
 
-          token = TokenManager.readToken(HttpContext.Current.Request);var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request);var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -447,11 +375,10 @@ namespace POS_Server.Controllers
         public String Save(string token)
         {
 
-            //string Object
             string message = "";
 
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -632,16 +559,11 @@ namespace POS_Server.Controllers
         [Route("Delete")]
         public string Delete(string token)
         {
-
-
-            // int groupId, int userId, Boolean final
-            //int Id, int userId
             string message = "";
 
 
-
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -784,9 +706,8 @@ namespace POS_Server.Controllers
         [Route("UpdateGroupIdInUsers")]
         public String UpdateGroupIdInUsers(string token)
         {
-            //int groupId, string newList, int userId
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);

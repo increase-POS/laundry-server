@@ -20,16 +20,9 @@ namespace POS_Server.Controllers
         [Route("Get")]
        public string Get(string token)
         {
-
-
-            // public ResponseVM GetPurinv(string token)
-
-            //int mainBranchId, int userId    DateTime? date=new DateTime?();
-           
             
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);

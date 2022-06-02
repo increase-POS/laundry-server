@@ -17,87 +17,13 @@ namespace POS_Server.Controllers
     [RoutePrefix("api/BranchesUsers")]
     public class BranchesUsersController : ApiController
     {
-        // GET api/<controller>
-        [HttpPost]
-        [Route("Get")]
-        public string Get(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            Boolean canDelete = false;
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var List = (from S in entity.branchesUsers
-                                join B in entity.branches on S.branchId equals B.branchId into JB
-                                join U in entity.users on S.userId equals U.userId into JU
-                                from JBB in JB.DefaultIfEmpty()
-                                from JUU in JU.DefaultIfEmpty()
-                                select new BranchesUsersModel()
-                                {
-                                    branchsUsersId = S.branchsUsersId,
-
-                                    branchId = S.branchId,
-                                    userId = S.userId,
-                                    createDate = S.createDate,
-                                    updateDate = S.updateDate,
-                                    createUserId = S.createUserId,
-                                    updateUserId = S.updateUserId,
-                                    // branch
-                                    bbranchId = JBB.branchId,
-                                    bcode = JBB.code,
-                                    bname = JBB.name,
-                                    baddress = JBB.address,
-                                    bemail = JBB.email,
-                                    bphone = JBB.phone,
-                                    bmobile = JBB.mobile,
-                                    bcreateDate = JBB.createDate,
-                                    bupdateDate = JBB.updateDate,
-                                    bcreateUserId = JBB.createUserId,
-                                    bupdateUserId = JBB.updateUserId,
-                                    bnotes = JBB.notes,
-                                    bparentId = JBB.parentId,
-                                    bisActive = JBB.isActive,
-                                    btype = JBB.type,
-                                    // user
-                                    uuserId = JUU.userId,
-                                    uusername = JUU.username,
-                                    upassword = JUU.password,
-                                    uname = JUU.name,
-                                    ulastname = JUU.lastname,
-                                    ujob = JUU.job,
-                                    uworkHours = JUU.workHours,
-                                    ucreateDate = JUU.createDate,
-                                    uupdateDate = JUU.updateDate,
-                                    ucreateUserId = JUU.createUserId,
-                                    uupdateUserId = JUU.updateUserId,
-                                    uphone = JUU.phone,
-                                    umobile = JUU.mobile,
-                                    uemail = JUU.email,
-                                    unotes = JUU.notes,
-                                    uaddress = JUU.address,
-                                    uisActive = JUU.isActive,
-                                    uisOnline = JUU.isOnline,
-
-                                    uimage = JUU.image,
-
-
-                                }).ToList();
-                    return TokenManager.GenerateToken(List);
-                }
-            }
-        }
+       
         [HttpPost]
         [Route("GetBranchesByUserId")]
         public string GetBranchesByUserId(string token)
         {
             token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -173,138 +99,8 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
-        // GET api/<controller>
-        [HttpPost]
-        [Route("GetByID")]
-        public string GetByID(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int branchsUsersId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        branchsUsersId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var row = entity.branchesUsers
-                   .Where(u => u.branchsUsersId == branchsUsersId)
-                   .Select(S => new
-                   {
-                       S.branchsUsersId,
-                       S.branchId,
-                       S.userId,
-                       S.createDate,
-                       S.updateDate,
-                       S.createUserId,
-                       S.updateUserId,
-                   })
-                   .FirstOrDefault();
-                    return TokenManager.GenerateToken(row);
-                }
-            }
-        }
-        // add or update location//BranchesUsers/UpdateBranchByUserId"
-        [HttpPost]
-        [Route("Save")]
-        public string Save(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                string Objects = "";
-                branchesUsers newObject = null;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemObject")
-                    {
-                        Objects = c.Value.Replace("\\", string.Empty);
-                        Objects = Objects.Trim('"');
-                        newObject = JsonConvert.DeserializeObject<branchesUsers>(Objects, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
-                        break;
-                    }
-                }
-                if (newObject.updateUserId == 0 || newObject.updateUserId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.updateUserId = id;
-                }
-                if (newObject.createUserId == 0 || newObject.createUserId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.createUserId = id;
-                }
-
-                if (newObject.branchId == 0 || newObject.branchId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.branchId = id;
-                }
-                if (newObject.userId == 0 || newObject.userId == null)
-                {
-                    Nullable<int> id = null;
-                    newObject.userId = id;
-                }
-
-                try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        var locationEntity = entity.Set<branchesUsers>();
-                        if (newObject.branchsUsersId == 0)
-                        {
-                            newObject.createDate = DateTime.Now;
-                            newObject.updateDate = DateTime.Now;
-                            newObject.updateUserId = newObject.createUserId;
-
-
-                            locationEntity.Add(newObject);
-                            entity.SaveChanges();
-                            message = newObject.branchsUsersId.ToString();
-                        }
-                        else
-                        {
-                            var tmpObject = entity.branchesUsers.Where(p => p.branchsUsersId == newObject.branchsUsersId).FirstOrDefault();
-
-                            tmpObject.updateDate = DateTime.Now;
-                            tmpObject.updateUserId = newObject.updateUserId;
-                            tmpObject.branchsUsersId = newObject.branchsUsersId;
-
-                            tmpObject.branchId = newObject.branchId;
-                            tmpObject.userId = newObject.userId;
-
-
-                            entity.SaveChanges();
-
-                            message = tmpObject.branchsUsersId.ToString();
-                        }
-                        return TokenManager.GenerateToken(message);
-                    }
-                }
-                catch
-                {
-                    message = "0";
-                    return TokenManager.GenerateToken(message);
-                }
-            }
-        }
+       
+       
         //update branches list by userId
         [HttpPost]
         [Route("UpdateBranchByUserId")]
@@ -312,7 +108,7 @@ var strP = TokenManager.GetPrincipal(token);
         {
             token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -409,47 +205,6 @@ var strP = TokenManager.GetPrincipal(token);
             }
 
         }
-        [HttpPost]
-        [Route("Delete")]
-        public string Delete(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int branchsUsersId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "branchsUsersId")
-                    {
-                        branchsUsersId = int.Parse(c.Value);
-                    }
-                }
-                try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        branchesUsers objectDelete = entity.branchesUsers.Find(branchsUsersId);
 
-                        entity.branchesUsers.Remove(objectDelete);
-                        message = entity.SaveChanges().ToString();
-                        return TokenManager.GenerateToken(message);
-                    }
-                }
-                catch
-                {
-                    message = "0";
-                    return TokenManager.GenerateToken(message);
-                }
-
-            }
-
-        }
     }
 }

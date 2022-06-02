@@ -22,8 +22,8 @@ namespace POS_Server.Controllers
         [Route("GetAll")]
         public string GetAll(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -50,61 +50,15 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
-        // GET api/<controller>
-        [HttpPost]
-        [Route("GetByID")]
-        public string GetByID(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int errorId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        errorId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var row = entity.error
-                   .Where(u => u.errorId == errorId)
-                   .Select(S => new
-                   {
-                       S.errorId,
-
-                       S.num,
-                       S.msg,
-                       S.stackTrace,
-                       S.targetSite,
-                       S.posId,
-                       S.branchId,
-                       S.createDate,
-                       S.createUserId,
-
-
-                   })
-                   .FirstOrDefault();
-
-                    return TokenManager.GenerateToken(row);
-                }
-            }
-        }
+       
         // add or update location
         [HttpPost]
         [Route("Save")]
         public string Save(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -183,50 +137,7 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
-        [HttpPost]
-        [Route("Delete")]
-        public string Delete(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                try
-                {
-                    int errorId = 0;
-                    IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                    foreach (Claim c in claims)
-                    {
-                        if (c.Type == "itemId")
-                        {
-                            errorId = int.Parse(c.Value);
-                        }
-                    }
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        error objectDelete = entity.error.Find(errorId);
 
-                        entity.error.Remove(objectDelete);
-                        message = entity.SaveChanges().ToString();
-
-                        return TokenManager.GenerateToken(message);
-
-                    }
-                }
-                catch
-                {
-                    message = "-1";
-                    return TokenManager.GenerateToken(message);
-
-                }
-
-
-            }
-        }
+       
     }
 }

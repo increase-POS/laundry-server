@@ -100,43 +100,7 @@ namespace POS_Server.Controllers
             }
 
         }
-
-        // GET api/<controller> get all Group
-        [HttpPost]
-        [Route("getbackup")]
-        public string getbackup(string token)
-        {
-            //  public string Get(string token)
-            string message = "";
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-
-                string path = "";
-                string filename = "back" + DateTime.Now.ToFileTime() + ".bak";
-              //  string filename = "back.bak";
-
-                path = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~\\images\\temp\\"), filename);
-                var files = Directory.GetFiles(System.Web.Hosting.HostingEnvironment.MapPath("~\\images\\temp\\"), filename);
-                if (files.Length > 0)
-                {
-
-                    File.Delete(files[0]);
-                }
-
-                message = backupDB(path);
-
-
-                return TokenManager.GenerateToken(message);
-            }
-
-
-        }
+      
         private string createBackup()
         {
             string message = "";
