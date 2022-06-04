@@ -48,68 +48,7 @@ namespace POS_Server.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("updateIsonline")]
-        public string updateIsonline(string token)
-        {
-            //string Object
-            string message = "";
- 
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-               
-                bool isOnlineServer = false;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "isOnlineServer")
-                    {
-                        isOnlineServer = bool.Parse( c.Value) ;
-                      
-                    }
-                }
-                    
-                    try
-                    {
-                
-                    using (incposdbEntities entity = new incposdbEntities())
-                        {
-
-                            var locationEntity = entity.Set<ProgramDetails>();
-
-                      var  packsl = entity.ProgramDetails.ToList();
-
-                      var  packs = packsl.FirstOrDefault();
-                        packs.isOnlineServer = isOnlineServer;
-                                entity.SaveChanges();
-                                message = packs.id.ToString();
- 
-                           
-                            //  entity.SaveChanges();
-                        }
-                        return TokenManager.GenerateToken(message);
-
-                    }
-                    catch
-                    {
-                        message = "0";
-                        return TokenManager.GenerateToken(message);
-                    }
-
-
-                }
-
-               
-
-          
-     
-        }
+        
         public ProgramDetailsModel getCurrentInfo()
         {       
             ProgramDetailsModel packs = new ProgramDetailsModel();      
