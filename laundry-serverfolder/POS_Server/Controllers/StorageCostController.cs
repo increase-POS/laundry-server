@@ -66,6 +66,7 @@ namespace POS_Server.Controllers
             }
 
         }
+
         [HttpPost]
         [Route("GetStorageCostUnits")]
         public string GetStorageCostUnits(string token)
@@ -123,48 +124,7 @@ namespace POS_Server.Controllers
             }
 
         }
-        // GET api/<controller>
-        [HttpPost]
-        [Route("GetByID")]
-        public string GetByID(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int storageCostId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        storageCostId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var row = entity.storageCost
-                   .Where(u => u.storageCostId == storageCostId)
-                   .Select(S => new
-                   {
-                       S.storageCostId,
-                       S.name,
-                       S.cost,
-                       S.notes,
-                       S.isActive,
-                       S.createDate,
-                       S.updateDate,
-                       S.createUserId,
-                       S.updateUserId,
-                   }).FirstOrDefault();
-                    return TokenManager.GenerateToken(row);
-                }
-            }
-        }
+       
 
         // add or update location
         [HttpPost]
@@ -245,6 +205,7 @@ namespace POS_Server.Controllers
             }
             return TokenManager.GenerateToken(message);
         }
+
         [HttpPost]
         [Route("setCostToUnits")]
         public string setCostToUnits(string token)
@@ -303,6 +264,7 @@ namespace POS_Server.Controllers
             }
             return TokenManager.GenerateToken(message);
         }
+
         [HttpPost]
         [Route("Delete")]
         public string Delete(string token)

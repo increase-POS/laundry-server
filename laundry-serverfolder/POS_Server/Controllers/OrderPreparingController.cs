@@ -114,6 +114,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
+
         [HttpPost]
         [Route("GetKitchenPreparingOrders")]
         public string GetKitchenPreparingOrders(string token)
@@ -181,20 +182,20 @@ namespace POS_Server.Controllers
                         {
 
                             #region get invoice tables
-                            var tables = (from t in entity.tables.Where(x => x.isActive == 1)
-                                          join it in entity.invoiceTables.Where(x => x.invoiceId == inv.invoiceId) on t.tableId equals it.tableId
-                                          select new TableModel()
-                                          {
-                                              tableId = t.tableId,
-                                              name = t.name,
-                                          }).ToList();
-                            string tablesNames = "";
-                            foreach (TableModel tabl in tables)
-                            {
-                                if (tablesNames == "")
-                                    tablesNames += tabl.name;
-                                else tablesNames += ", " + tabl.name;
-                            }
+                            //var tables = (from t in entity.tables.Where(x => x.isActive == 1)
+                            //              join it in entity.invoiceTables.Where(x => x.invoiceId == inv.invoiceId) on t.tableId equals it.tableId
+                            //              select new TableModel()
+                            //              {
+                            //                  tableId = t.tableId,
+                            //                  name = t.name,
+                            //              }).ToList();
+                            //string tablesNames = "";
+                            //foreach (TableModel tabl in tables)
+                            //{
+                            //    if (tablesNames == "")
+                            //        tablesNames += tabl.name;
+                            //    else tablesNames += ", " + tabl.name;
+                            //}
                             #endregion
 
                             var prepOrders = (from o in entity.orderPreparing.Where(x => x.invoiceId == inv.invoiceId)
@@ -254,9 +255,6 @@ namespace POS_Server.Controllers
                                 }
                                 #endregion
 
-                                #region invoice tables
-                                o.tables = tablesNames;
-                                #endregion
 
                                 #region preparing status date
                                 if (o.status == "Listed")
@@ -425,21 +423,21 @@ namespace POS_Server.Controllers
                         foreach (OrderPreparingModel o in prepOrders)
                         {
                             #region get invoice tables
-                            var tables = (from t in entity.tables.Where(x => x.isActive == 1)
-                                          join it in entity.invoiceTables.Where(x => x.invoiceId == o.invoiceId) on t.tableId equals it.tableId
-                                          select new TableModel()
-                                          {
-                                              tableId = t.tableId,
-                                              name = t.name,
-                                          }).ToList();
-                            string tablesNames = "";
-                            foreach (TableModel tabl in tables)
-                            {
-                                if (tablesNames == "")
-                                    tablesNames += tabl.name;
-                                else tablesNames += ", " + tabl.name;
-                            }
-                            o.tables = tablesNames;
+                            //var tables = (from t in entity.tables.Where(x => x.isActive == 1)
+                            //              join it in entity.invoiceTables.Where(x => x.invoiceId == o.invoiceId) on t.tableId equals it.tableId
+                            //              select new TableModel()
+                            //              {
+                            //                  tableId = t.tableId,
+                            //                  name = t.name,
+                            //              }).ToList();
+                            //string tablesNames = "";
+                            //foreach (TableModel tabl in tables)
+                            //{
+                            //    if (tablesNames == "")
+                            //        tablesNames += tabl.name;
+                            //    else tablesNames += ", " + tabl.name;
+                            //}
+                            //o.tables = tablesNames;
                             #endregion
 
                         }
@@ -533,23 +531,23 @@ namespace POS_Server.Controllers
                             //string status = "";
                             foreach (OrderPreparingModel o in prepOrders)
                             {
-                                #region get invoice tables
-                                var tables = (from t in entity.tables.Where(x => x.isActive == 1)
-                                              join it in entity.invoiceTables.Where(x => x.invoiceId == o.invoiceId) on t.tableId equals it.tableId
-                                              select new TableModel()
-                                              {
-                                                  tableId = t.tableId,
-                                                  name = t.name,
-                                              }).ToList();
-                                string tablesNames = "";
-                                foreach (TableModel tabl in tables)
-                                {
-                                    if (tablesNames == "")
-                                        tablesNames += tabl.name;
-                                    else tablesNames += ", " + tabl.name;
-                                }
-                                o.tables = tablesNames;
-                                #endregion
+                                //#region get invoice tables
+                                //var tables = (from t in entity.tables.Where(x => x.isActive == 1)
+                                //              join it in entity.invoiceTables.Where(x => x.invoiceId == o.invoiceId) on t.tableId equals it.tableId
+                                //              select new TableModel()
+                                //              {
+                                //                  tableId = t.tableId,
+                                //                  name = t.name,
+                                //              }).ToList();
+                                //string tablesNames = "";
+                                //foreach (TableModel tabl in tables)
+                                //{
+                                //    if (tablesNames == "")
+                                //        tablesNames += tabl.name;
+                                //    else tablesNames += ", " + tabl.name;
+                                //}
+                                //o.tables = tablesNames;
+                                //#endregion
 
                                 #region set inv status
                                 if (o.status == "Listed" || o.status == "preparing")
@@ -741,6 +739,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
+
         [HttpPost]
         [Route("GetCountHallOrders")]
         public string GetCountHallOrders(string token)
@@ -1020,6 +1019,7 @@ namespace POS_Server.Controllers
                 return TokenManager.GenerateToken(message);
             }
         }
+
         [HttpPost]
         [Route("EditPreparingOrdersPrepTime")]
         public string EditPreparingOrdersPrepTime(string token)
@@ -1082,6 +1082,7 @@ namespace POS_Server.Controllers
                 return TokenManager.GenerateToken(message);
             }
         }
+
         [HttpPost]
         [Route("EditOrderListAndStatus")]
         public string EditOrderListAndStatus(string token)
@@ -1136,6 +1137,7 @@ namespace POS_Server.Controllers
                 return TokenManager.GenerateToken(message);
             }
         }
+
         [HttpPost]
         [Route("EditInvoiceOrdersStatus")]
         public string EditInvoiceOrdersStatus(string token)
@@ -1281,6 +1283,7 @@ namespace POS_Server.Controllers
                 return TokenManager.GenerateToken(message);
             }
         }
+
         [HttpPost]
         [Route("finishInvoiceOrders")]
         public string finishInvoiceOrders(string token)
@@ -1574,6 +1577,7 @@ namespace POS_Server.Controllers
             catch { message = "0"; }
             return message;
         }
+
         [HttpPost]
         [Route("GetLastNumOfOrder")]
         public string GetLastNumOfOrder(string token)
@@ -1699,21 +1703,21 @@ namespace POS_Server.Controllers
 
 
                             #region get invoice tables
-                            var tables = (from t in entity.tables.Where(x => x.isActive == 1)
-                                          join it in entity.invoiceTables.Where(x => x.invoiceId == o.invoiceId) on t.tableId equals it.tableId
-                                          select new TableModel()
-                                          {
-                                              tableId = t.tableId,
-                                              name = t.name,
-                                          }).ToList();
-                            string tablesNames = "";
-                            foreach (TableModel tabl in tables)
-                            {
-                                if (tablesNames == "")
-                                    tablesNames += tabl.name;
-                                else tablesNames += ", " + tabl.name;
-                            }
-                            o.tables = tablesNames;
+                            //var tables = (from t in entity.tables.Where(x => x.isActive == 1)
+                            //              join it in entity.invoiceTables.Where(x => x.invoiceId == o.invoiceId) on t.tableId equals it.tableId
+                            //              select new TableModel()
+                            //              {
+                            //                  tableId = t.tableId,
+                            //                  name = t.name,
+                            //              }).ToList();
+                            //string tablesNames = "";
+                            //foreach (TableModel tabl in tables)
+                            //{
+                            //    if (tablesNames == "")
+                            //        tablesNames += tabl.name;
+                            //    else tablesNames += ", " + tabl.name;
+                            //}
+                            //o.tables = tablesNames;
                             #endregion
 
                         }

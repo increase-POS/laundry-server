@@ -62,7 +62,6 @@ namespace POS_Server.Models
         public Nullable<int> membershipId { get; set; }
 
 
-        public IEnumerable<TableModel> tables { get; set; }
         public string payStatus { get; set; }
         // agent 
         public string agentAddress { get; set; }

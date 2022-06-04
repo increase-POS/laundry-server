@@ -84,91 +84,8 @@ namespace POS_Server.Controllers
                 }
             }
         }
-        // GET api/<controller>  Get card By ID 
-        [HttpPost]
-        [Route("GetByID")]
-        public string GetByID(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int cId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        cId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var card = entity.tags
-                   .Where(S=> S.tagId == cId)
-                   .Select(S => new {
-                       S.tagId,
-                       S.tagName,
-                       S.categoryId,
-                       S.notes,
-                       S.createUserId,
-                       S.updateUserId,
-                       S.createDate,
-                       S.updateDate,
-                       S.isActive,
-
-                   })
-                   .FirstOrDefault();
-                    return TokenManager.GenerateToken(card);
-                }
-            }
-        }
-      
-        [HttpPost]
-        [Route("GetByisActive")]
-        public string GetByisActive(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int isActive = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "isActive")
-                    {
-                        isActive = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var card = entity.tags
-                   .Where(S => S.isActive == isActive)
-                   .Select(S => new {
-                       S.tagId,
-                       S.tagName,
-                       S.categoryId,
-                       S.notes,
-                       S.createUserId,
-                       S.updateUserId,
-                       S.createDate,
-                       S.updateDate,
-                       S.isActive,
-                   })
-                   .ToList();
-                    return TokenManager.GenerateToken(card);
-                }
-            }
-        }
+       
+           
         // add or update card 
         [HttpPost]
         [Route("Save")]
@@ -228,9 +145,9 @@ var strP = TokenManager.GetPrincipal(token);
         [Route("Delete")]
         public string Delete(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);

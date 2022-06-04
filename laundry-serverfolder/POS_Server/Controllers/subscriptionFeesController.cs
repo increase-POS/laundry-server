@@ -70,65 +70,8 @@ namespace POS_Server.Controllers
                 }
             }
         }
-        /*
-   public int subscriptionFeesId { get; set; }
-        public Nullable<int> subscriptionFeesId { get; set; }
-        public int monthsCount { get; set; }
-        public decimal Amount { get; set; }
-        public string notes { get; set; }
-        public Nullable<System.DateTime> createDate { get; set; }
-        public Nullable<System.DateTime> updateDate { get; set; }
-        public Nullable<int> createUserId { get; set; }
-        public Nullable<int> updateUserId { get; set; }
-        public byte isActive { get; set; }
-         * */
-        [HttpPost]
-        [Route("GetById")]
-        public string GetById(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int subscriptionFeesId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        subscriptionFeesId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var bank = entity.subscriptionFees
-                   .Where(S => S.subscriptionFeesId == subscriptionFeesId)
-                   .Select(S => new
-                   {
-                       S.subscriptionFeesId,
-                       S.membershipId,
-                       S.monthsCount,
-                       S.Amount,
-                       S.notes,
-                       S.createDate,
-                       S.updateDate,
-                       S.createUserId,
-                       S.updateUserId,
-                       S.isActive,
-
-
-                   })
-                   .FirstOrDefault();
-                    return TokenManager.GenerateToken(bank);
-
-                }
-            }
-        }
-
+       
+      
         [HttpPost]
         [Route("Save")]
         public string Save(string token)

@@ -76,131 +76,13 @@ namespace POS_Server.Controllers
            
         }
 
-        // GET api/<controller>
-        [HttpPost]
-        [Route("GetLocationByID")]
-        public string GetLocationByID(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int locationId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        locationId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var location = entity.locations
-                   .Where(u => u.locationId == locationId)
-                   .Select(L => new
-                   {
-                       L.locationId,
-                       L.x,
-                       L.y,
-                       L.z,
-                       L.createDate,
-                       L.updateDate,
-                       L.createUserId,
-                       L.updateUserId,
-                       L.isActive,
-                       L.isFreeZone,
-                       L.isKitchen,
-                       L.branchId,
-                       L.sectionId,
-                       note = L.notes,
-
-                   })
-                   .FirstOrDefault();
-                    return TokenManager.GenerateToken(location);
-                }
-            }
-        }
-        // GET api/<controller>
-        [HttpPost]
-        [Route("GetLocsByBranchID")]
-        public string GetLocsByBranchID(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-            Boolean canDelete = false;
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int branchId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        branchId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var locationsList = (from L in entity.locations
-                                         join s in entity.sections on L.sectionId equals s.sectionId into lj
-                                         join b in entity.branches on L.branchId equals b.branchId into bj
-                                         from v in lj.DefaultIfEmpty()
-                                         from bbj in bj.DefaultIfEmpty()
-                                         where L.branchId == branchId
-                                         select new LocationModel()
-                                         {
-                                             locationId = L.locationId,
-                                             x = L.x,
-                                             y = L.y,
-                                             z = L.z,
-                                             createDate = L.createDate,
-                                             updateDate = L.updateDate,
-                                             createUserId = L.createUserId,
-                                             updateUserId = L.updateUserId,
-                                             isActive = L.isActive,
-                                             isFreeZone = L.isFreeZone,
-                                             isKitchen = L.isKitchen,
-                                             branchId = L.branchId,
-                                             sectionId = L.sectionId,
-                                             sectionName = v.name,
-                                             notes = L.notes,
-
-                                         }).ToList();
-
-                    if (locationsList.Count > 0)
-                    {
-                        for (int i = 0; i < locationsList.Count; i++)
-                        {
-                            if (locationsList[i].isActive == 1)
-                            {
-                                int locationId = (int)locationsList[i].locationId;
-                                var itemsLocationL = entity.itemsLocations.Where(x => x.locationId == locationId).Select(b => new { b.itemsLocId }).FirstOrDefault();
-                                
-                                if ((itemsLocationL is null) )
-                                    canDelete = true;
-                            }
-                            locationsList[i].canDelete = canDelete;
-                        }
-                    }
-                    return TokenManager.GenerateToken(locationsList);
-                }
-            }
-         }
+             
         [HttpPost]
         [Route("GetLocsBySectionId")]
         public string GetLocsBySectionId(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -252,9 +134,9 @@ var strP = TokenManager.GetPrincipal(token);
         [Route("Save")]
         public string Save(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -338,9 +220,9 @@ var strP = TokenManager.GetPrincipal(token);
         [Route("Delete")]
         public string Delete(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -409,80 +291,15 @@ var strP = TokenManager.GetPrincipal(token);
             } 
         }
 
-        #region
-        [HttpPost]
-        [Route("UpdateLocBySecId")]
-        public string UpdateLocationBySecId(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-            int sectionId = 0;
-            int res = 0;
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-                {
-                string newloclist = "";
-                List<locations> newlocObj = null;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemObject")
-                    {
-                        newloclist = c.Value.Replace("\\", string.Empty);
-                        newloclist = newloclist.Trim('"');
-                        newlocObj = JsonConvert.DeserializeObject<List<locations>>(newloclist, new JsonSerializerSettings { DateParseHandling = DateParseHandling.None });
-                        break;
-                    }
-                }
-
-
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var oldloc = entity.locations.Where(p => p.sectionId == sectionId);
-                    if (oldloc.Count() > 0)
-                    {
-                        entity.locations.RemoveRange(oldloc);
-                    }
-                    if (newlocObj.Count() > 0)
-                    {
-                        foreach (locations newlocrow in newlocObj)
-                        {
-                            newlocrow.sectionId = sectionId;
-                            if (newlocrow.createDate == null)
-                            {
-                                newlocrow.createDate = DateTime.Now;
-                                newlocrow.updateDate = DateTime.Now;
-                                newlocrow.updateUserId = newlocrow.createUserId;
-                            }
-                            else
-                            {
-                                newlocrow.updateDate = DateTime.Now;
-                            }
-                        }
-                        entity.locations.AddRange(newlocObj);
-                    }
-                    res = entity.SaveChanges();
-                    return TokenManager.GenerateToken(res);
-                }
-
-            }
-          
-
-        }
-        #endregion
-
 
         // add or update List of locations
         [HttpPost]
         [Route("AddLocationsToSection")]
         public string AddLocationsToSection(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);

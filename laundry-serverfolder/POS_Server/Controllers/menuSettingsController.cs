@@ -17,40 +17,7 @@ namespace POS_Server.Controllers
     [RoutePrefix("api/menuSettings")]
     public class menuSettingsController : ApiController
     {
-        [HttpPost]
-        [Route("Get")]
-        public string Get(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int itemUnitId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemUnitId")
-                    {
-                        itemUnitId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var searchPredicate = PredicateBuilder.New<menuSettings>();
-                    searchPredicate.And(x => x.isActive == 1);
-                    if (itemUnitId != 0)
-                        searchPredicate.And(x => x.itemUnitId == itemUnitId);
-
-                    var menuList = entity.menuSettings.Where(searchPredicate).ToList();
-                   
-                    return TokenManager.GenerateToken(menuList);
-                }
-            }
-        }
+       
         // add or update menu settings 
         [HttpPost]
         [Route("Save")]

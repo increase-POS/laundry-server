@@ -17,71 +17,19 @@ namespace POS_Server.Controllers
     [RoutePrefix("api/ItemsOffers")]
     public class ItemsOffersController : ApiController
     {
-        int newdays = -15;
-        //[HttpPost]
-        //[Route("Getall")]
-        //public IHttpActionResult Getall()
-        //{
-
-
-
-        //    var re = Request;
-        //    var headers = re.Headers;
-        //    string token = "";
-        //    if (headers.Contains("APIKey"))
-        //    {
-        //        token = headers.GetValues("APIKey").First();
-        //    }
-        //    Validation validation = new Validation();
-        //    bool valid = validation.CheckApiKey(token);
-
-        //    if (valid) // APIKey is valid
-        //    {
-        //        using (incposdbEntities entity = new incposdbEntities())
-        //        {
-        //            var ioList = entity.itemsOffers
-
-        //           .Select(c => new ItemOfferModel() {
-        //            iuId=   c.iuId,
-        //               offerId= c.offerId,
-
-        //               ioId= c.ioId,
-        //               createUserId= c.createUserId,
-        //               updateUserId=  c.updateUserId,
-        //               createDate=   c.createDate,
-        //               updateDate=   c.updateDate,
-
-
-        //           })
-        //           .ToList();
-
-        //            if (ioList == null)
-        //                return NotFound();
-        //            else
-        //                return Ok(ioList);
-        //        }
-        //    }
-        //    //else
-        //    return NotFound();
-        //}
        
-
         #region
         [HttpPost]
         [Route("UpdateItemsByOfferId")]
         public string UpdateItemsByOfferId( string token)
         {
-            //string  newitoflist
-
-
-            //string itemLocationObject
             string message = "";
             int offerId = 0;
             int userId = 0;
 
 
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- if (TokenManager.GetPrincipal(token) == null) //invalid authorization
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            if (TokenManager.GetPrincipal(token) == null) //invalid authorization
             {
                 return TokenManager.GenerateToken("-7");
             }
@@ -253,8 +201,6 @@ namespace POS_Server.Controllers
 
         public string GetItemsByOfferId(string token )
         {
-
-
             //string itemLocationObject
             string message = "";
             int offerId = 0;
@@ -385,72 +331,6 @@ namespace POS_Server.Controllers
 
         }
         #endregion 
-        #region
-        [HttpPost]
-        [Route("getRemain")]
-
-        public string getRemain(string token )
-        {
-            string message = "";
-           
-             token = TokenManager.readToken(HttpContext.Current.Request); 
-            if (TokenManager.GetPrincipal(token) == null) //invalid authorization
-            {
-                return TokenManager.GenerateToken("-7");
-            }
-            else
-            {
-                int offerId = 0;
-                int itemUnitId = 0;
-                int remain = 0;
-
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "offerId")
-                    {
-                            offerId = int.Parse(c.Value);
-                     }
-                    else if (c.Type == "itemUnitId")
-                    {
-                        itemUnitId = int.Parse(c.Value);
-                    }
-                }
-                try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        var iuoffer = (from itofr in entity.itemsOffers
-                                       where itofr.offerId == (int)offerId && itofr.iuId == (int)itemUnitId
-                                       select new ItemOfferModel()
-                                       {
-                                           offerId = itofr.offerId,
-                                           quantity = itofr.quantity,
-                                           used = itofr.used,
-                                           createDate = itofr.createDate,
-                                           updateDate = itofr.updateDate,
-                                           createUserId = itofr.createUserId,
-                                           updateUserId = itofr.updateUserId,
-                                       }).FirstOrDefault();
-
-                        if (iuoffer != null)
-                        {
-                            if (iuoffer.used == null)
-                                iuoffer.used = 0;
-                            remain = (int)iuoffer.quantity - (int)iuoffer.used;
-                        }
-                    
-                    return TokenManager.GenerateToken(remain);
-                }
-                }
-                catch
-                {
-                    message = "10";
-                    return TokenManager.GenerateToken(message);
-                }
-            }          
-        }
-        #endregion
 
     }
 }

@@ -22,14 +22,8 @@ namespace POS_Server.Controllers
        public string Get(string token)
         {
 
-
-            // public ResponseVM GetPurinv(string token)
-
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -151,146 +145,16 @@ namespace POS_Server.Controllers
             //return NotFound();
         }
 
-        // GET api/<controller>
-        [HttpPost]
-        [Route("GetByID")]
-      public string   GetByID(string token)
-        {
-
-            // public ResponseVM GetPurinv(string token)int emailId
-
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int emailId = 0;
-
-
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "emailId")
-                    {
-                        emailId = int.Parse(c.Value);
-                    }
-
-
-                }
-
-                // DateTime cmpdate = DateTime.Now.AddDays(newdays);
-                try
-                {
-
-
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-
-                        var item = entity.sysEmails
-                           .Where(u => u.emailId == emailId)
-                           .Select(S => new
-                           {
-                               S.emailId,
-                               S.name,
-                               S.email,
-                               S.password,
-                               S.port,
-                               S.isSSL,
-                               S.smtpClient,
-                               S.side,
-                               S.notes,
-                               S.branchId,
-                               S.isMajor,
-                               S.isActive,
-                               S.createDate,
-                               S.updateDate,
-                               S.createUserId,
-                               S.updateUserId,
-
-
-
-
-                           })
-                                       .FirstOrDefault();
-                        return TokenManager.GenerateToken(item);
-
-                    }
-
-                }
-                catch
-                {
-                    return TokenManager.GenerateToken("0");
-                }
-
-            }
-
-            //       
-            //        
-            //        string token = "";
-            //        if (headers.Contains("APIKey"))
-            //        {
-            //            token = headers.GetValues("APIKey").First();
-            //        }
-            //        Validation validation = new Validation();
-            //        bool valid = validation.CheckApiKey(token);
-
-            //        if (valid)
-            //        {
-            //            using (incposdbEntities entity = new incposdbEntities())
-            //            {
-            //                var row = entity.sysEmails
-            //               .Where(u => u.emailId == emailId)
-            //               .Select(S => new
-            //               {
-            //                    S.emailId,
-            //                      S.name,
-            //                    S.email,
-            //                       S.password,
-            //                     S.port,
-            //                    S.isSSL,
-            //                    S.smtpClient,
-            //                    S.side,
-            //                     S.notes,
-            //                    S.branchId,
-            //                   S.isMajor,
-            //                    S.isActive,
-            //                     S.createDate,
-            //                     S.updateDate,
-            //                     S.createUserId,
-            //                  S.updateUserId,
-
-
-
-
-            //})
-            //               .FirstOrDefault();
-
-            //                if (row == null)
-            //                    return NotFound();
-            //                else
-            //                    return Ok(row);
-            //            }
-            //        }
-            //        else
-            //            return NotFound();
-        }
-
+       
         //
         // get 
         [HttpPost]
         [Route("GetByBranchIdandSide")]
-      public string   GetByBranchIdandSide(string token)
+        public string   GetByBranchIdandSide(string token)
         {
-            // public ResponseVM GetPurinv(string token)int branchId,string side
 
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -404,16 +268,14 @@ namespace POS_Server.Controllers
         // add or update location
         [HttpPost]
         [Route("Save")]
-      public string   Save(string token)
-        {
-
-            //string Object 
+        public string   Save(string token)
+        { 
             string message = "";
            
             
             
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -624,16 +486,14 @@ namespace POS_Server.Controllers
 
         [HttpPost]
         [Route("Delete")]
-      public string   Delete(string token)
+        public string   Delete(string token)
         {
-            // public ResponseVM Delete(string token)int emailId, int userId, bool final
-            //int Id, int userId
             string message = "";
            
             
             
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);

@@ -286,7 +286,6 @@
     <Compile Include="Controllers\menuSettingsController.cs" />
     <Compile Include="Controllers\ProgramDetailsController.cs" />
     <Compile Include="Controllers\ResidentialSectorsController.cs" />
-    <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\CashTransferController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
@@ -304,15 +303,12 @@
     <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\InventoryItemLocationController.cs" />
     <Compile Include="Controllers\InvoicesController.cs" />
-    <Compile Include="Controllers\InvoiceStatusController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ItemsLocationsController.cs" />
     <Compile Include="Controllers\ItemsOffersController.cs" />
-    <Compile Include="Controllers\itemsPropController.cs" />
     <Compile Include="Controllers\ItemsTransferController.cs" />
     <Compile Include="Controllers\ItemsUnitsController.cs" />
     <Compile Include="Controllers\ItemUnitUserController.cs" />
-    <Compile Include="Controllers\MedalAgentController.cs" />
     <Compile Include="Controllers\MembershipsController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\notificationUserController.cs" />
@@ -330,13 +326,9 @@
     <Compile Include="Controllers\userSetValuesController.cs" />
     <Compile Include="Controllers\setValuesController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
-    <Compile Include="Controllers\MedalController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\PosController.cs" />
-    <Compile Include="Controllers\PropertiesController.cs" />
-    <Compile Include="Controllers\propertiesItemsController.cs" />
-    <Compile Include="Controllers\serialsController.cs" />
     <Compile Include="Controllers\UnitsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
@@ -465,10 +457,7 @@
     <Compile Include="Models\invoicesClassModel.cs" />
     <Compile Include="Models\MenuSettingModel.cs" />
     <Compile Include="Models\ProgramDetailsModel.cs" />
-    <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\ResidentialSectorsModel.cs" />
-    <Compile Include="Models\TableModel.cs" />
-    <Compile Include="Models\TablesStatisticsModel.cs" />
     <Compile Include="Models\TagsModel.cs" />
     <Compile Include="Models\CashTransferModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -481,7 +470,6 @@
     <Compile Include="Models\InventoryItemLocationModel.cs" />
     <Compile Include="Models\InventoryModel.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
-    <Compile Include="Models\InvoiceStatusModel.cs" />
     <Compile Include="Models\ItemLocationModel.cs" />
     <Compile Include="Models\ItemOfferModel.cs" />
     <Compile Include="Models\ItemSalePurModel.cs" />
@@ -489,8 +477,6 @@
     <Compile Include="Models\ItemTransferModel.cs" />
     <Compile Include="Models\ItemUnitModel.cs" />
     <Compile Include="Models\ItemUnitUserModel.cs" />
-    <Compile Include="Models\MedalAgentModel.cs" />
-    <Compile Include="Models\MedalModel.cs" />
     <Compile Include="Models\MembershipsModel.cs" />
     <Compile Include="Models\NotificationUserModel.cs" />
     <Compile Include="Models\ObjectsModel.cs" />
@@ -501,8 +487,6 @@
     <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\OfferModel.cs" />
     <Compile Include="Models\PosModel.cs" />
-    <Compile Include="Models\PropertiesItemModel.cs" />
-    <Compile Include="Models\PropertyModel.cs" />
     <Compile Include="Models\setValuesModel.cs" />
     <Compile Include="Models\shippingCompaniesModel.cs" />
     <Compile Include="Models\StatisticModel.cs" />
@@ -515,7 +499,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\itemsPropModel.cs" />
     <Compile Include="Models\VM\APIResult.cs" />
     <Compile Include="Models\VM\ResponseVM.cs" />
     <Compile Include="Models\VM\TokenManager.cs" />

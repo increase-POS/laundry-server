@@ -20,8 +20,8 @@ namespace POS_Server.Controllers
         [Route("GetByUserId")]
         public string GetByUserId(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -73,12 +73,13 @@ var strP = TokenManager.GetPrincipal(token);
                 }
             }
         }
+
         [HttpPost]
         [Route("GetNotUserCount")]
         public string GetNotUserCount(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
-var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -115,64 +116,14 @@ var strP = TokenManager.GetPrincipal(token);
             }
         }
         // add or update notification 
-        [HttpPost]
-        [Route("Save")]
-        public string Save(string token)
-        {
-token = TokenManager.readToken(HttpContext.Current.Request);
-            string message = "";
-var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                
-                string obj = "";
-                notificationUser Object = null;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemObject")
-                    {
-                        obj = c.Value.Replace("\\", string.Empty);
-                        obj = obj.Trim('"');
-                        Object = JsonConvert.DeserializeObject<notificationUser>(obj, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
-                        break;
-                    }
-                }
-                 try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        var notEntity = entity.Set<notificationUser>();
-
-                        Object.createDate = DateTime.Now;
-                        Object.updateDate = DateTime.Now;
-                        Object.updateUserId = Object.createUserId;
-                        
-                      notificationUser not = notEntity.Add(Object);
-                      entity.SaveChanges();
-                        message = not.notUserId.ToString();
-                        return TokenManager.GenerateToken(message);
-                    }
-                    
-                }
-                catch
-                {
-                    message = "0";
-                    return TokenManager.GenerateToken(message);
-                }
-            }
-        }
+      
         [HttpPost]
         [Route("setAsRead")]
         public string setAsRead(string token)
         {
-token = TokenManager.readToken(HttpContext.Current.Request);
+            token = TokenManager.readToken(HttpContext.Current.Request);
             string message = "";
-var strP = TokenManager.GetPrincipal(token);
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);

@@ -22,7 +22,6 @@ namespace POS_Server.Controllers
         public string Get(string token)
         {
             token = TokenManager.readToken(HttpContext.Current.Request);
-            Boolean canDelete = false;
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
@@ -56,51 +55,7 @@ namespace POS_Server.Controllers
                 }
             }
         }
-
-        // GET api/<controller>
-        [HttpPost]
-        [Route("GeById")]
-        public string GeById(string token)
-        {
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int itemId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "itemId")
-                    {
-                        itemId = int.Parse(c.Value);
-                    }
-                }
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    var Item = entity.residentialSectors
-                   .Where(S => S.residentSecId == itemId)
-                   .Select(S => new
-                   {
-                       S.residentSecId,
-                       S.name,
-                       S.notes,
-                       S.isActive,
-                       S.createDate,
-                       S.updateDate,
-                       S.createUserId,
-                       S.updateUserId,
-
-                   })
-                   .FirstOrDefault();
-                    return TokenManager.GenerateToken(Item);
-                }
-            }
-        }
-
+      
         // add or update  
         [HttpPost]
         [Route("Save")]

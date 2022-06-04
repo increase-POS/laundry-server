@@ -20,10 +20,7 @@ namespace POS_Server.Controllers
         [Route("Get")]
         public string Get(string token)
         {
-            //int invoiceId
-
-            // public string GetUsersByGroupId(string token)
-          token = TokenManager.readToken(HttpContext.Current.Request);var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request);var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -217,82 +214,6 @@ namespace POS_Server.Controllers
             catch { message = "0"; }
             return message;
         }
-        [HttpPost]
-        [Route("getOrderItems")]
-        public string getOrderItems(string token)
-        {
-            string message = "";
-            ItemsLocationsController ilc = new ItemsLocationsController();
-            token = TokenManager.readToken(HttpContext.Current.Request);
-            var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int branchId = 0;
-                int invoiceId = 0;
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "branchId")
-                        branchId = int.Parse(c.Value);
-                    else if (c.Type == "invoiceId")
-                        invoiceId = int.Parse(c.Value);
-                }
-                try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        List<ItemTransferModel> requiredTransfers = new List<ItemTransferModel>();
-                        var itemsTransfer = entity.itemsTransfer.Where(x => x.invoiceId == invoiceId).ToList();
-                        foreach (itemsTransfer tr in itemsTransfer)
-                        {
-                            var lockedQuantity = entity.itemsLocations
-                                .Where(x => x.invoiceId == invoiceId && x.itemUnitId == tr.itemUnitId)
-                                .Select(x => x.quantity).Sum();
-                            var availableAmount = ilc.getBranchAmount((int)tr.itemUnitId, branchId);
-                            var item = (from i in entity.items
-                                        join u in entity.itemsUnits on i.itemId equals u.itemId
-                                        where u.itemUnitId == tr.itemUnitId
-                                        select new ItemModel()
-                                        {
-                                            itemId = i.itemId,
-                                            name = i.name,
-                                            unitName = u.units.name,
-                                        }).FirstOrDefault();
-                            if (lockedQuantity == null)
-                                lockedQuantity = 0;
-
-                            long requiredQuantity = (long)tr.quantity - ((long)lockedQuantity + (long)availableAmount);
-                            ItemTransferModel transfer = new ItemTransferModel()
-                            {
-                                invoiceId = invoiceId,
-                                price = 0,
-                                quantity = tr.quantity,
-                                lockedQuantity = lockedQuantity,
-                                newLocked = lockedQuantity,
-                                availableQuantity = availableAmount,
-                                itemUnitId = tr.itemUnitId,
-                                itemId = item.itemId,
-                                itemName = item.name,
-                                unitName = item.unitName,
-                            };
-                            requiredTransfers.Add(transfer);
-
-                        }
-                        return TokenManager.GenerateToken(requiredTransfers);
-                    }
-                }
-                catch
-                {
-                    message = "0";
-                    return TokenManager.GenerateToken(message);
-                }
-
-            }
-        }
-
+     
     }
 }

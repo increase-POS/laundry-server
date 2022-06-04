@@ -22,15 +22,11 @@ namespace POS_Server.Controllers
         // GET api/<controller> get all setValues
         [HttpPost]
         [Route("Get")]
-       public string Get(string token)
+        public string Get(string token)
         {
-            // public ResponseVM GetPurinv(string token)
 
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -139,16 +135,11 @@ namespace POS_Server.Controllers
         // email
         [HttpPost]
         [Route("GetBySetName")]
-      public string   GetBySetName(string token)
+        public string   GetBySetName(string token)
         {
 
-            // public ResponseVM GetPurinv(string token)name
-
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -239,12 +230,10 @@ namespace POS_Server.Controllers
             //return NotFound();
         }
 
-      [HttpPost]
-      [Route("GetBySetNameAndUserId")]
-      public string GetBySetNameAndUserId(string token)
-        {
-
-            
+          [HttpPost]
+          [Route("GetBySetNameAndUserId")]
+        public string GetBySetNameAndUserId(string token)
+        {      
             token = TokenManager.readToken(HttpContext.Current.Request); 
             var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
@@ -300,98 +289,16 @@ namespace POS_Server.Controllers
 
             }
         }
-
-
-
-        public string GetBySettingName(string settingName)
-        {
-
-            setValues sv = new setValues();
-          List<setValues> svl = new List<setValues>();
-
-                // DateTime cmpdate = DateTime.Now.AddDays(newdays);
-                try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        setting sett = entity.setting.Where(s => s.name == settingName).FirstOrDefault();
-
-                    var svlv = entity.setValues.ToList();
-                    svl=svlv.Where(x => sett.settingId == x.settingId)
-                         .Select(X => new setValues
-                         {
-                            valId= X.valId,
-                             value=  X.value,
-                             isDefault=   X.isDefault,
-                             isSystem=  X.isSystem,
-                             settingId=   X.settingId,
-                             notes= X.notes,
-
-                         }).ToList();
-                    sv = svl.FirstOrDefault();
-                    return sv.value;
-                    }
-
-                }
-                catch 
-                {
-               // return ex.ToString();
-              return "0";
-                }
-         
-        }
-        public setValues GetRowBySettingName(string settingName)
-        {
-
-            setValues sv = new setValues();
-            List<setValues> svl = new List<setValues>();
-
-            // DateTime cmpdate = DateTime.Now.AddDays(newdays);
-            try
-            {
-                using (incposdbEntities entity = new incposdbEntities())
-                {
-                    setting sett = entity.setting.Where(s => s.name == settingName).FirstOrDefault();
-
-                    var svlv = entity.setValues.ToList();
-                    svl = svlv.Where(x => sett.settingId == x.settingId)
-                         .Select(X => new setValues
-                         {
-                             valId = X.valId,
-                             value = X.value,
-                             isDefault = X.isDefault,
-                             isSystem = X.isSystem,
-                             settingId = X.settingId,
-                             notes = X.notes,
-
-                         }).ToList();
-                    sv = svl.FirstOrDefault();
-                    return sv ;
-                }
-
-            }
-            catch
-            {
-                sv = new setValues();
-                // return ex.ToString();
-                return sv;
-            }
-
-        }
+     
 
 
         [HttpPost]
         [Route("GetBySetvalNote")]
       public string   GetBySetvalNote(string token)
         {
-
-            // public ResponseVM GetPurinv(string token)setvalnote
-
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+         
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -489,15 +396,11 @@ namespace POS_Server.Controllers
         // GET api/<controller>  Get medal By ID 
         [HttpPost]
         [Route("GetByID")]
-      public string   GetByID(string token)
+        public string   GetByID(string token)
         {
-            // public ResponseVM GetPurinv(string token)Id
-
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+    
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -598,15 +501,12 @@ namespace POS_Server.Controllers
         // add or update medal 
         [HttpPost]
         [Route("Save")]
-      public string   Save(string token)
+        public string   Save(string token)
         {
-            //string Object string newObject
             string message = "";
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -792,16 +692,14 @@ namespace POS_Server.Controllers
         //email temp  
         [HttpPost]
         [Route("SaveValueByNotes")]
-      public string   SaveValueByNotes(string token)
+        public string   SaveValueByNotes(string token)
         {
-
-            //string Object string newObject
             string message = "";
            
             
             
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
+            token = TokenManager.readToken(HttpContext.Current.Request); 
+            var strP = TokenManager.GetPrincipal(token);
             if (strP != "0") //invalid authorization
             {
                 return TokenManager.GenerateToken(strP);
@@ -994,102 +892,7 @@ namespace POS_Server.Controllers
             //    return "-2";
         }
 
-        [HttpPost]
-        [Route("Delete")]
-      public string   Delete(string token)
-        {
-
-
-            // public ResponseVM Delete(string token)int Id, int userId
-            //int Id, int userId
-            string message = "";
-           
-            
-            
-          token = TokenManager.readToken(HttpContext.Current.Request); 
- var strP = TokenManager.GetPrincipal(token);
-            if (strP != "0") //invalid authorization
-            {
-                return TokenManager.GenerateToken(strP);
-            }
-            else
-            {
-                int Id = 0;
-                int userId = 0;
-
-
-                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
-                foreach (Claim c in claims)
-                {
-                    if (c.Type == "Id")
-                    {
-                        Id = int.Parse(c.Value);
-                    }
-                    else if (c.Type == "userId")
-                    {
-                        userId = int.Parse(c.Value);
-                    }
-
-                }
-
-                try
-                {
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        setValues sObj = entity.setValues.Find(Id);
-
-                        entity.setValues.Remove(sObj);
-                        message = entity.SaveChanges().ToString();
-
-                    }
-                    return TokenManager.GenerateToken(message);
-                }
-                catch
-                {
-                    return TokenManager.GenerateToken("0");
-                }
-
-
-            }
-
-
-            //var re = Request;
-            //
-            //string token = "";
-            //if (headers.Contains("APIKey"))
-            //{
-            //    token = headers.GetValues("APIKey").First();
-            //}
-
-            //Validation validation = new Validation();
-            //bool valid = validation.CheckApiKey(token);
-            //if (valid)
-            //{
-               
-            //        try
-            //        {
-            //            using (incposdbEntities entity = new incposdbEntities())
-            //            {
-            //                setValues sObj = entity.setValues.Find(Id);
-                       
-            //                entity.setValues.Remove(sObj);
-            //                entity.SaveChanges();
-
-            //                return Ok("medal is Deleted Successfully");
-            //            }
-            //        }
-            //        catch
-            //        {
-            //            return NotFound();
-            //        }
-                
-                
-
-               
-            //}
-            //else
-            //    return NotFound();
-        }
+       
         // image
         #region Image
 
@@ -1298,95 +1101,7 @@ namespace POS_Server.Controllers
         }
 
         #endregion 
-        public int Save(setValues newObject)
-        {
-            //string Object string newObject
-            string message = "";
-            int res = 0;
-
-            if (newObject != null)
-            {
-
-
-                setValues tmpObject = null;
-
-
-                try
-                {
-                    if (newObject.settingId == 0 || newObject.settingId == null)
-                    {
-                        Nullable<int> id = null;
-                        newObject.settingId = id;
-                    }
-                    using (incposdbEntities entity = new incposdbEntities())
-                    {
-                        var sEntity = entity.Set<setValues>();
-                        setValues defItem = entity.setValues.Where(p => p.settingId == newObject.settingId && p.isDefault == 1).FirstOrDefault();
-
-                        if (newObject.valId == 0)
-                        {
-                            if (newObject.isDefault == 1)
-                            { // get the row with same settingId of newObject
-                                if (defItem != null)
-                                {
-                                    defItem.isDefault = 0;
-                                    entity.SaveChanges();
-                                }
-                            }
-                            else //Object.isDefault ==0 
-                            {
-                                if (defItem == null)//other values isDefault not 1 
-                                {
-                                    newObject.isDefault = 1;
-                                }
-
-                            }
-                            sEntity.Add(newObject);
-                            res = newObject.valId;
-
-                            message = res.ToString();
-                            entity.SaveChanges();
-                        }
-                        else
-                        {
-                            //update
-                            if (newObject.isDefault == 1)
-                            {
-                                defItem.isDefault = 0;//reset the other default to 0 if exist
-                            }
-                            tmpObject = entity.setValues.Where(p => p.valId == newObject.valId).FirstOrDefault();
-                            tmpObject.valId = newObject.valId;
-                            tmpObject.notes = newObject.notes;
-                            tmpObject.value = newObject.value;
-                            tmpObject.isDefault = newObject.isDefault;
-                            tmpObject.isSystem = newObject.isSystem;
-
-                            tmpObject.settingId = newObject.settingId;
-                            entity.SaveChanges();
-                            res = tmpObject.valId;
-                            message = res.ToString();
-                        }
-
-
-                    }
-
-                    return (res);
-
-                }
-                catch
-                {
-                    message = "0";
-                    return 0;
-                }
-
-
-            }
-
-            return res;
-
-
-
-        }
+      
 
     }
 }
