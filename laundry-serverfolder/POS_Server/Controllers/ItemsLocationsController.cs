@@ -344,14 +344,16 @@ namespace POS_Server.Controllers
                                     increaseItemQuantity(item.itemUnitId.Value, freeZoneLocation, (int)item.quantity, userId);
                                 else//for order
                                     increaseLockedItem(item.itemUnitId.Value, freeZoneLocation, (int)item.quantity, (int)item.invoiceId, userId);
-                                if(item.offerId != 0 && item.offerId != null)
-                                {
-                                    int offerId = (int)item.offerId;
-                                    int itemUnitId = (int)item.itemUnitId;
-                                    var offer = entity.itemsOffers.Where(x => x.iuId == itemUnitId && x.offerId == offerId).FirstOrDefault();
-                                    offer.used -= (int)item.quantity;
-                                    entity.SaveChanges();
-                                }
+                                #region should upgrade
+                                //if(item.offerId != 0 && item.offerId != null)
+                                //{
+                                //    int offerId = (int)item.offerId;
+                                //    int itemUnitId = (int)item.itemUnitId;
+                                //    var offer = entity.itemsOffers.Where(x => x.iuId == itemUnitId && x.offerId == offerId).FirstOrDefault();
+                                //    offer.used -= (int)item.quantity;
+                                //    entity.SaveChanges();
+                                //}
+                                #endregion
                                 bool isExcedded = isExceddMaxQuantity((int)item.itemUnitId, branchId, userId);
                                 if (isExcedded == true) //add notification
                                 {

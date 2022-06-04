@@ -22,6 +22,7 @@ namespace POS_Server
             this.itemsLocations = new HashSet<itemsLocations>();
             this.itemsOffers = new HashSet<itemsOffers>();
             this.itemsTransfer = new HashSet<itemsTransfer>();
+            this.ItemsUnitsServices = new HashSet<ItemsUnitsServices>();
             this.itemUnitUser = new HashSet<itemUnitUser>();
             this.menuSettings = new HashSet<menuSettings>();
             this.packages = new HashSet<packages>();
@@ -63,6 +64,8 @@ namespace POS_Server
         public virtual units units { get; set; }
         public virtual users users { get; set; }
         public virtual users users1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemsUnitsServices> ItemsUnitsServices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<itemUnitUser> itemUnitUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

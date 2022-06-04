@@ -2112,12 +2112,17 @@ namespace POS_Server.Controllers
 
                                         join P in entity.pos on I.posId equals P.posId into JP
 
-                                        join O in entity.offers on IT.offerId equals O.offerId
+                                        #region should upgrade
 
+                                        //join O in entity.offers on IT.offerId equals O.offerId
+
+                                        #endregion
                                         //join ITOF in entity.itemsTransfer on ITO.itemTransId equals ITOF.itemsTransId 
                                         //   from  IUO in entity.itemsOffers.Where(X=> X.offerId == O.offerId).Distinct()
-                                        where (IT.offerId != null)
 
+                                        #region should upgrade
+                                        //where (IT.offerId != null)
+                                        #endregion
                                         // from JBB in JB
                                         from JPP in JP.DefaultIfEmpty()
                                         from JUU in JU.DefaultIfEmpty()
@@ -2131,20 +2136,20 @@ namespace POS_Server.Controllers
                                         {
                                             // offer
 
-                                            Oname = O.name,//*
-                                            OofferId = O.offerId,
+                                            //Oname = O.name,//*
+                                           // OofferId = O.offerId,
 
                                             //Oquantity = IUO.quantity,
-                                            Ocode = O.code,//*
-                                            OisActive = O.isActive,
-                                            OdiscountType = IT.offerType,//*
-                                            OdiscountValue = IT.offerValue,//*
-                                            OstartDate = O.startDate,
-                                            OendDate = O.endDate,
-                                            OcreateDate = O.createDate,
-                                            OupdateDate = O.updateDate,
-                                            OcreateUserId = O.createUserId,
-                                            OupdateUserId = O.updateUserId,
+                                            //Ocode = O.code,//*
+                                           // OisActive = O.isActive,
+                                           // OdiscountType = IT.offerType,//*
+                                           // OdiscountValue = IT.offerValue,//*
+                                           // OstartDate = O.startDate,
+                                           // OendDate = O.endDate,
+                                           // OcreateDate = O.createDate,
+                                            //OupdateDate = O.updateDate,
+                                           // OcreateUserId = O.createUserId,
+                                           // OupdateUserId = O.updateUserId,
                                             //Onotes = O.notes,
 
                                             //itemtransfer
@@ -2213,8 +2218,11 @@ namespace POS_Server.Controllers
                                             agentCompany = JAA.company,
 
                                             subTotal = (IT.price * IT.quantity),//*
-                                            // couponTotalValue = (I.discountType == "1" || I.discountType == null) ? I.discountValue : (I.discountType == "2" ? ((I.discountValue / 100) * I.total) : 0),
-                                            offerTotalValue = (IT.offerType == 1 || IT.offerType == null) ? (IT.offerValue * (IT.quantity)) : (IT.offerType == 2 ? ((IT.offerValue / 100) * (IT.itemUnitPrice * IT.quantity)) : 0),
+                                                                                // couponTotalValue = (I.discountType == "1" || I.discountType == null) ? I.discountValue : (I.discountType == "2" ? ((I.discountValue / 100) * I.total) : 0),
+                                            #region should upgrade
+
+                                            //offerTotalValue = (IT.offerType == 1 || IT.offerType == null) ? (IT.offerValue * (IT.quantity)) : (IT.offerType == 2 ? ((IT.offerValue / 100) * (IT.itemUnitPrice * IT.quantity)) : 0),
+                                            #endregion
 
                                         }).ToList();
 
@@ -2385,37 +2393,40 @@ namespace POS_Server.Controllers
                                     finalDiscount = (decimal)X.discountType == 2 ? (X.discountValue / 100) * (I.total) : X.discountValue,
                                 }).ToList(),
 
-                                itemsTransferList = entity.itemsTransfer.Where(X => X.invoiceId == I.invoiceId && X.offerId > 0 && X.forAgents == "pr").Select(X => new ItemTransferModel
-                                {
-                                    itemsTransId = X.itemsTransId,
+                                #region should upgrade
 
-                                    //itemId = X.itemId,
-                                    //itemName = X.name,
-                                    quantity = X.quantity,
+                                //itemsTransferList = entity.itemsTransfer.Where(X => X.invoiceId == I.invoiceId && X.offerId > 0 && X.forAgents == "pr").Select(X => new ItemTransferModel
+                                //{
+                                //    itemsTransId = X.itemsTransId,
 
-                                    itemUnitId = X.itemUnitId,
-                                    price = X.price,
-                                    //unitName = X.name,
-                                    //unitId = X.unitId,
-                                    //barcode = X.barcode,
-                                    itemSerial = X.itemSerial,
-                                    //itemType = X.type,
+                                //    //itemId = X.itemId,
+                                //    //itemName = X.name,
+                                //    quantity = X.quantity,
 
-                                    //avgPurchasePrice = X.avgPurchasePrice,
-                                    notes = X.notes,
+                                //    itemUnitId = X.itemUnitId,
+                                //    price = X.price,
+                                //    //unitName = X.name,
+                                //    //unitId = X.unitId,
+                                //    //barcode = X.barcode,
+                                //    itemSerial = X.itemSerial,
+                                //    //itemType = X.type,
 
-                                    invoiceId = X.invoiceId,
+                                //    //avgPurchasePrice = X.avgPurchasePrice,
+                                //    notes = X.notes,
 
-                                    offerId = X.offerId,
-                                    itemTax = X.itemTax,
-                                    itemUnitPrice = X.itemUnitPrice,
-                                    offerValue = X.offerValue,
-                                    offerType = X.offerType,
-                                    forAgents = X.forAgents,
-                                    offerCode = X.offers.code,
-                                    offerName = X.offers.name,
-                                    finalDiscount = (decimal)X.offerType == 2 ? ((X.offerValue / 100) * (X.itemUnitPrice)) * X.quantity : X.offerValue * X.quantity,
-                                }).ToList(),
+                                //    invoiceId = X.invoiceId,
+
+                                //    offerId = X.offerId,
+                                //    itemTax = X.itemTax,
+                                //    itemUnitPrice = X.itemUnitPrice,
+                                //    offerValue = X.offerValue,
+                                //    offerType = X.offerType,
+                                //    forAgents = X.forAgents,
+                                //    offerCode = X.offers.code,
+                                //    offerName = X.offers.name,
+                                //    finalDiscount = (decimal)X.offerType == 2 ? ((X.offerValue / 100) * (X.itemUnitPrice)) * X.quantity : X.offerValue * X.quantity,
+                                //}).ToList(),
+                                #endregion
 
                                 invclassDiscount = 0,
                                 couponDiscount = 0,
@@ -2444,9 +2455,10 @@ namespace POS_Server.Controllers
                                  }).ToList(),
                                // endDate,
                             }).ToList();
-                       
+                        
+
                         //      var tmplist=   entity.agentMembershipCash.Where(x => x.agentId == row.agentId && row.membershipId == x.membershipId && row.subscriptionType == x.subscriptionType).OrderBy(x => x.updateDate).
-                       // Select(x => new { x.endDate }).ToList();
+                        // Select(x => new { x.endDate }).ToList();
 
                         foreach (var row in invListm)
                         {
@@ -4884,15 +4896,19 @@ namespace POS_Server.Controllers
                                                                  join UPUSR in entity.users on I.updateUserId equals UPUSR.userId into JUPUSR
                                                                  // join IM in entity.invoices on I.invoiceMainId equals IM.invoiceId into JIM
                                                                  join P in entity.pos on I.posId equals P.posId into JP
-                                                                 join JOF in entity.offers on IT.offerId equals JOF.offerId into JO
-                                                                 // from JBB in JB
+                                                                 #region should upgrade
+
+                                                                 //join JOF in entity.offers on IT.offerId equals JOF.offerId into JO
+                                                                 //from O in JO.DefaultIfEmpty()
+                                                                     #endregion
+                                                                     // from JBB in JB
                                                                  from JPP in JP.DefaultIfEmpty()
                                                                      // from JUU in JU.DefaultIfEmpty()
                                                                  from JUPUS in JUPUSR.DefaultIfEmpty()
                                                                      // from JIMM in JIM.DefaultIfEmpty()
                                                                  from JAA in JA.DefaultIfEmpty()
                                                                  from JBCC in JBC.DefaultIfEmpty()
-                                                                 from O in JO.DefaultIfEmpty()
+                                                                
                                                                  where (brIds.Contains(JBCC.branchId)) && (I.invType == "s")
 
                                                                  select new ItemTransferInvoiceTax
@@ -4983,8 +4999,9 @@ namespace POS_Server.Controllers
 
                                                                      totalNet = I.totalNet,//calc in clint
 
-                                                                     OneItemOfferVal = IT.offerId == null ? 0 : ((IT.offerType == 1 || IT.offerType == null) ? (IT.offerValue) : (IT.offerType == 2 ? ((IT.offerValue / 100) * (IT.itemUnitPrice)) : 0)),
-
+                                                                     #region should upgrade
+                                                                     //OneItemOfferVal = IT.offerId == null ? 0 : ((IT.offerType == 1 || IT.offerType == null) ? (IT.offerValue) : (IT.offerType == 2 ? ((IT.offerValue / 100) * (IT.itemUnitPrice)) : 0)),
+                                                                     #endregion
                                                                      //  offerTotalValue = (O.discountType == "1" || O.discountType == null) ? (O.discountValue * (IT.quantity)) : (O.discountType == "2" ? ((O.discountValue / 100) * (IT.price * IT.quantity)) : 0),
 
                                                                      itemUnitPrice = IT.itemUnitPrice,
@@ -5866,7 +5883,10 @@ namespace POS_Server.Controllers
                                                                          uuserLast = JUPUS.lastname,
                                                                          uUserAccName = JUPUS.username,
                                                                          agentCompany = JAA.company,
-                                                                         subTotal = (IT.itemUnitPrice - (IT.offerType == 2 ? (IT.offerValue * IT.itemUnitPrice / 100) : IT.offerValue)) * IT.quantity,
+                                                                         #region should upgrade
+
+                                                                         //subTotal = (IT.itemUnitPrice - (IT.offerType == 2 ? (IT.offerValue * IT.itemUnitPrice / 100) : IT.offerValue)) * IT.quantity,
+                                                                         #endregion
                                                                          shippingCost = I.shippingCost,
                                                                          realShippingCost = I.realShippingCost,
                                                                          shippingProfit = I.shippingCost - I.realShippingCost,
@@ -6137,7 +6157,11 @@ namespace POS_Server.Controllers
                                                                          //uuserLast = JUPUS.lastname,
                                                                          //uUserAccName = JUPUS.username,
                                                                          //agentCompany = JAA.company,
-                                                                         subTotal = (IT.itemUnitPrice - (IT.offerType == 2 ? (IT.offerValue * IT.itemUnitPrice / 100) : IT.offerValue)) * IT.quantity,
+
+                                                                         #region should upgrade
+                                                                         //subTotal = (IT.itemUnitPrice - (IT.offerType == 2 ? (IT.offerValue * IT.itemUnitPrice / 100) : IT.offerValue)) * IT.quantity,
+                                                                         #endregion
+
                                                                          //shippingCost = I.shippingCost,
                                                                          //realShippingCost = I.realShippingCost,
                                                                          //shippingProfit = I.shippingCost - I.realShippingCost,

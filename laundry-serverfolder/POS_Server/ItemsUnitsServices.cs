@@ -12,34 +12,29 @@ namespace POS_Server
     using System;
     using System.Collections.Generic;
     
-    public partial class categories
+    public partial class ItemsUnitsServices
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public categories()
+        public ItemsUnitsServices()
         {
-            this.items = new HashSet<items>();
-            this.services = new HashSet<services>();
+            this.itransIUServices = new HashSet<itransIUServices>();
         }
     
-        public int categoryId { get; set; }
-        public string categoryCode { get; set; }
-        public string name { get; set; }
-        public string details { get; set; }
-        public string image { get; set; }
-        public byte isActive { get; set; }
-        public decimal taxes { get; set; }
+        public int itemUnitServiceId { get; set; }
+        public decimal normalPrice { get; set; }
+        public decimal instantPrice { get; set; }
         public Nullable<System.DateTime> createDate { get; set; }
         public Nullable<System.DateTime> updateDate { get; set; }
         public Nullable<int> createUserId { get; set; }
         public Nullable<int> updateUserId { get; set; }
-        public string notes { get; set; }
-        public string type { get; set; }
+        public Nullable<int> serviceId { get; set; }
+        public Nullable<int> itemUnitId { get; set; }
     
+        public virtual itemsUnits itemsUnits { get; set; }
+        public virtual services services { get; set; }
         public virtual users users { get; set; }
         public virtual users users1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<items> items { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<services> services { get; set; }
+        public virtual ICollection<itransIUServices> itransIUServices { get; set; }
     }
 }

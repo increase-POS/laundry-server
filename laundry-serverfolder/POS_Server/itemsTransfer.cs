@@ -19,6 +19,7 @@ namespace POS_Server
         {
             this.invoiceOrder = new HashSet<invoiceOrder>();
             this.itemTransferOffer = new HashSet<itemTransferOffer>();
+            this.itransIUServices = new HashSet<itransIUServices>();
         }
     
         public int itemsTransId { get; set; }
@@ -33,14 +34,11 @@ namespace POS_Server
         public Nullable<int> itemUnitId { get; set; }
         public string itemSerial { get; set; }
         public Nullable<int> inventoryItemLocId { get; set; }
-        public Nullable<int> offerId { get; set; }
         public decimal profit { get; set; }
         public decimal purchasePrice { get; set; }
         public string cause { get; set; }
         public Nullable<decimal> itemTax { get; set; }
         public Nullable<decimal> itemUnitPrice { get; set; }
-        public Nullable<decimal> offerValue { get; set; }
-        public Nullable<decimal> offerType { get; set; }
         public string forAgents { get; set; }
     
         public virtual inventoryItemLocation inventoryItemLocation { get; set; }
@@ -48,8 +46,9 @@ namespace POS_Server
         public virtual ICollection<invoiceOrder> invoiceOrder { get; set; }
         public virtual invoices invoices { get; set; }
         public virtual itemsUnits itemsUnits { get; set; }
-        public virtual offers offers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<itemTransferOffer> itemTransferOffer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<itransIUServices> itransIUServices { get; set; }
     }
 }

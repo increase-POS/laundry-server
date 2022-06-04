@@ -199,10 +199,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="agentMembershipCash.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="agents.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="agentsSub.cs">
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -237,31 +240,31 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="banks.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="bondes.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="branches.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="branchesUsers.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="branchStore.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="cards.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="cashTransfer.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="categories.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="cities.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\Calculate.cs" />
     <Compile Include="Classes\ProgramInfo.cs" />
@@ -334,112 +337,118 @@
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\UsersLogsController.cs" />
     <Compile Include="countriesCodes.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="coupons.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="couponsInvoices.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="couponsMemberships.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="dishIngredients.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="docImages.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="error.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Expenses.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="groupObject.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="groups.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="hallSections.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Inventory.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="inventoryItemLocation.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="invoiceClassDiscount.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="invoiceOrder.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="invoices.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="invoicesClass.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="invoicesClassMemberships.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="invoiceStatus.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="invoiceTables.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemOrderPreparing.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="items.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemsLocations.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemsMaterials.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemsOffers.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemsProp.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemsTransfer.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemsUnits.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsUnitsServices.cs">
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemTransferOffer.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="itemUnitUser.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="itransIUServices.cs">
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="locations.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="medalAgent.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="medals.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="memberships.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="membershipsOffers.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="menuSettings.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ActivateModel.cs" />
     <Compile Include="Models\AgentMembershipCashModel.cs" />
@@ -503,128 +512,137 @@
     <Compile Include="Models\VM\ResponseVM.cs" />
     <Compile Include="Models\VM\TokenManager.cs" />
     <Compile Include="notification.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="notificationUser.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="objects.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="offers.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="orderPreparing.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="orderPreparingStatus.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="packages.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="paperSize.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Points.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pointSetting.cs">
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="pos.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PosModel.Context.cs">
+    <Compile Include="posModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PosModel.Context.tt</DependentUpon>
+      <DependentUpon>posModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PosModel.cs">
+    <Compile Include="posModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PosModel.Designer.cs">
+    <Compile Include="posModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PosModel.edmx</DependentUpon>
+      <DependentUpon>posModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="posSerials.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="posSetting.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="posUsers.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="printers.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProgramDetails.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="properties.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="propertiesItems.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reservations.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="residentialSectors.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="residentialSectorsUsers.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sections.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="serials.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="services.cs">
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="setting.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="setValues.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="shippingCompanies.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="storageCost.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sub.cs">
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="subscriptionFees.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+    <Compile Include="subServices.cs">
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysEmails.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="tables.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="tablesReservations.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="tags.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="units.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="users.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="userSetValues.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
     <Compile Include="usersLogs.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
+      <DependentUpon>posModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -636,15 +654,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="PosModel.Context.tt">
+    <Content Include="posModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PosModel.edmx</DependentUpon>
-      <LastGenOutput>PosModel.Context.cs</LastGenOutput>
+      <DependentUpon>posModel.edmx</DependentUpon>
+      <LastGenOutput>posModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PosModel.tt">
+    <Content Include="posModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PosModel.edmx</DependentUpon>
-      <LastGenOutput>PosModel.cs</LastGenOutput>
+      <DependentUpon>posModel.edmx</DependentUpon>
+      <LastGenOutput>posModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -667,12 +685,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="PosModel.edmx">
+    <EntityDeploy Include="posModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PosModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>posModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="PosModel.edmx.diagram">
-      <DependentUpon>PosModel.edmx</DependentUpon>
+    <Content Include="posModel.edmx.diagram">
+      <DependentUpon>posModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

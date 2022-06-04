@@ -27,6 +27,7 @@ namespace POS_Server
     
         public virtual DbSet<agentMembershipCash> agentMembershipCash { get; set; }
         public virtual DbSet<agents> agents { get; set; }
+        public virtual DbSet<agentsSub> agentsSub { get; set; }
         public virtual DbSet<banks> banks { get; set; }
         public virtual DbSet<bondes> bondes { get; set; }
         public virtual DbSet<branches> branches { get; set; }
@@ -64,8 +65,10 @@ namespace POS_Server
         public virtual DbSet<itemsProp> itemsProp { get; set; }
         public virtual DbSet<itemsTransfer> itemsTransfer { get; set; }
         public virtual DbSet<itemsUnits> itemsUnits { get; set; }
+        public virtual DbSet<ItemsUnitsServices> ItemsUnitsServices { get; set; }
         public virtual DbSet<itemTransferOffer> itemTransferOffer { get; set; }
         public virtual DbSet<itemUnitUser> itemUnitUser { get; set; }
+        public virtual DbSet<itransIUServices> itransIUServices { get; set; }
         public virtual DbSet<locations> locations { get; set; }
         public virtual DbSet<medalAgent> medalAgent { get; set; }
         public virtual DbSet<medals> medals { get; set; }
@@ -81,6 +84,7 @@ namespace POS_Server
         public virtual DbSet<packages> packages { get; set; }
         public virtual DbSet<paperSize> paperSize { get; set; }
         public virtual DbSet<Points> Points { get; set; }
+        public virtual DbSet<pointSetting> pointSetting { get; set; }
         public virtual DbSet<pos> pos { get; set; }
         public virtual DbSet<posSerials> posSerials { get; set; }
         public virtual DbSet<posSetting> posSetting { get; set; }
@@ -94,12 +98,14 @@ namespace POS_Server
         public virtual DbSet<residentialSectorsUsers> residentialSectorsUsers { get; set; }
         public virtual DbSet<sections> sections { get; set; }
         public virtual DbSet<serials> serials { get; set; }
+        public virtual DbSet<services> services { get; set; }
         public virtual DbSet<setting> setting { get; set; }
         public virtual DbSet<setValues> setValues { get; set; }
         public virtual DbSet<shippingCompanies> shippingCompanies { get; set; }
         public virtual DbSet<storageCost> storageCost { get; set; }
+        public virtual DbSet<Sub> Sub { get; set; }
         public virtual DbSet<subscriptionFees> subscriptionFees { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<subServices> subServices { get; set; }
         public virtual DbSet<sysEmails> sysEmails { get; set; }
         public virtual DbSet<tables> tables { get; set; }
         public virtual DbSet<tablesReservations> tablesReservations { get; set; }

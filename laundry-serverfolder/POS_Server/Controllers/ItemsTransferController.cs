@@ -72,7 +72,9 @@ namespace POS_Server.Controllers
                                                 barcode = u.barcode,
                                                 itemSerial = t.itemSerial,
                                                 itemType = i.type,
-                                                offerId = t.offerId,
+                                                #region should upgrade
+                                                //offerId = t.offerId,
+                                                #endregion
                                                 forAgents = t.forAgents,
                                             })
                                             .ToList();
@@ -167,11 +169,11 @@ namespace POS_Server.Controllers
                             Nullable<int> id = null;
                             newObject[i].createUserId = id;
                         }
-                        if (newObject[i].offerId == 0)
-                        {
-                            Nullable<int> id = null;
-                            newObject[i].offerId = id;
-                        }
+                        //if (newObject[i].offerId == 0)
+                        //{
+                        //    Nullable<int> id = null;
+                        //    newObject[i].offerId = id;
+                        //}
                         if (newObject[i].itemSerial == null)
                             newObject[i].itemSerial = "";
 
@@ -198,14 +200,16 @@ namespace POS_Server.Controllers
                             };
                             entity.invoiceOrder.Add(invoiceOrder);
                         }
-                        if (newObject[i].offerId != null && invoice.invType == "s")
-                        {
-                            int offerId = (int)newObject[i].offerId;
-                            int itemUnitId = (int)newObject[i].itemUnitId;
-                            var offer = entity.itemsOffers.Where(x => x.iuId == itemUnitId && x.offerId == offerId).FirstOrDefault();
+                        #region should upgrade
+                        //if (newObject[i].offerId != null && invoice.invType == "s")
+                        //{
+                        //    int offerId = (int)newObject[i].offerId;
+                        //    int itemUnitId = (int)newObject[i].itemUnitId;
+                        //    var offer = entity.itemsOffers.Where(x => x.iuId == itemUnitId && x.offerId == offerId).FirstOrDefault();
 
-                            offer.used += (int)newObject[i].quantity;
-                        }
+                        //    offer.used += (int)newObject[i].quantity;
+                        //}
+                        #endregion
                     }
                     entity.SaveChanges();
                     message = "1";

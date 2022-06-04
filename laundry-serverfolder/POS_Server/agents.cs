@@ -18,6 +18,7 @@ namespace POS_Server
         public agents()
         {
             this.agentMembershipCash = new HashSet<agentMembershipCash>();
+            this.agentsSub = new HashSet<agentsSub>();
             this.cashTransfer = new HashSet<cashTransfer>();
             this.invoices = new HashSet<invoices>();
             this.medalAgent = new HashSet<medalAgent>();
@@ -61,6 +62,8 @@ namespace POS_Server
         public virtual residentialSectors residentialSectors { get; set; }
         public virtual users users { get; set; }
         public virtual users users1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<agentsSub> agentsSub { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cashTransfer> cashTransfer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PosModelStoreContainer" CdmEntityContainer="incposdbEntities">
+  <EntityContainerMapping StorageEntityContainer="laundrydbModelStoreContainer" CdmEntityContainer="incposdbEntities">
     <EntitySetMapping Name="agentMembershipCash">
-      <EntityTypeMapping TypeName="PosModel.agentMembershipCash">
+      <EntityTypeMapping TypeName="laundrydbModel.agentMembershipCash">
         <MappingFragment StoreEntitySet="agentMembershipCash">
           <ScalarProperty Name="agentMembershipCashId" ColumnName="agentMembershipCashId" />
           <ScalarProperty Name="subscriptionFeesId" ColumnName="subscriptionFeesId" />
@@ -25,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="agents">
-      <EntityTypeMapping TypeName="PosModel.agents">
+      <EntityTypeMapping TypeName="laundrydbModel.agents">
         <MappingFragment StoreEntitySet="agents">
           <ScalarProperty Name="agentId" ColumnName="agentId" />
           <ScalarProperty Name="pointId" ColumnName="pointId" />
@@ -59,8 +59,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="agentsSub">
+      <EntityTypeMapping TypeName="laundrydbModel.agentsSub">
+        <MappingFragment StoreEntitySet="agentsSub">
+          <ScalarProperty Name="agentSubId" ColumnName="agentSubId" />
+          <ScalarProperty Name="agentId" ColumnName="agentId" />
+          <ScalarProperty Name="subId" ColumnName="subId" />
+          <ScalarProperty Name="isLimited" ColumnName="isLimited" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createUserId" ColumnName="createUserId" />
+          <ScalarProperty Name="updateUserId" ColumnName="updateUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="banks">
-      <EntityTypeMapping TypeName="PosModel.banks">
+      <EntityTypeMapping TypeName="laundrydbModel.banks">
         <MappingFragment StoreEntitySet="banks">
           <ScalarProperty Name="bankId" ColumnName="bankId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -78,7 +95,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="bondes">
-      <EntityTypeMapping TypeName="PosModel.bondes">
+      <EntityTypeMapping TypeName="laundrydbModel.bondes">
         <MappingFragment StoreEntitySet="bondes">
           <ScalarProperty Name="bondId" ColumnName="bondId" />
           <ScalarProperty Name="number" ColumnName="number" />
@@ -97,7 +114,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="branches">
-      <EntityTypeMapping TypeName="PosModel.branches">
+      <EntityTypeMapping TypeName="laundrydbModel.branches">
         <MappingFragment StoreEntitySet="branches">
           <ScalarProperty Name="branchId" ColumnName="branchId" />
           <ScalarProperty Name="code" ColumnName="code" />
@@ -118,7 +135,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="branchesUsers">
-      <EntityTypeMapping TypeName="PosModel.branchesUsers">
+      <EntityTypeMapping TypeName="laundrydbModel.branchesUsers">
         <MappingFragment StoreEntitySet="branchesUsers">
           <ScalarProperty Name="branchsUsersId" ColumnName="branchsUsersId" />
           <ScalarProperty Name="branchId" ColumnName="branchId" />
@@ -131,7 +148,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="branchStore">
-      <EntityTypeMapping TypeName="PosModel.branchStore">
+      <EntityTypeMapping TypeName="laundrydbModel.branchStore">
         <MappingFragment StoreEntitySet="branchStore">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="branchId" ColumnName="branchId" />
@@ -146,7 +163,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cards">
-      <EntityTypeMapping TypeName="PosModel.cards">
+      <EntityTypeMapping TypeName="laundrydbModel.cards">
         <MappingFragment StoreEntitySet="cards">
           <ScalarProperty Name="cardId" ColumnName="cardId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -162,7 +179,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cashTransfer">
-      <EntityTypeMapping TypeName="PosModel.cashTransfer">
+      <EntityTypeMapping TypeName="laundrydbModel.cashTransfer">
         <MappingFragment StoreEntitySet="cashTransfer">
           <ScalarProperty Name="cashTransId" ColumnName="cashTransId" />
           <ScalarProperty Name="agentMembershipsId" ColumnName="agentMembershipsId" />
@@ -194,7 +211,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="categories">
-      <EntityTypeMapping TypeName="PosModel.categories">
+      <EntityTypeMapping TypeName="laundrydbModel.categories">
         <MappingFragment StoreEntitySet="categories">
           <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="categoryCode" ColumnName="categoryCode" />
@@ -213,7 +230,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cities">
-      <EntityTypeMapping TypeName="PosModel.cities">
+      <EntityTypeMapping TypeName="laundrydbModel.cities">
         <MappingFragment StoreEntitySet="cities">
           <ScalarProperty Name="cityId" ColumnName="cityId" />
           <ScalarProperty Name="cityCode" ColumnName="cityCode" />
@@ -222,7 +239,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="countriesCodes">
-      <EntityTypeMapping TypeName="PosModel.countriesCodes">
+      <EntityTypeMapping TypeName="laundrydbModel.countriesCodes">
         <MappingFragment StoreEntitySet="countriesCodes">
           <ScalarProperty Name="countryId" ColumnName="countryId" />
           <ScalarProperty Name="code" ColumnName="code" />
@@ -234,7 +251,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="coupons">
-      <EntityTypeMapping TypeName="PosModel.coupons">
+      <EntityTypeMapping TypeName="laundrydbModel.coupons">
         <MappingFragment StoreEntitySet="coupons">
           <ScalarProperty Name="cId" ColumnName="cId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -259,7 +276,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="couponsInvoices">
-      <EntityTypeMapping TypeName="PosModel.couponsInvoices">
+      <EntityTypeMapping TypeName="laundrydbModel.couponsInvoices">
         <MappingFragment StoreEntitySet="couponsInvoices">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="couponId" ColumnName="couponId" />
@@ -275,7 +292,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="couponsMemberships">
-      <EntityTypeMapping TypeName="PosModel.couponsMemberships">
+      <EntityTypeMapping TypeName="laundrydbModel.couponsMemberships">
         <MappingFragment StoreEntitySet="couponsMemberships">
           <ScalarProperty Name="couponMembershipId" ColumnName="couponMembershipId" />
           <ScalarProperty Name="cId" ColumnName="cId" />
@@ -289,7 +306,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="dishIngredients">
-      <EntityTypeMapping TypeName="PosModel.dishIngredients">
+      <EntityTypeMapping TypeName="laundrydbModel.dishIngredients">
         <MappingFragment StoreEntitySet="dishIngredients">
           <ScalarProperty Name="dishIngredId" ColumnName="dishIngredId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -304,7 +321,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="docImages">
-      <EntityTypeMapping TypeName="PosModel.docImages">
+      <EntityTypeMapping TypeName="laundrydbModel.docImages">
         <MappingFragment StoreEntitySet="docImages">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="docName" ColumnName="docName" />
@@ -321,7 +338,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="error">
-      <EntityTypeMapping TypeName="PosModel.error">
+      <EntityTypeMapping TypeName="laundrydbModel.error">
         <MappingFragment StoreEntitySet="error">
           <ScalarProperty Name="errorId" ColumnName="errorId" />
           <ScalarProperty Name="num" ColumnName="num" />
@@ -336,7 +353,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Expenses">
-      <EntityTypeMapping TypeName="PosModel.Expenses">
+      <EntityTypeMapping TypeName="laundrydbModel.Expenses">
         <MappingFragment StoreEntitySet="Expenses">
           <ScalarProperty Name="exId" ColumnName="exId" />
           <ScalarProperty Name="expense" ColumnName="expense" />
@@ -350,7 +367,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="groupObject">
-      <EntityTypeMapping TypeName="PosModel.groupObject">
+      <EntityTypeMapping TypeName="laundrydbModel.groupObject">
         <MappingFragment StoreEntitySet="groupObject">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="groupId" ColumnName="groupId" />
@@ -371,7 +388,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="groups">
-      <EntityTypeMapping TypeName="PosModel.groups">
+      <EntityTypeMapping TypeName="laundrydbModel.groups">
         <MappingFragment StoreEntitySet="groups">
           <ScalarProperty Name="groupId" ColumnName="groupId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -385,7 +402,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="hallSections">
-      <EntityTypeMapping TypeName="PosModel.hallSections">
+      <EntityTypeMapping TypeName="laundrydbModel.hallSections">
         <MappingFragment StoreEntitySet="hallSections">
           <ScalarProperty Name="sectionId" ColumnName="sectionId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -403,7 +420,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Inventory">
-      <EntityTypeMapping TypeName="PosModel.Inventory">
+      <EntityTypeMapping TypeName="laundrydbModel.Inventory">
         <MappingFragment StoreEntitySet="Inventory">
           <ScalarProperty Name="inventoryId" ColumnName="inventoryId" />
           <ScalarProperty Name="num" ColumnName="num" />
@@ -421,7 +438,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="inventoryItemLocation">
-      <EntityTypeMapping TypeName="PosModel.inventoryItemLocation">
+      <EntityTypeMapping TypeName="laundrydbModel.inventoryItemLocation">
         <MappingFragment StoreEntitySet="inventoryItemLocation">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="isDestroyed" ColumnName="isDestroyed" />
@@ -443,7 +460,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="invoiceClassDiscount">
-      <EntityTypeMapping TypeName="PosModel.invoiceClassDiscount">
+      <EntityTypeMapping TypeName="laundrydbModel.invoiceClassDiscount">
         <MappingFragment StoreEntitySet="invoiceClassDiscount">
           <ScalarProperty Name="invClassDiscountId" ColumnName="invClassDiscountId" />
           <ScalarProperty Name="invClassId" ColumnName="invClassId" />
@@ -454,7 +471,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="invoiceOrder">
-      <EntityTypeMapping TypeName="PosModel.invoiceOrder">
+      <EntityTypeMapping TypeName="laundrydbModel.invoiceOrder">
         <MappingFragment StoreEntitySet="invoiceOrder">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="invoiceId" ColumnName="invoiceId" />
@@ -465,9 +482,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="invoices">
-      <EntityTypeMapping TypeName="PosModel.invoices">
+      <EntityTypeMapping TypeName="laundrydbModel.invoices">
         <MappingFragment StoreEntitySet="invoices">
-          <ScalarProperty Name="invBarcode" ColumnName="invBarcode" />
           <ScalarProperty Name="invoiceId" ColumnName="invoiceId" />
           <ScalarProperty Name="invNumber" ColumnName="invNumber" />
           <ScalarProperty Name="agentId" ColumnName="agentId" />
@@ -514,11 +530,12 @@
           <ScalarProperty Name="orderTime" ColumnName="orderTime" />
           <ScalarProperty Name="shippingCostDiscount" ColumnName="shippingCostDiscount" />
           <ScalarProperty Name="membershipId" ColumnName="membershipId" />
+          <ScalarProperty Name="invBarcode" ColumnName="invBarcode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="invoicesClass">
-      <EntityTypeMapping TypeName="PosModel.invoicesClass">
+      <EntityTypeMapping TypeName="laundrydbModel.invoicesClass">
         <MappingFragment StoreEntitySet="invoicesClass">
           <ScalarProperty Name="invClassId" ColumnName="invClassId" />
           <ScalarProperty Name="minInvoiceValue" ColumnName="minInvoiceValue" />
@@ -536,7 +553,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="invoicesClassMemberships">
-      <EntityTypeMapping TypeName="PosModel.invoicesClassMemberships">
+      <EntityTypeMapping TypeName="laundrydbModel.invoicesClassMemberships">
         <MappingFragment StoreEntitySet="invoicesClassMemberships">
           <ScalarProperty Name="invClassMemberId" ColumnName="invClassMemberId" />
           <ScalarProperty Name="membershipId" ColumnName="membershipId" />
@@ -550,7 +567,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="invoiceStatus">
-      <EntityTypeMapping TypeName="PosModel.invoiceStatus">
+      <EntityTypeMapping TypeName="laundrydbModel.invoiceStatus">
         <MappingFragment StoreEntitySet="invoiceStatus">
           <ScalarProperty Name="invStatusId" ColumnName="invStatusId" />
           <ScalarProperty Name="invoiceId" ColumnName="invoiceId" />
@@ -565,7 +582,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="invoiceTables">
-      <EntityTypeMapping TypeName="PosModel.invoiceTables">
+      <EntityTypeMapping TypeName="laundrydbModel.invoiceTables">
         <MappingFragment StoreEntitySet="invoiceTables">
           <ScalarProperty Name="invTableId" ColumnName="invTableId" />
           <ScalarProperty Name="invoiceId" ColumnName="invoiceId" />
@@ -579,7 +596,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemOrderPreparing">
-      <EntityTypeMapping TypeName="PosModel.itemOrderPreparing">
+      <EntityTypeMapping TypeName="laundrydbModel.itemOrderPreparing">
         <MappingFragment StoreEntitySet="itemOrderPreparing">
           <ScalarProperty Name="itemOrderId" ColumnName="itemOrderId" />
           <ScalarProperty Name="itemUnitId" ColumnName="itemUnitId" />
@@ -594,7 +611,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="items">
-      <EntityTypeMapping TypeName="PosModel.items">
+      <EntityTypeMapping TypeName="laundrydbModel.items">
         <MappingFragment StoreEntitySet="items">
           <ScalarProperty Name="itemId" ColumnName="itemId" />
           <ScalarProperty Name="code" ColumnName="code" />
@@ -622,7 +639,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemsLocations">
-      <EntityTypeMapping TypeName="PosModel.itemsLocations">
+      <EntityTypeMapping TypeName="laundrydbModel.itemsLocations">
         <MappingFragment StoreEntitySet="itemsLocations">
           <ScalarProperty Name="itemsLocId" ColumnName="itemsLocId" />
           <ScalarProperty Name="locationId" ColumnName="locationId" />
@@ -640,7 +657,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemsMaterials">
-      <EntityTypeMapping TypeName="PosModel.itemsMaterials">
+      <EntityTypeMapping TypeName="laundrydbModel.itemsMaterials">
         <MappingFragment StoreEntitySet="itemsMaterials">
           <ScalarProperty Name="itemMatId" ColumnName="itemMatId" />
           <ScalarProperty Name="itemId" ColumnName="itemId" />
@@ -652,7 +669,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemsOffers">
-      <EntityTypeMapping TypeName="PosModel.itemsOffers">
+      <EntityTypeMapping TypeName="laundrydbModel.itemsOffers">
         <MappingFragment StoreEntitySet="itemsOffers">
           <ScalarProperty Name="ioId" ColumnName="ioId" />
           <ScalarProperty Name="iuId" ColumnName="iuId" />
@@ -667,7 +684,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemsProp">
-      <EntityTypeMapping TypeName="PosModel.itemsProp">
+      <EntityTypeMapping TypeName="laundrydbModel.itemsProp">
         <MappingFragment StoreEntitySet="itemsProp">
           <ScalarProperty Name="itemPropId" ColumnName="itemPropId" />
           <ScalarProperty Name="propertyItemId" ColumnName="propertyItemId" />
@@ -680,7 +697,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemsTransfer">
-      <EntityTypeMapping TypeName="PosModel.itemsTransfer">
+      <EntityTypeMapping TypeName="laundrydbModel.itemsTransfer">
         <MappingFragment StoreEntitySet="itemsTransfer">
           <ScalarProperty Name="itemsTransId" ColumnName="itemsTransId" />
           <ScalarProperty Name="quantity" ColumnName="quantity" />
@@ -694,20 +711,17 @@
           <ScalarProperty Name="itemUnitId" ColumnName="itemUnitId" />
           <ScalarProperty Name="itemSerial" ColumnName="itemSerial" />
           <ScalarProperty Name="inventoryItemLocId" ColumnName="inventoryItemLocId" />
-          <ScalarProperty Name="offerId" ColumnName="offerId" />
           <ScalarProperty Name="profit" ColumnName="profit" />
           <ScalarProperty Name="purchasePrice" ColumnName="purchasePrice" />
           <ScalarProperty Name="cause" ColumnName="cause" />
           <ScalarProperty Name="itemTax" ColumnName="itemTax" />
           <ScalarProperty Name="itemUnitPrice" ColumnName="itemUnitPrice" />
-          <ScalarProperty Name="offerValue" ColumnName="offerValue" />
-          <ScalarProperty Name="offerType" ColumnName="offerType" />
           <ScalarProperty Name="forAgents" ColumnName="forAgents" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemsUnits">
-      <EntityTypeMapping TypeName="PosModel.itemsUnits">
+      <EntityTypeMapping TypeName="laundrydbModel.itemsUnits">
         <MappingFragment StoreEntitySet="itemsUnits">
           <ScalarProperty Name="itemUnitId" ColumnName="itemUnitId" />
           <ScalarProperty Name="itemId" ColumnName="itemId" />
@@ -731,8 +745,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ItemsUnitsServices">
+      <EntityTypeMapping TypeName="laundrydbModel.ItemsUnitsServices">
+        <MappingFragment StoreEntitySet="ItemsUnitsServices">
+          <ScalarProperty Name="itemUnitServiceId" ColumnName="itemUnitServiceId" />
+          <ScalarProperty Name="normalPrice" ColumnName="normalPrice" />
+          <ScalarProperty Name="instantPrice" ColumnName="instantPrice" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createUserId" ColumnName="createUserId" />
+          <ScalarProperty Name="updateUserId" ColumnName="updateUserId" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+          <ScalarProperty Name="itemUnitId" ColumnName="itemUnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="itemTransferOffer">
-      <EntityTypeMapping TypeName="PosModel.itemTransferOffer">
+      <EntityTypeMapping TypeName="laundrydbModel.itemTransferOffer">
         <MappingFragment StoreEntitySet="itemTransferOffer">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="itemTransId" ColumnName="itemTransId" />
@@ -748,7 +777,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="itemUnitUser">
-      <EntityTypeMapping TypeName="PosModel.itemUnitUser">
+      <EntityTypeMapping TypeName="laundrydbModel.itemUnitUser">
         <MappingFragment StoreEntitySet="itemUnitUser">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="itemUnitId" ColumnName="itemUnitId" />
@@ -762,8 +791,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="itransIUServices">
+      <EntityTypeMapping TypeName="laundrydbModel.itransIUServices">
+        <MappingFragment StoreEntitySet="itransIUServices">
+          <ScalarProperty Name="itransIUServiceId" ColumnName="itransIUServiceId" />
+          <ScalarProperty Name="itemsTransId" ColumnName="itemsTransId" />
+          <ScalarProperty Name="subServiceId" ColumnName="subServiceId" />
+          <ScalarProperty Name="itemUnitServiceId" ColumnName="itemUnitServiceId" />
+          <ScalarProperty Name="offerId" ColumnName="offerId" />
+          <ScalarProperty Name="offerType" ColumnName="offerType" />
+          <ScalarProperty Name="offerValue" ColumnName="offerValue" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createUserId" ColumnName="createUserId" />
+          <ScalarProperty Name="updateUserId" ColumnName="updateUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="locations">
-      <EntityTypeMapping TypeName="PosModel.locations">
+      <EntityTypeMapping TypeName="laundrydbModel.locations">
         <MappingFragment StoreEntitySet="locations">
           <ScalarProperty Name="locationId" ColumnName="locationId" />
           <ScalarProperty Name="x" ColumnName="x" />
@@ -783,7 +830,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="medalAgent">
-      <EntityTypeMapping TypeName="PosModel.medalAgent">
+      <EntityTypeMapping TypeName="laundrydbModel.medalAgent">
         <MappingFragment StoreEntitySet="medalAgent">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="medalId" ColumnName="medalId" />
@@ -798,7 +845,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="medals">
-      <EntityTypeMapping TypeName="PosModel.medals">
+      <EntityTypeMapping TypeName="laundrydbModel.medals">
         <MappingFragment StoreEntitySet="medals">
           <ScalarProperty Name="medalId" ColumnName="medalId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -815,7 +862,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="memberships">
-      <EntityTypeMapping TypeName="PosModel.memberships">
+      <EntityTypeMapping TypeName="laundrydbModel.memberships">
         <MappingFragment StoreEntitySet="memberships">
           <ScalarProperty Name="membershipId" ColumnName="membershipId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -833,7 +880,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="membershipsOffers">
-      <EntityTypeMapping TypeName="PosModel.membershipsOffers">
+      <EntityTypeMapping TypeName="laundrydbModel.membershipsOffers">
         <MappingFragment StoreEntitySet="membershipsOffers">
           <ScalarProperty Name="membershipOfferId" ColumnName="membershipOfferId" />
           <ScalarProperty Name="membershipId" ColumnName="membershipId" />
@@ -847,7 +894,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="menuSettings">
-      <EntityTypeMapping TypeName="PosModel.menuSettings">
+      <EntityTypeMapping TypeName="laundrydbModel.menuSettings">
         <MappingFragment StoreEntitySet="menuSettings">
           <ScalarProperty Name="menuSettingId" ColumnName="menuSettingId" />
           <ScalarProperty Name="itemUnitId" ColumnName="itemUnitId" />
@@ -869,7 +916,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="notification">
-      <EntityTypeMapping TypeName="PosModel.notification">
+      <EntityTypeMapping TypeName="laundrydbModel.notification">
         <MappingFragment StoreEntitySet="notification">
           <ScalarProperty Name="notId" ColumnName="notId" />
           <ScalarProperty Name="title" ColumnName="title" />
@@ -886,7 +933,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="notificationUser">
-      <EntityTypeMapping TypeName="PosModel.notificationUser">
+      <EntityTypeMapping TypeName="laundrydbModel.notificationUser">
         <MappingFragment StoreEntitySet="notificationUser">
           <ScalarProperty Name="notUserId" ColumnName="notUserId" />
           <ScalarProperty Name="notId" ColumnName="notId" />
@@ -901,7 +948,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="objects">
-      <EntityTypeMapping TypeName="PosModel.objects">
+      <EntityTypeMapping TypeName="laundrydbModel.objects">
         <MappingFragment StoreEntitySet="objects">
           <ScalarProperty Name="objectId" ColumnName="objectId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -914,7 +961,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="offers">
-      <EntityTypeMapping TypeName="PosModel.offers">
+      <EntityTypeMapping TypeName="laundrydbModel.offers">
         <MappingFragment StoreEntitySet="offers">
           <ScalarProperty Name="offerId" ColumnName="offerId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -934,7 +981,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="orderPreparing">
-      <EntityTypeMapping TypeName="PosModel.orderPreparing">
+      <EntityTypeMapping TypeName="laundrydbModel.orderPreparing">
         <MappingFragment StoreEntitySet="orderPreparing">
           <ScalarProperty Name="orderPreparingId" ColumnName="orderPreparingId" />
           <ScalarProperty Name="orderNum" ColumnName="orderNum" />
@@ -949,7 +996,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="orderPreparingStatus">
-      <EntityTypeMapping TypeName="PosModel.orderPreparingStatus">
+      <EntityTypeMapping TypeName="laundrydbModel.orderPreparingStatus">
         <MappingFragment StoreEntitySet="orderPreparingStatus">
           <ScalarProperty Name="orderStatusId" ColumnName="orderStatusId" />
           <ScalarProperty Name="orderPreparingId" ColumnName="orderPreparingId" />
@@ -964,7 +1011,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="packages">
-      <EntityTypeMapping TypeName="PosModel.packages">
+      <EntityTypeMapping TypeName="laundrydbModel.packages">
         <MappingFragment StoreEntitySet="packages">
           <ScalarProperty Name="packageId" ColumnName="packageId" />
           <ScalarProperty Name="parentIUId" ColumnName="parentIUId" />
@@ -980,7 +1027,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="paperSize">
-      <EntityTypeMapping TypeName="PosModel.paperSize">
+      <EntityTypeMapping TypeName="laundrydbModel.paperSize">
         <MappingFragment StoreEntitySet="paperSize">
           <ScalarProperty Name="sizeId" ColumnName="sizeId" />
           <ScalarProperty Name="paperSize1" ColumnName="paperSize" />
@@ -990,7 +1037,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Points">
-      <EntityTypeMapping TypeName="PosModel.Points">
+      <EntityTypeMapping TypeName="laundrydbModel.Points">
         <MappingFragment StoreEntitySet="Points">
           <ScalarProperty Name="pointId" ColumnName="pointId" />
           <ScalarProperty Name="Cash" ColumnName="Cash" />
@@ -1011,8 +1058,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="pointSetting">
+      <EntityTypeMapping TypeName="laundrydbModel.pointSetting">
+        <MappingFragment StoreEntitySet="pointSetting">
+          <ScalarProperty Name="pointSettingId" ColumnName="pointSettingId" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="pointsAccum" ColumnName="pointsAccum" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createUserId" ColumnName="createUserId" />
+          <ScalarProperty Name="updateUserId" ColumnName="updateUserId" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="pos">
-      <EntityTypeMapping TypeName="PosModel.pos">
+      <EntityTypeMapping TypeName="laundrydbModel.pos">
         <MappingFragment StoreEntitySet="pos">
           <ScalarProperty Name="posId" ColumnName="posId" />
           <ScalarProperty Name="code" ColumnName="code" />
@@ -1032,7 +1094,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="posSerials">
-      <EntityTypeMapping TypeName="PosModel.posSerials">
+      <EntityTypeMapping TypeName="laundrydbModel.posSerials">
         <MappingFragment StoreEntitySet="posSerials">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="posSerial" ColumnName="posSerial" />
@@ -1042,7 +1104,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="posSetting">
-      <EntityTypeMapping TypeName="PosModel.posSetting">
+      <EntityTypeMapping TypeName="laundrydbModel.posSetting">
         <MappingFragment StoreEntitySet="posSetting">
           <ScalarProperty Name="posSettingId" ColumnName="posSettingId" />
           <ScalarProperty Name="posId" ColumnName="posId" />
@@ -1063,7 +1125,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="posUsers">
-      <EntityTypeMapping TypeName="PosModel.posUsers">
+      <EntityTypeMapping TypeName="laundrydbModel.posUsers">
         <MappingFragment StoreEntitySet="posUsers">
           <ScalarProperty Name="posUserId" ColumnName="posUserId" />
           <ScalarProperty Name="userId" ColumnName="userId" />
@@ -1076,7 +1138,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="printers">
-      <EntityTypeMapping TypeName="PosModel.printers">
+      <EntityTypeMapping TypeName="laundrydbModel.printers">
         <MappingFragment StoreEntitySet="printers">
           <ScalarProperty Name="printerId" ColumnName="printerId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1089,7 +1151,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProgramDetails">
-      <EntityTypeMapping TypeName="PosModel.ProgramDetails">
+      <EntityTypeMapping TypeName="laundrydbModel.ProgramDetails">
         <MappingFragment StoreEntitySet="ProgramDetails">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="programName" ColumnName="programName" />
@@ -1132,7 +1194,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="properties">
-      <EntityTypeMapping TypeName="PosModel.properties">
+      <EntityTypeMapping TypeName="laundrydbModel.properties">
         <MappingFragment StoreEntitySet="properties">
           <ScalarProperty Name="propertyId" ColumnName="propertyId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1145,7 +1207,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="propertiesItems">
-      <EntityTypeMapping TypeName="PosModel.propertiesItems">
+      <EntityTypeMapping TypeName="laundrydbModel.propertiesItems">
         <MappingFragment StoreEntitySet="propertiesItems">
           <ScalarProperty Name="propertyItemId" ColumnName="propertyItemId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1160,7 +1222,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="reservations">
-      <EntityTypeMapping TypeName="PosModel.reservations">
+      <EntityTypeMapping TypeName="laundrydbModel.reservations">
         <MappingFragment StoreEntitySet="reservations">
           <ScalarProperty Name="reservationId" ColumnName="reservationId" />
           <ScalarProperty Name="code" ColumnName="code" />
@@ -1181,7 +1243,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="residentialSectors">
-      <EntityTypeMapping TypeName="PosModel.residentialSectors">
+      <EntityTypeMapping TypeName="laundrydbModel.residentialSectors">
         <MappingFragment StoreEntitySet="residentialSectors">
           <ScalarProperty Name="residentSecId" ColumnName="residentSecId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1196,7 +1258,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="residentialSectorsUsers">
-      <EntityTypeMapping TypeName="PosModel.residentialSectorsUsers">
+      <EntityTypeMapping TypeName="laundrydbModel.residentialSectorsUsers">
         <MappingFragment StoreEntitySet="residentialSectorsUsers">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="residentSecId" ColumnName="residentSecId" />
@@ -1210,7 +1272,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sections">
-      <EntityTypeMapping TypeName="PosModel.sections">
+      <EntityTypeMapping TypeName="laundrydbModel.sections">
         <MappingFragment StoreEntitySet="sections">
           <ScalarProperty Name="sectionId" ColumnName="sectionId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1229,7 +1291,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="serials">
-      <EntityTypeMapping TypeName="PosModel.serials">
+      <EntityTypeMapping TypeName="laundrydbModel.serials">
         <MappingFragment StoreEntitySet="serials">
           <ScalarProperty Name="serialId" ColumnName="serialId" />
           <ScalarProperty Name="itemId" ColumnName="itemId" />
@@ -1242,8 +1304,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="services">
+      <EntityTypeMapping TypeName="laundrydbModel.services">
+        <MappingFragment StoreEntitySet="services">
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createUserId" ColumnName="createUserId" />
+          <ScalarProperty Name="updateUserId" ColumnName="updateUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="setting">
-      <EntityTypeMapping TypeName="PosModel.setting">
+      <EntityTypeMapping TypeName="laundrydbModel.setting">
         <MappingFragment StoreEntitySet="setting">
           <ScalarProperty Name="settingId" ColumnName="settingId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1252,7 +1331,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="setValues">
-      <EntityTypeMapping TypeName="PosModel.setValues">
+      <EntityTypeMapping TypeName="laundrydbModel.setValues">
         <MappingFragment StoreEntitySet="setValues">
           <ScalarProperty Name="valId" ColumnName="valId" />
           <ScalarProperty Name="value" ColumnName="value" />
@@ -1264,7 +1343,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="shippingCompanies">
-      <EntityTypeMapping TypeName="PosModel.shippingCompanies">
+      <EntityTypeMapping TypeName="laundrydbModel.shippingCompanies">
         <MappingFragment StoreEntitySet="shippingCompanies">
           <ScalarProperty Name="shippingCompanyId" ColumnName="shippingCompanyId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1288,7 +1367,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="storageCost">
-      <EntityTypeMapping TypeName="PosModel.storageCost">
+      <EntityTypeMapping TypeName="laundrydbModel.storageCost">
         <MappingFragment StoreEntitySet="storageCost">
           <ScalarProperty Name="storageCostId" ColumnName="storageCostId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1302,8 +1381,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Sub">
+      <EntityTypeMapping TypeName="laundrydbModel.Sub">
+        <MappingFragment StoreEntitySet="Sub">
+          <ScalarProperty Name="subId" ColumnName="subId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createUserId" ColumnName="createUserId" />
+          <ScalarProperty Name="updateUserId" ColumnName="updateUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="subscriptionFees">
-      <EntityTypeMapping TypeName="PosModel.subscriptionFees">
+      <EntityTypeMapping TypeName="laundrydbModel.subscriptionFees">
         <MappingFragment StoreEntitySet="subscriptionFees">
           <ScalarProperty Name="subscriptionFeesId" ColumnName="subscriptionFeesId" />
           <ScalarProperty Name="membershipId" ColumnName="membershipId" />
@@ -1318,19 +1411,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="PosModel.sysdiagrams">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
+    <EntitySetMapping Name="subServices">
+      <EntityTypeMapping TypeName="laundrydbModel.subServices">
+        <MappingFragment StoreEntitySet="subServices">
+          <ScalarProperty Name="subServiceId" ColumnName="subServiceId" />
+          <ScalarProperty Name="agentSubId" ColumnName="agentSubId" />
+          <ScalarProperty Name="subId" ColumnName="subId" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+          <ScalarProperty Name="serviceType" ColumnName="serviceType" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="remain" ColumnName="remain" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createUserId" ColumnName="createUserId" />
+          <ScalarProperty Name="updateUserId" ColumnName="updateUserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysEmails">
-      <EntityTypeMapping TypeName="PosModel.sysEmails">
+      <EntityTypeMapping TypeName="laundrydbModel.sysEmails">
         <MappingFragment StoreEntitySet="sysEmails">
           <ScalarProperty Name="emailId" ColumnName="emailId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1352,7 +1451,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tables">
-      <EntityTypeMapping TypeName="PosModel.tables">
+      <EntityTypeMapping TypeName="laundrydbModel.tables">
         <MappingFragment StoreEntitySet="tables">
           <ScalarProperty Name="tableId" ColumnName="tableId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1370,7 +1469,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tablesReservations">
-      <EntityTypeMapping TypeName="PosModel.tablesReservations">
+      <EntityTypeMapping TypeName="laundrydbModel.tablesReservations">
         <MappingFragment StoreEntitySet="tablesReservations">
           <ScalarProperty Name="tableReservId" ColumnName="tableReservId" />
           <ScalarProperty Name="reservationId" ColumnName="reservationId" />
@@ -1385,7 +1484,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tags">
-      <EntityTypeMapping TypeName="PosModel.tags">
+      <EntityTypeMapping TypeName="laundrydbModel.tags">
         <MappingFragment StoreEntitySet="tags">
           <ScalarProperty Name="tagId" ColumnName="tagId" />
           <ScalarProperty Name="tagName" ColumnName="tagName" />
@@ -1400,7 +1499,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="units">
-      <EntityTypeMapping TypeName="PosModel.units">
+      <EntityTypeMapping TypeName="laundrydbModel.units">
         <MappingFragment StoreEntitySet="units">
           <ScalarProperty Name="unitId" ColumnName="unitId" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -1417,7 +1516,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="PosModel.users">
+      <EntityTypeMapping TypeName="laundrydbModel.users">
         <MappingFragment StoreEntitySet="users">
           <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="username" ColumnName="username" />
@@ -1447,7 +1546,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="userSetValues">
-      <EntityTypeMapping TypeName="PosModel.userSetValues">
+      <EntityTypeMapping TypeName="laundrydbModel.userSetValues">
         <MappingFragment StoreEntitySet="userSetValues">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="userId" ColumnName="userId" />
@@ -1461,7 +1560,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="usersLogs">
-      <EntityTypeMapping TypeName="PosModel.usersLogs">
+      <EntityTypeMapping TypeName="laundrydbModel.usersLogs">
         <MappingFragment StoreEntitySet="usersLogs">
           <ScalarProperty Name="logId" ColumnName="logId" />
           <ScalarProperty Name="sInDate" ColumnName="sInDate" />
