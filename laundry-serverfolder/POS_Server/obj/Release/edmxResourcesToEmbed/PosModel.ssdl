@@ -56,6 +56,22 @@
     <Property Name="GPSAddress" Type="nvarchar" MaxLength="1000" />
     <Property Name="membershipId" Type="int" />
   </EntityType>
+  <EntityType Name="agentsSub">
+    <Key>
+      <PropertyRef Name="agentSubId" />
+    </Key>
+    <Property Name="agentSubId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="agentId" Type="int" />
+    <Property Name="subId" Type="int" />
+    <Property Name="isLimited" Type="tinyint" />
+    <Property Name="endDate" Type="datetime2" Precision="7" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+    <Property Name="notes" Type="nvarchar" MaxLength="500" />
+    <Property Name="createDate" Type="datetime2" Precision="7" />
+    <Property Name="updateDate" Type="datetime2" Precision="7" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
   <EntityType Name="banks">
     <Key>
       <PropertyRef Name="bankId" />
@@ -657,14 +673,11 @@
     <Property Name="itemUnitId" Type="int" />
     <Property Name="itemSerial" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="inventoryItemLocId" Type="int" />
-    <Property Name="offerId" Type="int" />
     <Property Name="profit" Type="decimal" Precision="20" Scale="3" Nullable="false" />
     <Property Name="purchasePrice" Type="decimal" Precision="20" Scale="3" Nullable="false" />
     <Property Name="cause" Type="nvarchar" MaxLength="500" />
     <Property Name="itemTax" Type="decimal" Precision="20" Scale="3" />
     <Property Name="itemUnitPrice" Type="decimal" Precision="20" Scale="3" />
-    <Property Name="offerValue" Type="decimal" Precision="20" Scale="3" />
-    <Property Name="offerType" Type="decimal" Precision="4" Scale="0" />
     <Property Name="forAgents" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="itemsUnits">
@@ -690,6 +703,20 @@
     <Property Name="storageCostId" Type="int" />
     <Property Name="isActive" Type="tinyint" Nullable="false" />
     <Property Name="cost" Type="decimal" Precision="20" Scale="3" />
+  </EntityType>
+  <EntityType Name="ItemsUnitsServices">
+    <Key>
+      <PropertyRef Name="itemUnitServiceId" />
+    </Key>
+    <Property Name="itemUnitServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="normalPrice" Type="decimal" Precision="20" Scale="3" Nullable="false" />
+    <Property Name="instantPrice" Type="decimal" Precision="20" Scale="3" Nullable="false" />
+    <Property Name="createDate" Type="datetime2" Precision="7" />
+    <Property Name="updateDate" Type="datetime2" Precision="7" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="serviceId" Type="int" />
+    <Property Name="itemUnitId" Type="int" />
   </EntityType>
   <EntityType Name="itemTransferOffer">
     <Key>
@@ -719,6 +746,23 @@
     <Property Name="createUserId" Type="int" />
     <Property Name="updateUserId" Type="int" />
     <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="itransIUServices">
+    <Key>
+      <PropertyRef Name="itransIUServiceId" />
+    </Key>
+    <Property Name="itransIUServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemsTransId" Type="int" />
+    <Property Name="subServiceId" Type="int" />
+    <Property Name="itemUnitServiceId" Type="int" />
+    <Property Name="offerId" Type="int" />
+    <Property Name="offerType" Type="nvarchar" MaxLength="100" />
+    <Property Name="offerValue" Type="decimal" Precision="20" Scale="3" Nullable="false" />
+    <Property Name="notes" Type="nvarchar" MaxLength="500" />
+    <Property Name="createDate" Type="datetime2" Precision="7" />
+    <Property Name="updateDate" Type="datetime2" Precision="7" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
   </EntityType>
   <EntityType Name="locations">
     <Key>
@@ -954,6 +998,20 @@
     <Property Name="isActive" Type="tinyint" Nullable="false" />
     <Property Name="agentId" Type="int" />
   </EntityType>
+  <EntityType Name="pointSetting">
+    <Key>
+      <PropertyRef Name="pointSettingId" />
+    </Key>
+    <Property Name="pointSettingId" Type="int" Nullable="false" />
+    <Property Name="points" Type="int" Nullable="false" />
+    <Property Name="pointsAccum" Type="int" Nullable="false" />
+    <Property Name="createDate" Type="datetime2" Precision="7" />
+    <Property Name="updateDate" Type="datetime2" Precision="7" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+    <Property Name="notes" Type="nvarchar" MaxLength="500" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
   <EntityType Name="pos">
     <Key>
       <PropertyRef Name="posId" />
@@ -1172,6 +1230,22 @@
     <Property Name="createUserId" Type="int" />
     <Property Name="updateUserId" Type="int" />
   </EntityType>
+  <EntityType Name="services">
+    <Key>
+      <PropertyRef Name="serviceId" />
+    </Key>
+    <Property Name="serviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+    <Property Name="notes" Type="nvarchar" MaxLength="500" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="20" Scale="3" Nullable="false" />
+    <Property Name="cost" Type="decimal" Precision="20" Scale="3" Nullable="false" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="createDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="updateDate" Type="datetime2" Precision="7" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
   <EntityType Name="setting">
     <Key>
       <PropertyRef Name="settingId" />
@@ -1228,6 +1302,19 @@
     <Property Name="createDate" Type="datetime2" Precision="7" />
     <Property Name="updateDate" Type="datetime2" Precision="7" />
   </EntityType>
+  <EntityType Name="Sub">
+    <Key>
+      <PropertyRef Name="subId" />
+    </Key>
+    <Property Name="subId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+    <Property Name="notes" Type="nvarchar" MaxLength="500" />
+    <Property Name="isActive" Type="tinyint" Nullable="false" />
+    <Property Name="createDate" Type="datetime2" Precision="7" />
+    <Property Name="updateDate" Type="datetime2" Precision="7" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
+  </EntityType>
   <EntityType Name="subscriptionFees">
     <Key>
       <PropertyRef Name="subscriptionFeesId" />
@@ -1242,6 +1329,22 @@
     <Property Name="createUserId" Type="int" />
     <Property Name="updateUserId" Type="int" />
     <Property Name="isActive" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subServices">
+    <Key>
+      <PropertyRef Name="subServiceId" />
+    </Key>
+    <Property Name="subServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="agentSubId" Type="int" />
+    <Property Name="subId" Type="int" />
+    <Property Name="serviceId" Type="int" />
+    <Property Name="serviceType" Type="nvarchar" MaxLength="10" />
+    <Property Name="count" Type="int" Nullable="false" />
+    <Property Name="remain" Type="int" Nullable="false" />
+    <Property Name="createDate" Type="datetime2" Precision="7" />
+    <Property Name="updateDate" Type="datetime2" Precision="7" />
+    <Property Name="createUserId" Type="int" />
+    <Property Name="updateUserId" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -1515,6 +1618,54 @@
         <PropertyRef Name="userId" />
       </Principal>
       <Dependent Role="agents">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agentsSub_agents">
+    <End Role="agents" Type="Self.agents" Multiplicity="0..1" />
+    <End Role="agentsSub" Type="Self.agentsSub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agents">
+        <PropertyRef Name="agentId" />
+      </Principal>
+      <Dependent Role="agentsSub">
+        <PropertyRef Name="agentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agentsSub_Sub">
+    <End Role="Sub" Type="Self.Sub" Multiplicity="0..1" />
+    <End Role="agentsSub" Type="Self.agentsSub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sub">
+        <PropertyRef Name="subId" />
+      </Principal>
+      <Dependent Role="agentsSub">
+        <PropertyRef Name="subId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agentsSub_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="agentsSub" Type="Self.agentsSub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="agentsSub">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agentsSub_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="agentsSub" Type="Self.agentsSub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="agentsSub">
         <PropertyRef Name="updateUserId" />
       </Dependent>
     </ReferentialConstraint>
@@ -3019,18 +3170,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_itemsTransfer_offers">
-    <End Role="offers" Type="Self.offers" Multiplicity="0..1" />
-    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="offers">
-        <PropertyRef Name="offerId" />
-      </Principal>
-      <Dependent Role="itemsTransfer">
-        <PropertyRef Name="offerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_itemsUnits_items">
     <End Role="items" Type="Self.items" Multiplicity="0..1" />
     <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="*" />
@@ -3087,6 +3226,54 @@
         <PropertyRef Name="userId" />
       </Principal>
       <Dependent Role="itemsUnits">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsUnitsServices_itemsUnits">
+    <End Role="itemsUnits" Type="Self.itemsUnits" Multiplicity="0..1" />
+    <End Role="ItemsUnitsServices" Type="Self.ItemsUnitsServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="itemsUnits">
+        <PropertyRef Name="itemUnitId" />
+      </Principal>
+      <Dependent Role="ItemsUnitsServices">
+        <PropertyRef Name="itemUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsUnitsServices_services">
+    <End Role="services" Type="Self.services" Multiplicity="0..1" />
+    <End Role="ItemsUnitsServices" Type="Self.ItemsUnitsServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="serviceId" />
+      </Principal>
+      <Dependent Role="ItemsUnitsServices">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsUnitsServices_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="ItemsUnitsServices" Type="Self.ItemsUnitsServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="ItemsUnitsServices">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsUnitsServices_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="ItemsUnitsServices" Type="Self.ItemsUnitsServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="ItemsUnitsServices">
         <PropertyRef Name="updateUserId" />
       </Dependent>
     </ReferentialConstraint>
@@ -3183,6 +3370,66 @@
         <PropertyRef Name="userId" />
       </Principal>
       <Dependent Role="itemUnitUser">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itransIUServices_itemsTransfer">
+    <End Role="itemsTransfer" Type="Self.itemsTransfer" Multiplicity="0..1" />
+    <End Role="itransIUServices" Type="Self.itransIUServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="itemsTransfer">
+        <PropertyRef Name="itemsTransId" />
+      </Principal>
+      <Dependent Role="itransIUServices">
+        <PropertyRef Name="itemsTransId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itransIUServices_ItemsUnitsServices">
+    <End Role="ItemsUnitsServices" Type="Self.ItemsUnitsServices" Multiplicity="0..1" />
+    <End Role="itransIUServices" Type="Self.itransIUServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsUnitsServices">
+        <PropertyRef Name="itemUnitServiceId" />
+      </Principal>
+      <Dependent Role="itransIUServices">
+        <PropertyRef Name="itemUnitServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itransIUServices_subServices">
+    <End Role="subServices" Type="Self.subServices" Multiplicity="0..1" />
+    <End Role="itransIUServices" Type="Self.itransIUServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subServices">
+        <PropertyRef Name="subServiceId" />
+      </Principal>
+      <Dependent Role="itransIUServices">
+        <PropertyRef Name="subServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itransIUServices_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itransIUServices" Type="Self.itransIUServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itransIUServices">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_itransIUServices_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="itransIUServices" Type="Self.itransIUServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="itransIUServices">
         <PropertyRef Name="updateUserId" />
       </Dependent>
     </ReferentialConstraint>
@@ -3667,6 +3914,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_pointSetting_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="pointSetting" Type="Self.pointSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="pointSetting">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pointSetting_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="pointSetting" Type="Self.pointSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="pointSetting">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_pos_branches">
     <End Role="branches" Type="Self.branches" Multiplicity="0..1" />
     <End Role="pos" Type="Self.pos" Multiplicity="*" />
@@ -4099,6 +4370,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_services_categories">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_setValues_setting">
     <End Role="setting" Type="Self.setting" Multiplicity="0..1" />
     <End Role="setValues" Type="Self.setValues" Multiplicity="*" />
@@ -4111,6 +4418,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Sub_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="Sub" Type="Self.Sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Sub">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sub_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="Sub" Type="Self.Sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Sub">
+        <PropertyRef Name="updateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_subscriptionFees_memberships">
     <End Role="memberships" Type="Self.memberships" Multiplicity="0..1" />
     <End Role="subscriptionFees" Type="Self.subscriptionFees" Multiplicity="*" />
@@ -4120,6 +4451,66 @@
       </Principal>
       <Dependent Role="subscriptionFees">
         <PropertyRef Name="membershipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subServices_agentsSub">
+    <End Role="agentsSub" Type="Self.agentsSub" Multiplicity="0..1" />
+    <End Role="subServices" Type="Self.subServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agentsSub">
+        <PropertyRef Name="agentSubId" />
+      </Principal>
+      <Dependent Role="subServices">
+        <PropertyRef Name="agentSubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subServices_services">
+    <End Role="services" Type="Self.services" Multiplicity="0..1" />
+    <End Role="subServices" Type="Self.subServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="serviceId" />
+      </Principal>
+      <Dependent Role="subServices">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subServices_Sub">
+    <End Role="Sub" Type="Self.Sub" Multiplicity="0..1" />
+    <End Role="subServices" Type="Self.subServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sub">
+        <PropertyRef Name="subId" />
+      </Principal>
+      <Dependent Role="subServices">
+        <PropertyRef Name="subId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subServices_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="subServices" Type="Self.subServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="subServices">
+        <PropertyRef Name="createUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subServices_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="subServices" Type="Self.subServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="subServices">
+        <PropertyRef Name="updateUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -4378,6 +4769,7 @@
   <EntityContainer Name="PosModelStoreContainer">
     <EntitySet Name="agentMembershipCash" EntityType="Self.agentMembershipCash" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="agents" EntityType="Self.agents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="agentsSub" EntityType="Self.agentsSub" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="banks" EntityType="Self.banks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bondes" EntityType="Self.bondes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="branches" EntityType="Self.branches" Schema="dbo" store:Type="Tables" />
@@ -4415,8 +4807,10 @@
     <EntitySet Name="itemsProp" EntityType="Self.itemsProp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="itemsTransfer" EntityType="Self.itemsTransfer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="itemsUnits" EntityType="Self.itemsUnits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemsUnitsServices" EntityType="Self.ItemsUnitsServices" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="itemTransferOffer" EntityType="Self.itemTransferOffer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="itemUnitUser" EntityType="Self.itemUnitUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="itransIUServices" EntityType="Self.itransIUServices" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="medalAgent" EntityType="Self.medalAgent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="medals" EntityType="Self.medals" Schema="dbo" store:Type="Tables" />
@@ -4432,6 +4826,7 @@
     <EntitySet Name="packages" EntityType="Self.packages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="paperSize" EntityType="Self.paperSize" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Points" EntityType="Self.Points" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pointSetting" EntityType="Self.pointSetting" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="pos" EntityType="Self.pos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="posSerials" EntityType="Self.posSerials" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="posSetting" EntityType="Self.posSetting" Schema="dbo" store:Type="Tables" />
@@ -4445,11 +4840,14 @@
     <EntitySet Name="residentialSectorsUsers" EntityType="Self.residentialSectorsUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sections" EntityType="Self.sections" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="serials" EntityType="Self.serials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="services" EntityType="Self.services" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="setting" EntityType="Self.setting" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="setValues" EntityType="Self.setValues" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="shippingCompanies" EntityType="Self.shippingCompanies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="storageCost" EntityType="Self.storageCost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sub" EntityType="Self.Sub" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="subscriptionFees" EntityType="Self.subscriptionFees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subServices" EntityType="Self.subServices" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysEmails" EntityType="Self.sysEmails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tables" EntityType="Self.tables" Schema="dbo" store:Type="Tables" />
@@ -4502,6 +4900,22 @@
     <AssociationSet Name="FK_agents_users1" Association="Self.FK_agents_users1">
       <End Role="users" EntitySet="users" />
       <End Role="agents" EntitySet="agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agentsSub_agents" Association="Self.FK_agentsSub_agents">
+      <End Role="agents" EntitySet="agents" />
+      <End Role="agentsSub" EntitySet="agentsSub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agentsSub_Sub" Association="Self.FK_agentsSub_Sub">
+      <End Role="Sub" EntitySet="Sub" />
+      <End Role="agentsSub" EntitySet="agentsSub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agentsSub_users" Association="Self.FK_agentsSub_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="agentsSub" EntitySet="agentsSub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agentsSub_users1" Association="Self.FK_agentsSub_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="agentsSub" EntitySet="agentsSub" />
     </AssociationSet>
     <AssociationSet Name="FK_bondes_cashTransfer" Association="Self.FK_bondes_cashTransfer">
       <End Role="cashTransfer" EntitySet="cashTransfer" />
@@ -5003,10 +5417,6 @@
       <End Role="itemsUnits" EntitySet="itemsUnits" />
       <End Role="itemsTransfer" EntitySet="itemsTransfer" />
     </AssociationSet>
-    <AssociationSet Name="FK_itemsTransfer_offers" Association="Self.FK_itemsTransfer_offers">
-      <End Role="offers" EntitySet="offers" />
-      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
-    </AssociationSet>
     <AssociationSet Name="FK_itemsUnits_items" Association="Self.FK_itemsUnits_items">
       <End Role="items" EntitySet="items" />
       <End Role="itemsUnits" EntitySet="itemsUnits" />
@@ -5026,6 +5436,22 @@
     <AssociationSet Name="FK_itemsUnits_users1" Association="Self.FK_itemsUnits_users1">
       <End Role="users" EntitySet="users" />
       <End Role="itemsUnits" EntitySet="itemsUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsUnitsServices_itemsUnits" Association="Self.FK_ItemsUnitsServices_itemsUnits">
+      <End Role="itemsUnits" EntitySet="itemsUnits" />
+      <End Role="ItemsUnitsServices" EntitySet="ItemsUnitsServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsUnitsServices_services" Association="Self.FK_ItemsUnitsServices_services">
+      <End Role="services" EntitySet="services" />
+      <End Role="ItemsUnitsServices" EntitySet="ItemsUnitsServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsUnitsServices_users" Association="Self.FK_ItemsUnitsServices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="ItemsUnitsServices" EntitySet="ItemsUnitsServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsUnitsServices_users1" Association="Self.FK_ItemsUnitsServices_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="ItemsUnitsServices" EntitySet="ItemsUnitsServices" />
     </AssociationSet>
     <AssociationSet Name="FK_itemTransferOffer_itemsTransfer" Association="Self.FK_itemTransferOffer_itemsTransfer">
       <End Role="itemsTransfer" EntitySet="itemsTransfer" />
@@ -5058,6 +5484,26 @@
     <AssociationSet Name="FK_itemUnitUser_users2" Association="Self.FK_itemUnitUser_users2">
       <End Role="users" EntitySet="users" />
       <End Role="itemUnitUser" EntitySet="itemUnitUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itransIUServices_itemsTransfer" Association="Self.FK_itransIUServices_itemsTransfer">
+      <End Role="itemsTransfer" EntitySet="itemsTransfer" />
+      <End Role="itransIUServices" EntitySet="itransIUServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itransIUServices_ItemsUnitsServices" Association="Self.FK_itransIUServices_ItemsUnitsServices">
+      <End Role="ItemsUnitsServices" EntitySet="ItemsUnitsServices" />
+      <End Role="itransIUServices" EntitySet="itransIUServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itransIUServices_subServices" Association="Self.FK_itransIUServices_subServices">
+      <End Role="subServices" EntitySet="subServices" />
+      <End Role="itransIUServices" EntitySet="itransIUServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itransIUServices_users" Association="Self.FK_itransIUServices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="itransIUServices" EntitySet="itransIUServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_itransIUServices_users1" Association="Self.FK_itransIUServices_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="itransIUServices" EntitySet="itransIUServices" />
     </AssociationSet>
     <AssociationSet Name="FK_locations_branches1" Association="Self.FK_locations_branches1">
       <End Role="branches" EntitySet="branches" />
@@ -5219,6 +5665,14 @@
       <End Role="users" EntitySet="users" />
       <End Role="Points" EntitySet="Points" />
     </AssociationSet>
+    <AssociationSet Name="FK_pointSetting_users" Association="Self.FK_pointSetting_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="pointSetting" EntitySet="pointSetting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pointSetting_users1" Association="Self.FK_pointSetting_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="pointSetting" EntitySet="pointSetting" />
+    </AssociationSet>
     <AssociationSet Name="FK_pos_branches" Association="Self.FK_pos_branches">
       <End Role="branches" EntitySet="branches" />
       <End Role="pos" EntitySet="pos" />
@@ -5363,13 +5817,53 @@
       <End Role="users" EntitySet="users" />
       <End Role="serials" EntitySet="serials" />
     </AssociationSet>
+    <AssociationSet Name="FK_services_categories" Association="Self.FK_services_categories">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_users" Association="Self.FK_services_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_users1" Association="Self.FK_services_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
     <AssociationSet Name="FK_setValues_setting" Association="Self.FK_setValues_setting">
       <End Role="setting" EntitySet="setting" />
       <End Role="setValues" EntitySet="setValues" />
     </AssociationSet>
+    <AssociationSet Name="FK_Sub_users" Association="Self.FK_Sub_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="Sub" EntitySet="Sub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sub_users1" Association="Self.FK_Sub_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="Sub" EntitySet="Sub" />
+    </AssociationSet>
     <AssociationSet Name="FK_subscriptionFees_memberships" Association="Self.FK_subscriptionFees_memberships">
       <End Role="memberships" EntitySet="memberships" />
       <End Role="subscriptionFees" EntitySet="subscriptionFees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subServices_agentsSub" Association="Self.FK_subServices_agentsSub">
+      <End Role="agentsSub" EntitySet="agentsSub" />
+      <End Role="subServices" EntitySet="subServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subServices_services" Association="Self.FK_subServices_services">
+      <End Role="services" EntitySet="services" />
+      <End Role="subServices" EntitySet="subServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subServices_Sub" Association="Self.FK_subServices_Sub">
+      <End Role="Sub" EntitySet="Sub" />
+      <End Role="subServices" EntitySet="subServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subServices_users" Association="Self.FK_subServices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="subServices" EntitySet="subServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subServices_users1" Association="Self.FK_subServices_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="subServices" EntitySet="subServices" />
     </AssociationSet>
     <AssociationSet Name="FK_sysEmails_branches" Association="Self.FK_sysEmails_branches">
       <End Role="branches" EntitySet="branches" />

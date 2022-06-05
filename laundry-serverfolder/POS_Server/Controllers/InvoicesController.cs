@@ -606,17 +606,18 @@ namespace POS_Server.Controllers
                                             orderTime = b.orderTime,
                                             membershipId = b.membershipId,
                                            invBarcode= b.invBarcode,
-                                            tables = (from it in entity.invoiceTables.Where(y => y.invoiceId == b.invoiceId && y.isActive == 1)
-                                                      join ts in entity.tables on it.tableId equals ts.tableId
-                                                      select new TableModel()
-                                                      {
-                                                          tableId = it.tableId,
-                                                          name = ts.name,
-                                                          canDelete = false,
-                                                          isActive = it.isActive,
-                                                          createUserId = ts.createUserId,
-                                                          updateUserId = ts.updateUserId,
-                                                      }).ToList(),
+
+                                            //tables = (from it in entity.invoiceTables.Where(y => y.invoiceId == b.invoiceId && y.isActive == 1)
+                                            //          join ts in entity.tables on it.tableId equals ts.tableId
+                                            //          select new TableModel()
+                                            //          {
+                                            //              tableId = it.tableId,
+                                            //              name = ts.name,
+                                            //              canDelete = false,
+                                            //              isActive = it.isActive,
+                                            //              createUserId = ts.createUserId,
+                                            //              updateUserId = ts.updateUserId,
+                                            //          }).ToList(),
 
                                         })
                     .ToList();

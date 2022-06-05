@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="laundrydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="PosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="agentMembershipCash">
     <Key>
       <PropertyRef Name="agentMembershipCashId" />
@@ -1717,6 +1717,16 @@
     <NavigationProperty Name="Sub" Relationship="Self.FK_subServices_Sub" FromRole="subServices" ToRole="Sub" />
     <NavigationProperty Name="users" Relationship="Self.FK_subServices_users" FromRole="subServices" ToRole="users" />
     <NavigationProperty Name="users1" Relationship="Self.FK_subServices_users1" FromRole="subServices" ToRole="users" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="sysEmails">
     <Key>
@@ -5384,6 +5394,7 @@
     <EntitySet Name="Sub" EntityType="Self.Sub" />
     <EntitySet Name="subscriptionFees" EntityType="Self.subscriptionFees" />
     <EntitySet Name="subServices" EntityType="Self.subServices" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="sysEmails" EntityType="Self.sysEmails" />
     <EntitySet Name="tables" EntityType="Self.tables" />
     <EntitySet Name="tablesReservations" EntityType="Self.tablesReservations" />

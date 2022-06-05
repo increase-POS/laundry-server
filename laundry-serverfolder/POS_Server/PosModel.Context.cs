@@ -106,6 +106,7 @@ namespace POS_Server
         public virtual DbSet<Sub> Sub { get; set; }
         public virtual DbSet<subscriptionFees> subscriptionFees { get; set; }
         public virtual DbSet<subServices> subServices { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<sysEmails> sysEmails { get; set; }
         public virtual DbSet<tables> tables { get; set; }
         public virtual DbSet<tablesReservations> tablesReservations { get; set; }
