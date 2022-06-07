@@ -358,6 +358,12 @@ namespace POS_Server.Controllers
                         newObject.isActive = 1;
 
                         itemUnitEntity.Add(newObject);
+                        message = entity.SaveChanges().ToString();
+                   int res= SaveIUSbyitemUnitId(newObject);
+                        if (res==0)
+                        {
+                            message = "0";
+                        }
                     }
                     else
                     {
@@ -386,8 +392,9 @@ namespace POS_Server.Controllers
                         tmpItemUnit.updateUserId = newObject.updateUserId;
                         tmpItemUnit.storageCostId = newObject.storageCostId;
                         tmpItemUnit.isActive = newObject.isActive;
+                        message = entity.SaveChanges().ToString();
                     }
-                    message = entity.SaveChanges().ToString();
+                
                 }
             }
             catch
@@ -729,6 +736,32 @@ namespace POS_Server.Controllers
             }
         }
 
+        public int SaveIUSbyitemUnitId(itemsUnits tmpObject)
+        {
+            int res = 0;
+            using (incposdbEntities entity = new incposdbEntities())
+            {
+                //save itemsUnits
+                var SList= entity.services.Select(X => new ServicesModel { serviceId= X.serviceId, cost = X.cost }).ToList();
+                foreach (ServicesModel S in SList)
+                {
+                    ItemsUnitsServices newIUS = new ItemsUnitsServices();
+                    newIUS.createUserId = tmpObject.createUserId;
+                    newIUS.updateUserId = tmpObject.createUserId;
+                    newIUS.serviceId = S.serviceId;
+                    newIUS.itemUnitId = tmpObject.itemUnitId;
+                    newIUS.cost = S.cost;
+                    ItemsUnitsServicesController iuscntrlr = new ItemsUnitsServicesController();
+                    res = iuscntrlr.Save(newIUS);
+                    if (res == 0)
+                    {
+                        return 0;
+                    }
 
+                }
+                // 
+            }
+            return res;
+        }
     }
 }

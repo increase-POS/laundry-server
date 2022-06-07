@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="agentMembershipCash">
           <Key>
             <PropertyRef Name="agentMembershipCashId" />
@@ -722,6 +722,7 @@
           <Property Name="updateUserId" Type="int" />
           <Property Name="serviceId" Type="int" />
           <Property Name="itemUnitId" Type="int" />
+          <Property Name="cost" Type="decimal" Precision="20" Scale="3" Nullable="false" />
         </EntityType>
         <EntityType Name="itemTransferOffer">
           <Key>
@@ -5955,8 +5956,7 @@
             <End Role="usersLogs" EntitySet="usersLogs" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -6895,6 +6895,7 @@
           <NavigationProperty Name="users" Relationship="Self.FK_ItemsUnitsServices_users" FromRole="ItemsUnitsServices" ToRole="users" />
           <NavigationProperty Name="users1" Relationship="Self.FK_ItemsUnitsServices_users1" FromRole="ItemsUnitsServices" ToRole="users" />
           <NavigationProperty Name="itransIUServices" Relationship="Self.FK_itransIUServices_ItemsUnitsServices" FromRole="ItemsUnitsServices" ToRole="itransIUServices" />
+          <Property Name="cost" Type="Decimal" Nullable="false" Precision="20" Scale="3" />
         </EntityType>
         <EntityType Name="itemTransferOffer">
           <Key>
@@ -13209,6 +13210,7 @@
           <EntitySetMapping Name="ItemsUnitsServices">
             <EntityTypeMapping TypeName="PosModel.ItemsUnitsServices">
               <MappingFragment StoreEntitySet="ItemsUnitsServices">
+                <ScalarProperty Name="cost" ColumnName="cost" />
                 <ScalarProperty Name="itemUnitServiceId" ColumnName="itemUnitServiceId" />
                 <ScalarProperty Name="normalPrice" ColumnName="normalPrice" />
                 <ScalarProperty Name="instantPrice" ColumnName="instantPrice" />

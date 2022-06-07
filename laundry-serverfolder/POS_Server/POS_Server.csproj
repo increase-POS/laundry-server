@@ -277,6 +277,8 @@
     <Compile Include="Controllers\BanksController.cs" />
     <Compile Include="Controllers\BranchesController.cs" />
     <Compile Include="Controllers\BranchStoreController.cs" />
+    <Compile Include="Controllers\ItemsUnitsServicesController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\dishIngredientsController.cs" />
     <Compile Include="Controllers\couponsMembershipsController.cs" />
     <Compile Include="Controllers\HallSectionController.cs" />
@@ -453,6 +455,8 @@
     <Compile Include="Models\ActivateModel.cs" />
     <Compile Include="Models\AgentMembershipCashModel.cs" />
     <Compile Include="Models\BackupModel.cs" />
+    <Compile Include="Models\ItemsUnitsServicesModel.cs" />
+    <Compile Include="Models\ServicesModel.cs" />
     <Compile Include="Models\dishIngredientsModel.cs" />
     <Compile Include="Models\BranchesUsersModel.cs" />
     <Compile Include="Models\AgentMembershipsModel.cs" />

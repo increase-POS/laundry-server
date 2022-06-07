@@ -29,6 +29,7 @@ namespace POS_Server
         public Nullable<int> updateUserId { get; set; }
         public Nullable<int> serviceId { get; set; }
         public Nullable<int> itemUnitId { get; set; }
+        public decimal cost { get; set; }
     
         public virtual itemsUnits itemsUnits { get; set; }
         public virtual services services { get; set; }
