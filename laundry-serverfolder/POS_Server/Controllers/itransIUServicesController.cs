@@ -13,10 +13,10 @@ using System.Web;
 
 namespace POS_Server.Controllers
 {
-    [RoutePrefix("api/ItemsUnitsServices")]
-    public class ItemsUnitsServicesController : ApiController
+    [RoutePrefix("api/itransIUServices")]
+    public class itransIUServicesController : ApiController
     {
-        // GET api/<controller> get all ItemsUnitsServices
+        // GET api/<controller> get all itransIUServices
         [HttpPost]
         [Route("Get")]
         public string Get(string token)
@@ -32,47 +32,37 @@ namespace POS_Server.Controllers
             {
                 using (incposdbEntities entity = new incposdbEntities())
                 {
-                    var  List = entity.ItemsUnitsServices
+                    var  List = entity.itransIUServices
 
-                   .Select(S => new ItemsUnitsServicesModel
+                   .Select(S => new itransIUServicesModel
                    {
+                       itransIUServiceId = S.itransIUServiceId,
+                       itemsTransId = S.itemsTransId,
+                       subServiceId = S.subServiceId,
                        itemUnitServiceId = S.itemUnitServiceId,
-                       normalPrice = S.normalPrice,
-                       instantPrice = S.instantPrice,
+                       offerId = S.offerId,
+                       offerType = S.offerType,
+                       offerValue = S.offerValue,
+                       notes = S.notes,
                        createDate = S.createDate,
                        updateDate = S.updateDate,
                        createUserId = S.createUserId,
                        updateUserId = S.updateUserId,
-                       serviceId = S.serviceId,
-                       itemUnitId = S.itemUnitId,
-                       cost = S.cost,
-
 
                    })
                    .ToList();
-                    /*
-         public int itemUnitServiceId { get; set; }
-        public decimal normalPrice { get; set; }
-        public decimal instantPrice { get; set; }
-        public Nullable<System.DateTime> createDate { get; set; }
-        public Nullable<System.DateTime> updateDate { get; set; }
-        public Nullable<int> createUserId { get; set; }
-        public Nullable<int> updateUserId { get; set; }
-        public Nullable<int> itemUnitServiceId { get; set; }
-        public Nullable<int> itemUnitId { get; set; }
-        public decimal cost { get; set; }
-                   */
+          
                     // can delet or not
                     if (List.Count > 0)
                     {
-                        //foreach (ItemsUnitsServicesModel item in List)
+                        //foreach (itransIUServicesModel item in List)
                         //{
                         //    canDelete = false;
                         //    if (item.isActive == 1)
                         //    {
-                        //        int itemUnitServiceId = (int)item.itemUnitServiceId;
-                        //        var IU = entity.ItemsUnitsServices.Where(x => x.itemUnitServiceId == itemUnitServiceId).Select(x => new { x.itemUnitServiceId }).FirstOrDefault();
-                        //        var Sub = entity.subServices.Where(x => x.itemUnitServiceId == itemUnitServiceId).Select(x => new { x.subServiceId }).FirstOrDefault();
+                        //        int itransIUServiceId = (int)item.itransIUServiceId;
+                        //        var IU = entity.itransIUServices.Where(x => x.itransIUServiceId == itransIUServiceId).Select(x => new { x.itransIUServiceId }).FirstOrDefault();
+                        //        var Sub = entity.subServices.Where(x => x.itransIUServiceId == itransIUServiceId).Select(x => new { x.subServiceId }).FirstOrDefault();
 
                         //        if ((IU is null && Sub is null))
                         //            canDelete = true;
@@ -113,20 +103,23 @@ namespace POS_Server.Controllers
                 }
                 using (incposdbEntities entity = new incposdbEntities())
                 {
-                    var item = entity.ItemsUnitsServices
-                   .Where(S => S.itemUnitServiceId == Id)
+                    var item = entity.itransIUServices
+                   .Where(S => S.itransIUServiceId == Id)
                    .Select(S => new
                    {
+                       S.itransIUServiceId,
+                       S.itemsTransId,
+                       S.subServiceId,
                        S.itemUnitServiceId,
-                       S.normalPrice,
-                       S.instantPrice,
+                       S.offerId,
+                       S.offerType,
+                       S.offerValue,
+                       S.notes,
                        S.createDate,
                        S.updateDate,
                        S.createUserId,
                        S.updateUserId,
-                       S.serviceId,
-                       S.itemUnitId,
-                       S.cost,
+
 
 
                    })
@@ -154,7 +147,7 @@ namespace POS_Server.Controllers
             else
             {
                 string  Obj = "";
-                ItemsUnitsServices newObject = null;
+                itransIUServices newObject = null;
                 IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
                 foreach (Claim c in claims)
                 {
@@ -162,7 +155,7 @@ namespace POS_Server.Controllers
                     {
                         Obj = c.Value.Replace("\\", string.Empty);
                         Obj = Obj.Trim('"');
-                        newObject = JsonConvert.DeserializeObject<ItemsUnitsServices>(Obj, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+                        newObject = JsonConvert.DeserializeObject<itransIUServices>(Obj, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
                         break;
                     }
                 }
@@ -179,22 +172,34 @@ namespace POS_Server.Controllers
                         Nullable<int> id = null;
                         newObject.createUserId = id;
                     }
-                    if (newObject.serviceId == 0 || newObject.serviceId == null)
+                    if (newObject.itemsTransId == 0 || newObject.itemsTransId == null)
                     {
                         Nullable<int> id = null;
-                        newObject.serviceId = id;
+                        newObject.itemsTransId = id;
                     }
-                    if (newObject.itemUnitId == 0 || newObject.itemUnitId == null)
+                    if (newObject.subServiceId == 0 || newObject.subServiceId == null)
                     {
                         Nullable<int> id = null;
-                        newObject.itemUnitId = id;
+                        newObject.subServiceId = id;
                     }
+                    if (newObject.itemUnitServiceId == 0 || newObject.itemUnitServiceId == null)
+                    {
+                        Nullable<int> id = null;
+                        newObject.itemUnitServiceId = id;
+                    }
+                    if (newObject.offerId == 0 || newObject.offerId == null)
+                    {
+                        Nullable<int> id = null;
+                        newObject.offerId = id;
+                    }
+
+
 
                     using (incposdbEntities entity = new incposdbEntities())
                     {
-                        ItemsUnitsServices tmpObject = new ItemsUnitsServices();
-                        var  Entityobj = entity.Set<ItemsUnitsServices>();
-                        if (newObject.itemUnitServiceId == 0)
+                        itransIUServices tmpObject = new itransIUServices();
+                        var  Entityobj = entity.Set<itransIUServices>();
+                        if (newObject.itransIUServiceId == 0)
                         {
 
                             newObject.createDate = DateTime.Now;
@@ -203,27 +208,28 @@ namespace POS_Server.Controllers
 
                             tmpObject = Entityobj.Add(newObject);
                             entity.SaveChanges();
-                            message = tmpObject .itemUnitServiceId.ToString();
+                            message = tmpObject .itransIUServiceId.ToString();
                             return TokenManager.GenerateToken(message);
                         }
                         else
                         {
 
-                            tmpObject = entity.ItemsUnitsServices.Where(p => p.itemUnitServiceId == newObject.itemUnitServiceId).FirstOrDefault();
+                            tmpObject = entity.itransIUServices.Where(p => p.itransIUServiceId == newObject.itransIUServiceId).FirstOrDefault();
+                            tmpObject.itransIUServiceId = newObject.itransIUServiceId;
+                            tmpObject.itemsTransId = newObject.itemsTransId;
+                            tmpObject.subServiceId = newObject.subServiceId;
                             tmpObject.itemUnitServiceId = newObject.itemUnitServiceId;
-                            tmpObject.normalPrice = newObject.normalPrice;
-                            tmpObject.instantPrice = newObject.instantPrice;
-                          //  tmpObject.createDate = newObject.createDate;
-                            tmpObject.updateDate = DateTime.Now; ;
-                           // tmpObject.createUserId = newObject.createUserId;
+                            tmpObject.offerId = newObject.offerId;
+                            tmpObject.offerType = newObject.offerType;
+                            tmpObject.offerValue = newObject.offerValue;
+                            tmpObject.notes = newObject.notes;
+                         //   tmpObject.createDate = newObject.createDate;
+                            tmpObject.updateDate = DateTime.Now;
+                          //  tmpObject.createUserId = newObject.createUserId;
                             tmpObject.updateUserId = newObject.updateUserId;
-                            tmpObject.serviceId = newObject.serviceId;
-                            tmpObject.itemUnitId = newObject.itemUnitId;
-                            tmpObject.cost = newObject.cost;
-
 
                             entity.SaveChanges();
-                            message = tmpObject.itemUnitServiceId.ToString();
+                            message = tmpObject.itransIUServiceId.ToString();
                             return TokenManager.GenerateToken(message);
                         }
                     }
@@ -274,9 +280,9 @@ namespace POS_Server.Controllers
                     {
                         using (incposdbEntities entity = new incposdbEntities())
                         {
-                            ItemsUnitsServices Obj = entity.ItemsUnitsServices.Find(Id);
+                            itransIUServices Obj = entity.itransIUServices.Find(Id);
 
-                            entity.ItemsUnitsServices.Remove(Obj);
+                            entity.itransIUServices.Remove(Obj);
                             message = entity.SaveChanges().ToString();
                         return TokenManager.GenerateToken(message);
                     }
@@ -294,7 +300,7 @@ namespace POS_Server.Controllers
                 //    {
                 //        using (incposdbEntities entity = new incposdbEntities())
                 //        {
-                //            ItemsUnitsServices coupObj = entity.ItemsUnitsServices.Find(Id);
+                //            itransIUServices coupObj = entity.itransIUServices.Find(Id);
 
                 //            coupObj.isActive = 0;
                 //            coupObj.updateUserId = userId;
@@ -312,7 +318,7 @@ namespace POS_Server.Controllers
             }
         }
 
-        public int Save(ItemsUnitsServices newObject)
+        public int Save(itransIUServices newObject)
         {
 
             int message = 0;
@@ -329,22 +335,31 @@ namespace POS_Server.Controllers
                         Nullable<int> id = null;
                         newObject.createUserId = id;
                     }
-                    if (newObject.serviceId == 0 || newObject.serviceId == null)
+                    if (newObject.itemsTransId == 0 || newObject.itemsTransId == null)
                     {
                         Nullable<int> id = null;
-                        newObject.serviceId = id;
+                        newObject.itemsTransId = id;
                     }
-                    if (newObject.itemUnitId == 0 || newObject.itemUnitId == null)
+                    if (newObject.subServiceId == 0 || newObject.subServiceId == null)
                     {
                         Nullable<int> id = null;
-                        newObject.itemUnitId = id;
+                        newObject.subServiceId = id;
                     }
-
-                    using (incposdbEntities entity = new incposdbEntities())
+                if (newObject.itemUnitServiceId == 0 || newObject.itemUnitServiceId == null)
+                {
+                    Nullable<int> id = null;
+                    newObject.itemUnitServiceId = id;
+                }
+                if (newObject.offerId == 0 || newObject.offerId == null)
+                {
+                    Nullable<int> id = null;
+                    newObject.offerId = id;
+                }
+                using (incposdbEntities entity = new incposdbEntities())
                     {
-                        ItemsUnitsServices tmpObject = new ItemsUnitsServices();
-                        var Entityobj = entity.Set<ItemsUnitsServices>();
-                        if (newObject.itemUnitServiceId == 0)
+                        itransIUServices tmpObject = new itransIUServices();
+                        var Entityobj = entity.Set<itransIUServices>();
+                        if (newObject.itransIUServiceId == 0)
                         {
 
                             newObject.createDate = DateTime.Now;
@@ -353,27 +368,28 @@ namespace POS_Server.Controllers
 
                             tmpObject = Entityobj.Add(newObject);
                             entity.SaveChanges();
-                            message = tmpObject.itemUnitServiceId;
+                            message = tmpObject.itransIUServiceId;
                             return message;
                         }
                         else
                         {
 
-                            tmpObject = entity.ItemsUnitsServices.Where(p => p.itemUnitServiceId == newObject.itemUnitServiceId).FirstOrDefault();
-                            tmpObject.itemUnitServiceId = newObject.itemUnitServiceId;
-                            tmpObject.normalPrice = newObject.normalPrice;
-                            tmpObject.instantPrice = newObject.instantPrice;
-                           // tmpObject.createDate = newObject.createDate;
-                            tmpObject.updateDate = DateTime.Now;
-                         //   tmpObject.createUserId = newObject.createUserId;
-                            tmpObject.updateUserId = newObject.updateUserId;
-                            tmpObject.serviceId = newObject.serviceId;
-                            tmpObject.itemUnitId = newObject.itemUnitId;
-                            tmpObject.cost = newObject.cost;
+                            tmpObject = entity.itransIUServices.Where(p => p.itransIUServiceId == newObject.itransIUServiceId).FirstOrDefault();
+                        tmpObject.itransIUServiceId = newObject.itransIUServiceId;
+                        tmpObject.itemsTransId = newObject.itemsTransId;
+                        tmpObject.subServiceId = newObject.subServiceId;
+                        tmpObject.itemUnitServiceId = newObject.itemUnitServiceId;
+                        tmpObject.offerId = newObject.offerId;
+                        tmpObject.offerType = newObject.offerType;
+                        tmpObject.offerValue = newObject.offerValue;
+                        tmpObject.notes = newObject.notes;
+                      //  tmpObject.createDate = newObject.createDate;
+                        tmpObject.updateDate = DateTime.Now;
+                       // tmpObject.createUserId = newObject.createUserId;
+                        tmpObject.updateUserId = newObject.updateUserId;
 
-
-                            entity.SaveChanges();
-                            message = tmpObject.itemUnitServiceId;
+                        entity.SaveChanges();
+                            message = tmpObject.itransIUServiceId;
                             return message;
                         }
                     }

@@ -13,10 +13,10 @@ using System.Web;
 
 namespace POS_Server.Controllers
 {
-    [RoutePrefix("api/services")]
-    public class ServicesController : ApiController
+    [RoutePrefix("api/subServices")]
+    public class subServicesController : ApiController
     {
-        // GET api/<controller> get all services
+        // GET api/<controller> get all subServices
         [HttpPost]
         [Route("Get")]
         public string Get(string token)
@@ -32,56 +32,41 @@ namespace POS_Server.Controllers
             {
                 using (incposdbEntities entity = new incposdbEntities())
                 {
-                    var List = entity.services
+                    var List = entity.subServices
 
-                   .Select(S => new ServicesModel
+                   .Select(S => new subServicesModel
                    {
+                       subServiceId = S.subServiceId,
+                       agentSubId = S.agentSubId,
+                       subId = S.subId,
                        serviceId = S.serviceId,
-                       name = S.name,
-                       notes = S.notes,
-                       isActive = S.isActive,
-                       price = S.price,
-                       cost = S.cost,
-                       categoryId = S.categoryId,
+                       serviceType = S.serviceType,
+                       count = S.count,
+                       remain = S.remain,
                        createDate = S.createDate,
                        updateDate = S.updateDate,
                        createUserId = S.createUserId,
                        updateUserId = S.updateUserId,
-
                    })
                    .ToList();
-                    /*
-                        public int serviceId { get; set; }
-        public string name { get; set; }
-        public string notes { get; set; }
-        public byte isActive { get; set; }
-        public decimal price { get; set; }
-        public decimal cost { get; set; }
-        public Nullable<int> categoryId { get; set; }
-        public System.DateTime createDate { get; set; }
-        public Nullable<System.DateTime> updateDate { get; set; }
-        public Nullable<int> createUserId { get; set; }
-        public Nullable<int> updateUserId { get; set; }
-     
-                   */
+             
                     // can delet or not
-                    if (List.Count > 0)
-                    {
-                        foreach (ServicesModel item in List)
-                        {
-                            canDelete = false;
-                            if (item.isActive == 1)
-                            {
-                                int serviceId = (int)item.serviceId;
-                                var IU = entity.ItemsUnitsServices.Where(x => x.serviceId == serviceId).Select(x => new { x.itemUnitServiceId }).FirstOrDefault();
-                                var Sub = entity.subServices.Where(x => x.serviceId == serviceId).Select(x => new { x.subServiceId }).FirstOrDefault();
-
-                                if ((IU is null && Sub is null))
-                                    canDelete = true;
-                            }
-                            item.canDelete = canDelete;
-                        }
-                    }
+                    //if (List.Count > 0)
+                    //{
+                    //    foreach (subServicesModel item in List)
+                    //    {
+                    //        canDelete = false;
+                    //        if (item.isActive == 1)
+                    //        {
+                    //            int subServiceId = (int)item.subServiceId;
+                    //            var ag = entity.subServices.Where(x => x.subServiceId == subServiceId).Select(x => new { x.subServiceId }).FirstOrDefault();
+                               
+                    //            if ((ag is null  ))
+                    //                canDelete = true;
+                    //        }
+                    //        item.canDelete = canDelete;
+                    //    }
+                    //}
 
 
                     return TokenManager.GenerateToken(List);
@@ -115,17 +100,17 @@ namespace POS_Server.Controllers
                 }
                 using (incposdbEntities entity = new incposdbEntities())
                 {
-                    var item = entity.services
-                   .Where(S => S.serviceId == Id)
+                    var item = entity.subServices
+                   .Where(S => S.subServiceId == Id)
                    .Select(S => new
                    {
+                       S.subServiceId,
+                       S.agentSubId,
+                       S.subId,
                        S.serviceId,
-                       S.name,
-                       S.notes,
-                       S.isActive,
-                       S.price,
-                       S.cost,
-                       S.categoryId,
+                       S.serviceType,
+                       S.count,
+                       S.remain,
                        S.createDate,
                        S.updateDate,
                        S.createUserId,
@@ -156,7 +141,7 @@ namespace POS_Server.Controllers
             else
             {
                 string Obj = "";
-                services newObject = null;
+                subServices newObject = null;
                 IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
                 foreach (Claim c in claims)
                 {
@@ -164,7 +149,7 @@ namespace POS_Server.Controllers
                     {
                         Obj = c.Value.Replace("\\", string.Empty);
                         Obj = Obj.Trim('"');
-                        newObject = JsonConvert.DeserializeObject<services>(Obj, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+                        newObject = JsonConvert.DeserializeObject<subServices>(Obj, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
                         break;
                     }
                 }
@@ -181,16 +166,12 @@ namespace POS_Server.Controllers
                         Nullable<int> id = null;
                         newObject.createUserId = id;
                     }
-                    if (newObject.categoryId == 0 || newObject.categoryId == null)
-                    {
-                        Nullable<int> id = null;
-                        newObject.categoryId = id;
-                    }
+                    
                     using (incposdbEntities entity = new incposdbEntities())
                     {
-                        services tmpObject = new services();
-                        var Entityobj = entity.Set<services>();
-                        if (newObject.serviceId == 0)
+                        subServices tmpObject = new subServices();
+                        var Entityobj = entity.Set<subServices>();
+                        if (newObject.subServiceId == 0)
                         {
 
                             newObject.createDate = DateTime.Now;
@@ -199,12 +180,9 @@ namespace POS_Server.Controllers
 
                             tmpObject = Entityobj.Add(newObject);
                             entity.SaveChanges();
-                            message = tmpObject.serviceId.ToString();
-                            int res=  SaveIUSbyServiceId(tmpObject);
-                            if (res == 0)
-                            {
-                                return TokenManager.GenerateToken("0");
-                            }
+                            message = tmpObject.subServiceId.ToString();
+                         
+                          
                            
 
                             return TokenManager.GenerateToken(message);
@@ -212,21 +190,27 @@ namespace POS_Server.Controllers
                         else
                         {
 
-                            tmpObject = entity.services.Where(p => p.serviceId == newObject.serviceId).FirstOrDefault();
-                            tmpObject.serviceId = newObject.serviceId;
-                            tmpObject.name = newObject.name;
-                            tmpObject.notes = newObject.notes;
-                            tmpObject.isActive = newObject.isActive;
-                            tmpObject.price = newObject.price;
-                            tmpObject.cost = newObject.cost;
-                            tmpObject.categoryId = newObject.categoryId;
-                          //  tmpObject.createDate = newObject.createDate;
+                            tmpObject = entity.subServices.Where(p => p.subServiceId == newObject.subServiceId).FirstOrDefault();
                             tmpObject.updateDate = DateTime.Now;
+                            tmpObject.subServiceId = newObject.subServiceId;
+                            tmpObject.agentSubId = newObject.agentSubId;
+                            tmpObject.subId = newObject.subId;
+                            tmpObject.serviceId = newObject.serviceId;
+                            tmpObject.serviceType = newObject.serviceType;
+                            tmpObject.count = newObject.count;
+                            tmpObject.remain = newObject.remain;
+                        //    tmpObject.createDate = newObject.createDate;
+                          //  tmpObject.updateDate = newObject.updateDate;
                           //  tmpObject.createUserId = newObject.createUserId;
                             tmpObject.updateUserId = newObject.updateUserId;
 
+                            //  tmpObject.createDate = newObject.createDate;
+
+                            //  tmpObject.createUserId = newObject.createUserId;
+                            tmpObject.updateUserId = newObject.updateUserId;
+
                             entity.SaveChanges();
-                            message = tmpObject.serviceId.ToString();
+                            message = tmpObject.subServiceId.ToString();
                             return TokenManager.GenerateToken(message);
                         }
                     }
@@ -254,7 +238,7 @@ namespace POS_Server.Controllers
             {
                 int Id = 0;
                 int userId = 0;
-                Boolean final = false;
+                bool final = false;
                 IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
                 foreach (Claim c in claims)
                 {
@@ -271,15 +255,15 @@ namespace POS_Server.Controllers
                         final = bool.Parse(c.Value);
                     }
                 }
-                if (final)
-                {
+                //if (final)
+                //{
                     try
                     {
                         using (incposdbEntities entity = new incposdbEntities())
                         {
-                            services Obj = entity.services.Find(Id);
+                            subServices Obj = entity.subServices.Find(Id);
 
-                            entity.services.Remove(Obj);
+                            entity.subServices.Remove(Obj);
                             message = entity.SaveChanges().ToString();
                             return TokenManager.GenerateToken(message);
                         }
@@ -289,57 +273,31 @@ namespace POS_Server.Controllers
                         message = "0";
                         return TokenManager.GenerateToken(message);
                     }
-                }
-                else
-                {
-                    try
-                    {
-                        using (incposdbEntities entity = new incposdbEntities())
-                        {
-                            services  Obj = entity.services.Find(Id);
+                //}
+                //else
+                //{
+                //    try
+                //    {
+                //        using (incposdbEntities entity = new incposdbEntities())
+                //        {
+                //            subServices  Obj = entity.subServices.Find(Id);
 
-                             Obj.isActive = 0;
-                             Obj.updateUserId = userId;
-                             Obj.updateDate = DateTime.Now;
-                            message = entity.SaveChanges().ToString();
-                            return TokenManager.GenerateToken(message);
-                        }
-                    }
-                    catch
-                    {
-                        message = "0";
-                        return TokenManager.GenerateToken(message);
-                    }
-                }
+                //            Obj.isActive = 0;
+                //             Obj.updateUserId = userId;
+                //             Obj.updateDate = DateTime.Now;
+                //            message = entity.SaveChanges().ToString();
+                //            return TokenManager.GenerateToken(message);
+                //        }
+                //    }
+                //    catch
+                //    {
+                //        message = "0";
+                //        return TokenManager.GenerateToken(message);
+                //    }
+                //}
             }
         }
-        public int SaveIUSbyServiceId(services tmpObject)
-        {
-            int res = 0;
-            using (incposdbEntities entity = new incposdbEntities())
-            {
-                //save itemsUnits
-                var IU = entity.itemsUnits.Select(X => X.itemUnitId).ToList();
-                foreach (int itemUnitId in IU)
-                {
-                    ItemsUnitsServices newIUS = new ItemsUnitsServices();
-                    newIUS.createUserId = tmpObject.createUserId;
-                    newIUS.updateUserId = tmpObject.createUserId;
-                    newIUS.serviceId = tmpObject.serviceId;
-                    newIUS.itemUnitId = itemUnitId;
-                    newIUS.cost = tmpObject.cost;
-                    ItemsUnitsServicesController iuscntrlr = new ItemsUnitsServicesController();
-                    res = iuscntrlr.Save(newIUS);
-                    if (res == 0)
-                    {
-                        return 0;
-                    }
-
-                }
-                // 
-            }
-            return res;
-        }
+       
 
 
 

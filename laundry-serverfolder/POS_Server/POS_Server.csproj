@@ -271,6 +271,9 @@
     <Compile Include="Controllers\ActivateController.cs" />
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\AgentMembershipCashController.cs" />
+    <Compile Include="Controllers\itransIUServicesController.cs" />
+    <Compile Include="Controllers\pointSettingController.cs" />
+    <Compile Include="Controllers\subServicesController.cs" />
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\BranchesUsersController.cs" />
     <Compile Include="Controllers\AgentMembershipsController.cs" />
@@ -278,6 +281,8 @@
     <Compile Include="Controllers\BranchesController.cs" />
     <Compile Include="Controllers\BranchStoreController.cs" />
     <Compile Include="Controllers\ItemsUnitsServicesController.cs" />
+    <Compile Include="Controllers\agentsSubController.cs" />
+    <Compile Include="Controllers\SubController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\dishIngredientsController.cs" />
     <Compile Include="Controllers\couponsMembershipsController.cs" />
@@ -454,8 +459,13 @@
     </Compile>
     <Compile Include="Models\ActivateModel.cs" />
     <Compile Include="Models\AgentMembershipCashModel.cs" />
+    <Compile Include="Models\itransIUServicesModel.cs" />
+    <Compile Include="Models\pointSettingModel.cs" />
+    <Compile Include="Models\subServicesModel.cs" />
     <Compile Include="Models\BackupModel.cs" />
     <Compile Include="Models\ItemsUnitsServicesModel.cs" />
+    <Compile Include="Models\agentsSubModel.cs" />
+    <Compile Include="Models\SubModel.cs" />
     <Compile Include="Models\ServicesModel.cs" />
     <Compile Include="Models\dishIngredientsModel.cs" />
     <Compile Include="Models\BranchesUsersModel.cs" />
