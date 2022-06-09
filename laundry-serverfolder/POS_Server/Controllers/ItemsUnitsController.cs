@@ -741,8 +741,14 @@ namespace POS_Server.Controllers
             int res = 0;
             using (incposdbEntities entity = new incposdbEntities())
             {
+                var unitList = entity.units.Select(X => new ItemUnitModel {unitId=X.unitId, unitName = X.name  }).ToList();
+                var unitListRes = unitList.Where(X => X.unitName == "saleUnit").ToList();
+                if (unitListRes.Count()>0)
+                {
+
+              
                 //save itemsUnits
-                var SList= entity.services.Select(X => new ServicesModel { serviceId= X.serviceId, cost = X.cost }).ToList();
+                var SList = entity.services.Select(X => new ServicesModel { serviceId= X.serviceId, cost = X.cost }).ToList();
                 foreach (ServicesModel S in SList)
                 {
                     ItemsUnitsServices newIUS = new ItemsUnitsServices();
@@ -750,7 +756,7 @@ namespace POS_Server.Controllers
                     newIUS.updateUserId = tmpObject.createUserId;
                     newIUS.serviceId = S.serviceId;
                     newIUS.itemUnitId = tmpObject.itemUnitId;
-                    newIUS.cost = S.cost;
+                    newIUS.cost = 0;
                     ItemsUnitsServicesController iuscntrlr = new ItemsUnitsServicesController();
                     res = iuscntrlr.Save(newIUS);
                     if (res == 0)
@@ -758,6 +764,11 @@ namespace POS_Server.Controllers
                         return 0;
                     }
 
+                }
+                }
+                else
+                {
+                    return 1;
                 }
                 // 
             }

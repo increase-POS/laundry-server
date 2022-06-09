@@ -87,8 +87,63 @@ namespace POS_Server.Controllers
             }
         }
 
-       
-   
+
+        [HttpPost]
+        [Route("GetIUServicesByServiceId")]
+        public string GetIUServicesByServiceId(string token)
+        {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+           
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+
+                int serviceId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {
+                    if (c.Type == "itemId")
+                    {
+                        serviceId = int.Parse(c.Value);
+                    }
+                }
+                using (incposdbEntities entity = new incposdbEntities())
+                {
+                    var List = entity.ItemsUnitsServices
+
+                   .Select(S => new ItemsUnitsServicesModel
+                   {
+                       itemUnitServiceId = S.itemUnitServiceId,
+                       normalPrice = S.normalPrice,
+                       instantPrice = S.instantPrice,
+                       //createDate = S.createDate,
+                       //updateDate = S.updateDate,
+                       //createUserId = S.createUserId,
+                       //updateUserId = S.updateUserId,
+                       serviceId = S.serviceId,
+                       itemUnitId = S.itemUnitId,
+                       cost = S.cost,
+                       itemId = S.itemsUnits.items.itemId,
+                       itemName = S.itemsUnits.items.name,
+                       unitId = S.itemsUnits.units.unitId,
+                       unitName = S.itemsUnits.units.name,
+                       ServiceName=S.services.name,
+
+
+                   })
+                   .ToList().Where(X=>X.unitName== "saleUnit" && X.serviceId==serviceId).ToList();
+        
+
+
+                    return TokenManager.GenerateToken(List);
+                }
+            }
+        }
+
         // GET api/<controller>  Get Coupon By ID 
         [HttpPost]
         [Route("GetById")]
@@ -387,5 +442,343 @@ namespace POS_Server.Controllers
              
         }
 
+        [HttpPost]
+        [Route("UpdateIUServiceList")]
+        public string UpdateIUServiceList(string token)
+        {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            string message = "";
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+                string strObject = "";
+                List<ItemsUnitsServices> newListObj = null;
+                int serviceId = 0;
+                int updateUserId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {
+                    if (c.Type == "newList")
+                    {
+                        strObject = c.Value.Replace("\\", string.Empty);
+                        strObject = strObject.Trim('"');
+                        newListObj = JsonConvert.DeserializeObject<List<ItemsUnitsServices>>(strObject, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+
+                    }
+                    else if (c.Type == "serviceId")
+                    {
+                        serviceId = int.Parse(c.Value);
+                    }
+                    else
+                  if (c.Type == "updateUserId")
+                    {
+                        updateUserId = int.Parse(c.Value);
+                    }
+                }
+
+                List<ItemsUnitsServices> items = null;
+
+                try
+                {
+                    int res = 0;
+
+                    using (incposdbEntities entity = new incposdbEntities())
+                {
+                        items = entity.ItemsUnitsServices.Where(x => x.serviceId == serviceId).ToList();
+                        if (items != null)
+                        {
+                            foreach (ItemsUnitsServices newrow in newListObj)
+                            {
+                                ItemsUnitsServices tempobj = new ItemsUnitsServices();
+                                
+                                if (newrow.itemUnitServiceId > 0)
+                                {
+                                    tempobj = items.Where(X => X.itemUnitServiceId == newrow.itemUnitServiceId).FirstOrDefault();
+
+                                    tempobj.cost=newrow.cost;
+                                    tempobj.normalPrice = newrow.normalPrice;
+                                    tempobj.instantPrice = newrow.instantPrice;
+
+                                    tempobj.updateUserId = updateUserId;
+                                   // newrow.serviceId = serviceId;
+                                    res = Save(tempobj);
+                                    if (res == 0)
+                                    {
+                                        return TokenManager.GenerateToken("0");
+                                    }
+                                }
+                            }
+
+                           
+
+                        }
+ return TokenManager.GenerateToken("1");
+
+                    }
+                             }
+                catch (Exception ex)
+                {
+                    message = "-2";
+                    return TokenManager.GenerateToken(message);
+                }
+
+            }
+
+        }
+
+        [HttpPost]
+        [Route("UpdateCostByServiceId")]
+        public string UpdateCostByServiceId(string token)
+        {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            string message = "";
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+                int serviceId = 0;
+                decimal cost = 0;
+                int updateUserId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {                 
+                     if (c.Type == "serviceId")
+                    {
+                        serviceId = int.Parse(c.Value);
+                    }
+                    else if (c.Type == "cost")
+                    {
+                        cost = decimal.Parse(c.Value);
+                    }
+                    else if (c.Type == "updateUserId")
+                    {
+                        updateUserId = int.Parse(c.Value);
+                    }
+                }
+                try
+                {
+                    message = UpdateValue(serviceId, cost, "cost", updateUserId);
+                    if (message!="0" && message != "-2")
+                    {
+
+                        return TokenManager.GenerateToken("1");
+                    }
+                    else
+                    {
+                        return TokenManager.GenerateToken("-2");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    message = "-2";
+                    return TokenManager.GenerateToken(message);
+                }
+
+            }
+
+        }
+
+        /// //////////////////////
+        [HttpPost]
+        [Route("UpdateNormalByServiceId")]
+        public string UpdateNormalByServiceId(string token)
+        {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            string message = "";
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+                int serviceId = 0;
+                decimal normal = 0;
+                int updateUserId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {
+                    if (c.Type == "serviceId")
+                    {
+                        serviceId = int.Parse(c.Value);
+                    }
+                    else if (c.Type == "normal")
+                    {
+                        normal = decimal.Parse(c.Value);
+                    }
+                    else if (c.Type == "updateUserId")
+                    {
+                        updateUserId = int.Parse(c.Value);
+                    }
+                }
+                try
+                {
+                    message = UpdateValue(serviceId, normal, "normal", updateUserId);
+                    if (message != "0" && message != "-2")
+                    {
+
+                        return TokenManager.GenerateToken("1");
+                    }
+                    else
+                    {
+                        return TokenManager.GenerateToken("-2");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    message = "-2";
+                    return TokenManager.GenerateToken(message);
+                }
+
+            }
+
+        }
+
+        /// //////////////////////
+        [HttpPost]
+        [Route("UpdateInstantByServiceId")]
+        public string UpdateInstantByServiceId(string token)
+        {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            string message = "";
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+                int serviceId = 0;
+                decimal instant = 0;
+                int updateUserId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {
+                    if (c.Type == "serviceId")
+                    {
+                        serviceId = int.Parse(c.Value);
+                    }
+                    else if (c.Type == "instant")
+                    {
+                        instant = decimal.Parse(c.Value);
+                    }
+                    else if (c.Type == "updateUserId")
+                    {
+                        updateUserId = int.Parse(c.Value);
+                    }
+                }
+                try
+                {
+                    message = UpdateValue(serviceId, instant, "instant", updateUserId);
+                    if (message != "0" && message != "-2")
+                    {
+
+                        return TokenManager.GenerateToken("1");
+                    }
+                    else
+                    {
+                        return TokenManager.GenerateToken("-2");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    message = "-2";
+                    return TokenManager.GenerateToken(message);
+                }
+
+            }
+
+        }
+
+        public string UpdateValue(int serviceId, decimal value,string type, int updateUserId)
+        {
+            //  cost normal  instant
+ 
+                List<ItemsUnitsServices> items = null;
+                try
+                {
+                    int res = 0;
+
+                    using (incposdbEntities entity = new incposdbEntities())
+                    {
+                        items = entity.ItemsUnitsServices.Where(x => x.serviceId == serviceId).ToList();
+                        if (items != null)
+                        {
+                        if (type == "cost")
+                        {
+                            foreach (ItemsUnitsServices row in items)
+                            {
+
+                                if (row.itemUnitServiceId > 0)
+                                {
+                                    row.updateUserId = updateUserId;
+                                    row.cost = value;
+                                    //  row.serviceId = serviceId;
+                                    res = Save(row);
+                                    if (res == 0)
+                                    {
+                                        return "0";
+                                    }
+                                }
+                            }
+                        } else if (type == "normal")
+                        {
+                            foreach (ItemsUnitsServices row in items)
+                            {
+                                if (row.itemUnitServiceId > 0)
+                                {
+                                    row.updateUserId = updateUserId;
+
+                                    row.normalPrice = value;
+                                    //  row.serviceId = serviceId;
+                                    res = Save(row);
+                                    if (res == 0)
+                                    {
+                                        return  "0";
+                                    }
+                                }
+                            }
+                        } else if(type == "instant")
+                        {
+                            foreach (ItemsUnitsServices row in items)
+                            {
+
+                                if (row.itemUnitServiceId > 0)
+                                {
+                                    row.updateUserId = updateUserId;
+
+                                    row.instantPrice = value;
+                                    //  row.serviceId = serviceId;
+                                    res = Save(row);
+                                    if (res == 0)
+                                    {
+                                        return  "0";
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return "0";
+                        }
+                        }
+                        return TokenManager.GenerateToken("1");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return  "-2" ;
+                }
+        }
     }
 }

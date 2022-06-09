@@ -17,7 +17,12 @@ namespace POS_Server.Models
         public Nullable<int> serviceId { get; set; }
         public Nullable<int> itemUnitId { get; set; }
         public decimal cost { get; set; }
-
+        public string unitName { get; set; }
+        public string itemName { get; set; }
+        public string ServiceName { get; set; }
+        public Nullable<int> itemId { get; set; }
+        public Nullable<int> unitId { get; set; }
+        
 
 
     }

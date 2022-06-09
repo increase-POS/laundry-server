@@ -319,15 +319,17 @@ namespace POS_Server.Controllers
             using (incposdbEntities entity = new incposdbEntities())
             {
                 //save itemsUnits
-                var IU = entity.itemsUnits.Select(X => X.itemUnitId).ToList();
-                foreach (int itemUnitId in IU)
+                var IUAll = entity.itemsUnits.Select(X => new ItemsUnitsServicesModel { itemUnitId = X.itemUnitId, unitName = X.units.name }).ToList();
+                var IU = IUAll.Where(X => X.unitName == "saleUnit").ToList();
+                //saleUnit
+                foreach (ItemsUnitsServicesModel itemUnitId in IU)
                 {
                     ItemsUnitsServices newIUS = new ItemsUnitsServices();
                     newIUS.createUserId = tmpObject.createUserId;
                     newIUS.updateUserId = tmpObject.createUserId;
                     newIUS.serviceId = tmpObject.serviceId;
-                    newIUS.itemUnitId = itemUnitId;
-                    newIUS.cost = tmpObject.cost;
+                    newIUS.itemUnitId = itemUnitId.itemUnitId;
+                    newIUS.cost = 0;
                     ItemsUnitsServicesController iuscntrlr = new ItemsUnitsServicesController();
                     res = iuscntrlr.Save(newIUS);
                     if (res == 0)
