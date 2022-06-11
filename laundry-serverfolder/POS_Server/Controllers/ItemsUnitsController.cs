@@ -742,14 +742,20 @@ namespace POS_Server.Controllers
             using (incposdbEntities entity = new incposdbEntities())
             {
                 var unitList = entity.units.Select(X => new ItemUnitModel {unitId=X.unitId, unitName = X.name  }).ToList();
+
                 var unitListRes = unitList.Where(X => X.unitName == "saleUnit").ToList();
+                var itemsAll = entity.items.Select(X => new ItemModel { itemId = X.itemId, categoryId = X.categoryId }).ToList();
+                var item = itemsAll.Where(X=>X.itemId== tmpObject.itemId).ToList().First();
+
                 if (unitListRes.Count()>0)
                 {
 
               
                 //save itemsUnits
-                var SList = entity.services.Select(X => new ServicesModel { serviceId= X.serviceId, cost = X.cost }).ToList();
-                foreach (ServicesModel S in SList)
+                var SListAll = entity.services.Select(X => new ServicesModel { serviceId= X.serviceId, cost = X.cost ,categoryId=X.categoryId}).ToList();
+                    var SList = SListAll.Where(X=>X.categoryId== item.categoryId).ToList();
+
+                    foreach (ServicesModel S in SList)
                 {
                     ItemsUnitsServices newIUS = new ItemsUnitsServices();
                     newIUS.createUserId = tmpObject.createUserId;

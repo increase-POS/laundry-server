@@ -70,6 +70,8 @@ namespace POS_Server.Models
         public string branchName { get; set; }
         public Nullable<int> branch2Id { get; set; }
         public string branch2Name { get; set; }
+        public int points { get; set; }
+
 
 
 

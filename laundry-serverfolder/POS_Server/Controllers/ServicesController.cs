@@ -319,8 +319,8 @@ namespace POS_Server.Controllers
             using (incposdbEntities entity = new incposdbEntities())
             {
                 //save itemsUnits
-                var IUAll = entity.itemsUnits.Select(X => new ItemsUnitsServicesModel { itemUnitId = X.itemUnitId, unitName = X.units.name }).ToList();
-                var IU = IUAll.Where(X => X.unitName == "saleUnit").ToList();
+                var IUAll = entity.itemsUnits.Select(X => new ItemsUnitsServicesModel { itemUnitId = X.itemUnitId, unitName = X.units.name, categoryId = X.items.categoryId }).ToList();
+                var IU = IUAll.Where(X => X.unitName == "saleUnit" && X.categoryId== tmpObject.categoryId).ToList();
                 //saleUnit
                 foreach (ItemsUnitsServicesModel itemUnitId in IU)
                 {

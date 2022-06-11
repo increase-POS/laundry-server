@@ -68,13 +68,17 @@ namespace POS_Server.Controllers
             }
 
             cashTransfer cashtr;
+            try
+            {
+
+         
             using (incposdbEntities entity = new incposdbEntities())
             {
                 var cEntity = entity.Set<cashTransfer>();
                 if (newObject.cashTransId == 0)
                 {
                     newObject.createDate = DateTime.Now;
-                    newObject.updateDate = DateTime.Now;
+                    newObject.updateDate = newObject.createDate;
                     newObject.updateUserId = newObject.createUserId;
                     cashtr = cEntity.Add(newObject);
                 }
@@ -107,12 +111,20 @@ namespace POS_Server.Controllers
                     cashtr.cardId = newObject.cardId;
                     cashtr.bondId = newObject.bondId;
                     cashtr.shippingCompanyId = newObject.shippingCompanyId;
+                    cashtr.points = newObject.points;
 
                 }
                 entity.SaveChanges();
             }
+
             message = cashtr.cashTransId.ToString();
             return message;
+            }
+            catch
+            {
+                message ="0";
+                return message;
+            }
         }
         [HttpPost]
         [Route("GetBytypeandSide")]
@@ -215,6 +227,7 @@ namespace POS_Server.Controllers
                                                                 shippingCompanyId = C.shippingCompanyId,
                                                                 shippingCompanyName = jssh.name,
                                                                 isConfirm2=0,
+                                                                points=C.points,
                                                             }).Where(C => ((type == "all") ? true : C.transType == type) && (C.processType != "balance")
                 && ((side == "all") ? true : C.side == side) && !(C.agentId == null && C.userId == null && C.shippingCompanyId == null)).ToList();
 
@@ -526,6 +539,7 @@ namespace POS_Server.Controllers
                                                                 shippingCompanyId = C.shippingCompanyId,
                                                                 shippingCompanyName = jssh.name,
                                                                 isConfirm2=0,
+                                                                points=C.points,
                                                             }).Where(C => ((type == "all") ? true : C.transType == type) && ((side == "all") ? true : C.side == side)).ToList();
 
 
@@ -731,6 +745,7 @@ namespace POS_Server.Controllers
                                                                 //bondDeserveDate = jbbo.deserveDate,
                                                                // bondIsRecieved = jbbo.isRecieved,
                                                                 shippingCompanyId = C.shippingCompanyId,
+                                                                points=C.points,
                                                                 //shippingCompanyName = jssh.name
                                                                         isConfirm2 = 0,
                                                             }).Where(C => ((type == "all") ? true : C.transType == type) && (C.processType != "balance")
@@ -847,7 +862,7 @@ namespace POS_Server.Controllers
                             if (newObject.cashTransId == 0)
                             {
                                 newObject.createDate = DateTime.Now;
-                                newObject.updateDate = DateTime.Now;
+                                newObject.updateDate = newObject.createDate;
                                 newObject.updateUserId = newObject.createUserId;
                                 cashtr = cEntity.Add(newObject);
                             }
@@ -880,7 +895,7 @@ namespace POS_Server.Controllers
                                 cashtr.cardId = newObject.cardId;
                                 cashtr.bondId = newObject.bondId;
                                 cashtr.shippingCompanyId = newObject.shippingCompanyId;
-
+                                cashtr.points = newObject.points;
                             }
                             entity.SaveChanges();
                         }
@@ -1106,7 +1121,8 @@ namespace POS_Server.Controllers
                                             cardId = C.cardId,
                                             bondId = C.bondId,
                                             shippingCompanyId = C.shippingCompanyId,
-                                            isConfirm2=0,
+                                            points = C.points,
+                                            isConfirm2 =0,
                                         }).Where(C => ((type == "all") ? true : C.transType == type)
                                     && ((side == "all") ? true : C.side == side) && (C.cashTransId == sourceId || C.cashTransIdSource == sourceId)).ToList();
 
@@ -1519,6 +1535,7 @@ namespace POS_Server.Controllers
                                     cardId = C.cardId,
                                     bondId = C.bondId,
                                     shippingCompanyId = C.shippingCompanyId,
+                                    points = C.points,
                                 }).Where(C => ((type == "all") ? true : C.transType == type)
         && ((side == "all") ? true : C.side == side) && (C.cashTransId == cashTransId || C.cashTransIdSource == cashTransId)).ToList();
 
@@ -1571,6 +1588,7 @@ namespace POS_Server.Controllers
                                        cardId = C.cardId,
                                        bondId = C.bondId,
                                        shippingCompanyId = C.shippingCompanyId,
+                                       points = C.points,
                                    }).Where(C => ((type == "all") ? true : C.transType == type)
                       && ((side == "all") ? true : C.side == side) && (C.cashTransId == pullposcashtransid)).ToList();
 
@@ -1733,6 +1751,7 @@ namespace POS_Server.Controllers
                                                branchCreatorId = b.branchCreatorId,
                                                shippingCompanyId = b.shippingCompanyId,
                                                shipUserId = b.shipUserId,
+                                             
                                            }).ToList().OrderBy(b => b.deservedDate);
 
 
@@ -2136,7 +2155,8 @@ namespace POS_Server.Controllers
                                                branchCreatorId = b.branchCreatorId,
                                                shippingCompanyId = b.shippingCompanyId,
                                                shipUserId = b.shipUserId,
-                                               userId = b.userId
+                                               userId = b.userId,
+                                              
                                            }).ToList().OrderBy(b => b.deservedDate);
 
                             List<InvoiceModel> res = new List<InvoiceModel>();
@@ -3713,7 +3733,7 @@ namespace POS_Server.Controllers
                             cashtr.cardId = newObject.cardId;
                             cashtr.bondId = newObject.bondId;
                             cashtr.shippingCompanyId = newObject.shippingCompanyId;
-
+                            cashtr.points = newObject.points;
                         }
                         entity.SaveChanges();
                     }
@@ -3725,7 +3745,7 @@ namespace POS_Server.Controllers
                 catch (Exception ex)
                 {
 
-                    message = -213;
+                    message = 0;
                     return message;
 
                     //  return TokenManager.GenerateToken(ex.ToString());

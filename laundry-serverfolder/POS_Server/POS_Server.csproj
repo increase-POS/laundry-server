@@ -272,7 +272,6 @@
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\AgentMembershipCashController.cs" />
     <Compile Include="Controllers\itransIUServicesController.cs" />
-    <Compile Include="Controllers\pointSettingController.cs" />
     <Compile Include="Controllers\subServicesController.cs" />
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\BranchesUsersController.cs" />
@@ -325,7 +324,6 @@
     <Compile Include="Controllers\ObjectsController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\PaperSizeController.cs" />
-    <Compile Include="Controllers\PointsController.cs" />
     <Compile Include="Controllers\PosSettingController.cs" />
     <Compile Include="Controllers\PrinterController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
@@ -460,7 +458,6 @@
     <Compile Include="Models\ActivateModel.cs" />
     <Compile Include="Models\AgentMembershipCashModel.cs" />
     <Compile Include="Models\itransIUServicesModel.cs" />
-    <Compile Include="Models\pointSettingModel.cs" />
     <Compile Include="Models\subServicesModel.cs" />
     <Compile Include="Models\BackupModel.cs" />
     <Compile Include="Models\ItemsUnitsServicesModel.cs" />
@@ -504,7 +501,6 @@
     <Compile Include="Models\NotificationUserModel.cs" />
     <Compile Include="Models\ObjectsModel.cs" />
     <Compile Include="Models\PackageModel.cs" />
-    <Compile Include="Models\PointsModel.cs" />
     <Compile Include="Models\PosSettingModel.cs" />
     <Compile Include="Models\SectionModel.cs" />
     <Compile Include="Models\LocationModel.cs" />
@@ -547,12 +543,6 @@
       <DependentUpon>PosModel.tt</DependentUpon>
     </Compile>
     <Compile Include="paperSize.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Points.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="pointSetting.cs">
       <DependentUpon>PosModel.tt</DependentUpon>
     </Compile>
     <Compile Include="pos.cs">
@@ -632,9 +622,6 @@
       <DependentUpon>PosModel.tt</DependentUpon>
     </Compile>
     <Compile Include="subServices.cs">
-      <DependentUpon>PosModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
       <DependentUpon>PosModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysEmails.cs">

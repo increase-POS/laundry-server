@@ -45,8 +45,9 @@ namespace POS_Server.Models
   
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
+        public int points { get; set; }
+        public int pointsHistory { get; set; }
 
-
-
+       
     }
 }

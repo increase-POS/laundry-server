@@ -22,6 +22,8 @@ namespace POS_Server.Models
         public string ServiceName { get; set; }
         public Nullable<int> itemId { get; set; }
         public Nullable<int> unitId { get; set; }
+        public Nullable<int> categoryId { get; set; }
+        
         
 
 
