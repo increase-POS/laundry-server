@@ -1175,29 +1175,31 @@ namespace POS_Server.Controllers
                     }
                     row.updateUserId = updateUserId;
 
-                    cashTransfer newcashtr = new cashTransfer();
-                    newcashtr.agentId = agentId;
-                    newcashtr.createUserId = updateUserId;
-                    newcashtr.updateUserId = updateUserId;
-                    newcashtr.points = pointdif;
-                    newcashtr.posId = posId;
-                    newcashtr.processType = "point";
-                    newcashtr.side = "c";
-                 string num=   ctctrlr.generateTransNumber("pnt");
-
-                    newcashtr.transNum = num;
-                    newcashtr.transType = "point";
-                    int resId = cashctrlr.Save(newcashtr);
-                    if (resId == 0)
+                    if (pointdif != 0)
                     {
-                        message = 0;
-                        return message;
-                    }
+                        cashTransfer newcashtr = new cashTransfer();
+                        newcashtr.agentId = agentId;
+                        newcashtr.createUserId = updateUserId;
+                        newcashtr.updateUserId = updateUserId;
+                        newcashtr.points = pointdif;
+                        newcashtr.posId = posId;
+                        newcashtr.processType = "point";
+                        newcashtr.side = "c";
+                        string num = ctctrlr.generateTransNumber("pnt");
 
-                    //}
+                        newcashtr.transNum = num;
+                        newcashtr.transType = "point";
+                        int resId = cashctrlr.Save(newcashtr);
+                        if (resId == 0)
+                        {
+                            message = 0;
+                            return message;
+                        }
+                    }
+                   
 
                     entity.SaveChanges();
-                    //}
+                    
 
                 }
                 message = 1;
@@ -1226,10 +1228,7 @@ namespace POS_Server.Controllers
                     var agentEntity = entity.Set<agents>();
                     agents row = entity.agents.Where(p => p.agentId == agentId).ToList().First();
 
-                    //foreach (agents row in agentlist)
-                    //{
-                    //if (row.points != points)
-                    //{
+                  
 
                     int finalpoint = pointsValue + row.points;
                     if (finalpoint < 0)
@@ -1243,14 +1242,18 @@ namespace POS_Server.Controllers
                         pointdif = pointsValue;
                     }
 
-                    //add cash transfer for point
+                    
                     row.points = finalpoint;
 
                     row.pointsHistory = 0;
 
                     row.updateUserId = updateUserId;
+                    if (pointdif != 0)
+                    {
 
-                    cashTransfer newcashtr = new cashTransfer();
+                 
+                        //add cash transfer for point
+                        cashTransfer newcashtr = new cashTransfer();
                     newcashtr.agentId = agentId;
                     newcashtr.createUserId = updateUserId;
                     newcashtr.updateUserId = updateUserId;
@@ -1267,11 +1270,13 @@ namespace POS_Server.Controllers
                         message = 0;
                         return message;
                     }
-
-                    //}
+}
+                 
 
                     entity.SaveChanges();
-                    //}
+                       
+                    
+                    
 
                 }
                 message = 1;
@@ -1293,47 +1298,49 @@ namespace POS_Server.Controllers
             int message = 0;
             try
             {
-                //List<agents> agentlist;
+              
                 CashTransferController cashctrlr = new CashTransferController();
                 using (incposdbEntities entity = new incposdbEntities())
                 {
                     var agentEntity = entity.Set<agents>();
                     agents row = entity.agents.Where(p => p.agentId == agentId).ToList().First();
 
-                    //foreach (agents row in agentlist)
-                    //{
+              
+                
                     if (row.points != points)
                     {
 
                         int pointdif = points - row.points;
 
-                        //add cash transfer for point
+                
                         row.points = points;
                         if (pointdif > 0)
                         {
                             row.pointsHistory = row.pointsHistory + pointdif;
                         }
                         row.updateUserId = updateUserId;
-
-                        cashTransfer newcashtr = new cashTransfer();
-                        newcashtr.agentId = agentId;
-                        newcashtr.createUserId = updateUserId;
-                        newcashtr.updateUserId = updateUserId;
-                        newcashtr.points = pointdif;
-                        newcashtr.posId = posId;
-                        newcashtr.processType = "point";
-                        newcashtr.side = "c";
-                        string num = ctctrlr.generateTransNumber("pnt");
-                        newcashtr.transNum = num;
-                        newcashtr.transType = "point";
-                        int resId = cashctrlr.Save(newcashtr);
-                        if (resId == 0)
+                        //add cash transfer for point
+                        if (pointdif != 0)
                         {
-                            message = 0;
-                            return message;
-                        }
+                            cashTransfer newcashtr = new cashTransfer();
+                            newcashtr.agentId = agentId;
+                            newcashtr.createUserId = updateUserId;
+                            newcashtr.updateUserId = updateUserId;
+                            newcashtr.points = pointdif;
+                            newcashtr.posId = posId;
+                            newcashtr.processType = "point";
+                            newcashtr.side = "c";
+                            string num = ctctrlr.generateTransNumber("pnt");
+                            newcashtr.transNum = num;
+                            newcashtr.transType = "point";
+                            int resId = cashctrlr.Save(newcashtr);
+                            if (resId == 0)
+                            {
+                                message = 0;
+                                return message;
+                            }
 
-                        //}
+                        }
 
                         entity.SaveChanges();
                     }
