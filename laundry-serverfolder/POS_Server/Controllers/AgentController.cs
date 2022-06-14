@@ -748,6 +748,79 @@ namespace POS_Server.Controllers
             }
 
         }
+
+
+        //[HttpPost]
+        //[Route("UpdateAgentsPoints")]
+        //public string UpdateAgentsPoints(string token)
+        //{
+        //    token = TokenManager.readToken(HttpContext.Current.Request);
+        //    string message = "";
+        //    var strP = TokenManager.GetPrincipal(token);
+        //    if (strP != "0") //invalid authorization
+        //    {
+        //        return TokenManager.GenerateToken(strP);
+        //    }
+        //    else
+        //    {
+        //        string strObject = "";
+        //        List<agents> newListObj = null;
+                
+        //        int updateUserId = 0;
+        //        //int points = 0;
+        //        int posId = 0;
+        //        IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+        //        foreach (Claim c in claims)
+        //        {
+        //            if (c.Type == "newList")
+        //            {
+        //                strObject = c.Value.Replace("\\", string.Empty);
+        //                strObject = strObject.Trim('"');
+        //                newListObj = JsonConvert.DeserializeObject<List<agents>>(strObject, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+
+        //            }
+                
+        //            else if (c.Type == "updateUserId")
+        //            {
+        //                updateUserId = int.Parse(c.Value);
+        //            }
+        //            else if (c.Type == "posId")
+        //            {
+        //                posId = int.Parse(c.Value);
+        //            }
+
+        //        }
+
+
+        //        try
+        //        {
+
+        //            int res = 0;
+        //            foreach (var row in newListObj)
+        //            {
+        //                res= UpdateAgentPoints(row.agentId,row.points,updateUserId, posId,"-");
+        //                if(res==0)
+        //                {
+        //                    return TokenManager.GenerateToken("0");
+        //                    //return TokenManager.GenerateToken("noup");
+        //                }
+        //            }
+
+        //            message = "1";
+        //            return TokenManager.GenerateToken(message);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            message = "0";
+        //            return TokenManager.GenerateToken(message);
+        //            //return TokenManager.GenerateToken(ex.ToString());
+        //        }
+
+        //    }
+
+        //}
+
+// تعديل النقاط لزبون محدد بالقيمة الموجودة في ال agent
         [HttpPost]
         [Route("UpdateAgentPoints")]
         public string UpdateAgentPoints(string token)
@@ -762,26 +835,26 @@ namespace POS_Server.Controllers
             else
             {
                 string strObject = "";
-                List<agents> newListObj = null;
-                
-                int updateUserId = 0;
+               agents newObj = null;
+
+               // int updateUserId = 0;
                 //int points = 0;
                 int posId = 0;
                 IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
                 foreach (Claim c in claims)
                 {
-                    if (c.Type == "newList")
+                    if (c.Type == "itemObject")
                     {
                         strObject = c.Value.Replace("\\", string.Empty);
                         strObject = strObject.Trim('"');
-                        newListObj = JsonConvert.DeserializeObject<List<agents>>(strObject, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+                        newObj = JsonConvert.DeserializeObject<agents>(strObject, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+                        break;
+                    }
 
-                    }
-                
-                    else if (c.Type == "updateUserId")
-                    {
-                        updateUserId = int.Parse(c.Value);
-                    }
+                    //else if (c.Type == "updateUserId")
+                    //{
+                    //    updateUserId = int.Parse(c.Value);
+                    //}
                     else if (c.Type == "posId")
                     {
                         posId = int.Parse(c.Value);
@@ -794,15 +867,15 @@ namespace POS_Server.Controllers
                 {
 
                     int res = 0;
-                    foreach (var row in newListObj)
-                    {
-                        res= UpdateAgentPoints(row.agentId,row.points,updateUserId, posId,"-");
-                        if(res==0)
+                    //foreach (var row in newListObj)
+                    //{
+                        res = UpdateAgentPoints(newObj.agentId, newObj.points, (int)newObj.updateUserId, posId, "-");
+                        if (res == 0)
                         {
-                         //   return TokenManager.GenerateToken("0");
-                            return TokenManager.GenerateToken("noup");
-                        }
+                        return TokenManager.GenerateToken("0");
+                        //return TokenManager.GenerateToken("noup");
                     }
+                    //}
 
                     message = "1";
                     return TokenManager.GenerateToken(message);
@@ -810,7 +883,88 @@ namespace POS_Server.Controllers
                 catch (Exception ex)
                 {
                     message = "0";
-                  //  return TokenManager.GenerateToken(message);
+                    return TokenManager.GenerateToken(message);
+                    //return TokenManager.GenerateToken(ex.ToString());
+                }
+
+            }
+
+        }
+
+
+        // تعديل النقاط لكل الزبائن بزيادة او انقاص الرصيد بمقدار القيمة المرسلة
+  [HttpPost]
+        [Route("UpdateAllAgentsPoints")]
+        public string UpdateAllAgentsPoints(string token)
+        {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            string message = "";
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+                string strObject = "";
+                //List<agents> newListObj = null;
+
+                int updateUserId = 0;
+                int points = 0;
+                int posId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {
+                    //if (c.Type == "newList")
+                    //{
+                    //    strObject = c.Value.Replace("\\", string.Empty);
+                    //    strObject = strObject.Trim('"');
+                    //    newListObj = JsonConvert.DeserializeObject<List<agents>>(strObject, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+
+                    //}
+
+                    if (c.Type == "updateUserId")
+                    {
+                        updateUserId = int.Parse(c.Value);
+                    }
+                    else if (c.Type == "posId")
+                    {
+                        posId = int.Parse(c.Value);
+                    }
+                    else if (c.Type == "points")
+                    {
+                        points = int.Parse(c.Value);
+                    }
+
+                }
+
+
+                try
+                {
+
+                    int res = 0;
+                    using (incposdbEntities entity = new incposdbEntities())
+                    {
+                         
+                        var newListObj = entity.agents.Where(p => p.type =="c").ToList() ;
+
+                        foreach (var row in newListObj)
+                        {
+                            res = UpdatePoint(row.agentId, points, updateUserId, posId, "-");
+                            if (res == 0)
+                            {
+                                return TokenManager.GenerateToken("0");
+                                //return TokenManager.GenerateToken("noup");
+                            }
+                        }
+                    }
+                    message = "1";
+                    return TokenManager.GenerateToken(message);
+                }
+                catch (Exception ex)
+                {
+                    message = "0";
+                    //  return TokenManager.GenerateToken(message);
                     return TokenManager.GenerateToken(ex.ToString());
                 }
 
@@ -818,9 +972,324 @@ namespace POS_Server.Controllers
 
         }
 
-        public int UpdateAgentPoints(int agentId,int points,int updateUserId,int? posId,string transNum)
+   
+        // تصفير نقاط كل الزبائن
+        [HttpPost]
+        [Route("resetAllAgentsPoints")]
+        public string resetAllAgentsPoints(string token)
         {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            string message = "";
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+                string strObject = "";
+                //List<agents> newListObj = null;
 
+                int updateUserId = 0;
+                int points = 0;
+                int posId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {
+                    //if (c.Type == "newList")
+                    //{
+                    //    strObject = c.Value.Replace("\\", string.Empty);
+                    //    strObject = strObject.Trim('"');
+                    //    newListObj = JsonConvert.DeserializeObject<List<agents>>(strObject, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+
+                    //}
+
+                    if (c.Type == "updateUserId")
+                    {
+                        updateUserId = int.Parse(c.Value);
+                    }
+                    else if (c.Type == "posId")
+                    {
+                        posId = int.Parse(c.Value);
+                    }
+                    //else if (c.Type == "points")
+                    //{
+                    //    points = int.Parse(c.Value);
+                    //}
+
+                }
+
+
+                try
+                {
+
+                    int res = 0;
+                    using (incposdbEntities entity = new incposdbEntities())
+                    {
+
+                        var newListObj = entity.agents.Where(p => p.type == "c").ToList();
+
+                        foreach (var row in newListObj)
+                        {
+                            res = UpdatePoint(row.agentId, row.points*(-1), updateUserId, posId, "-");
+                            if (res == 0)
+                            {
+                                return TokenManager.GenerateToken("0");
+                                //return TokenManager.GenerateToken("noup");
+                            }
+                        }
+                    }
+                    message = "1";
+                    return TokenManager.GenerateToken(message);
+                }
+                catch (Exception ex)
+                {
+                    message = "0";
+                    //  return TokenManager.GenerateToken(message);
+                    return TokenManager.GenerateToken(ex.ToString());
+                }
+
+            }
+
+        }
+
+
+        //تصفير نقاط والنقاط الكلية لكل الزبائن
+        [HttpPost]
+        [Route("resetAllPointsAndHistory")]
+        public string resetAllPointsAndHistory(string token)
+        {
+            token = TokenManager.readToken(HttpContext.Current.Request);
+            string message = "";
+            var strP = TokenManager.GetPrincipal(token);
+            if (strP != "0") //invalid authorization
+            {
+                return TokenManager.GenerateToken(strP);
+            }
+            else
+            {
+                string strObject = "";
+                //List<agents> newListObj = null;
+
+                int updateUserId = 0;
+                int points = 0;
+                int posId = 0;
+                IEnumerable<Claim> claims = TokenManager.getTokenClaims(token);
+                foreach (Claim c in claims)
+                {
+                    //if (c.Type == "newList")
+                    //{
+                    //    strObject = c.Value.Replace("\\", string.Empty);
+                    //    strObject = strObject.Trim('"');
+                    //    newListObj = JsonConvert.DeserializeObject<List<agents>>(strObject, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+
+                    //}
+
+                    if (c.Type == "updateUserId")
+                    {
+                        updateUserId = int.Parse(c.Value);
+                    }
+                    else if (c.Type == "posId")
+                    {
+                        posId = int.Parse(c.Value);
+                    }
+                    //else if (c.Type == "points")
+                    //{
+                    //    points = int.Parse(c.Value);
+                    //}
+
+                }
+
+
+                try
+                {
+
+                    int res = 0;
+                    using (incposdbEntities entity = new incposdbEntities())
+                    {
+
+                        var newListObj = entity.agents.Where(p => p.type == "c").ToList();
+
+                        foreach (var row in newListObj)
+                        {
+                            res = ResetPointAndHistory(row.agentId, row.points * (-1), updateUserId, posId, "-");
+                            if (res == 0)
+                            {
+                                return TokenManager.GenerateToken("0");
+                                //return TokenManager.GenerateToken("noup");
+                            }
+                        }
+                    }
+                    message = "1";
+                    return TokenManager.GenerateToken(message);
+                }
+                catch (Exception ex)
+                {
+                    message = "0";
+                    //  return TokenManager.GenerateToken(message);
+                    return TokenManager.GenerateToken(ex.ToString());
+                }
+
+            }
+
+        }
+
+
+        public int UpdatePoint(int agentId, int pointsValue, int updateUserId, int? posId, string transNum)
+        {
+            CashTransferController ctctrlr = new CashTransferController();
+
+            int message = 0;
+            try
+            {
+                int pointdif = 0;
+                //List<agents> agentlist;
+                CashTransferController cashctrlr = new CashTransferController();
+                using (incposdbEntities entity = new incposdbEntities())
+                {
+                    var agentEntity = entity.Set<agents>();
+                    agents row = entity.agents.Where(p => p.agentId == agentId).ToList().First();
+
+                    //foreach (agents row in agentlist)
+                    //{
+                    //if (row.points != points)
+                    //{
+
+                    int finalpoint = pointsValue + row.points;
+                    if (finalpoint < 0)
+                    {
+                        finalpoint = 0;
+                        // decrease value is all db points
+                        pointdif = -1 * row.points;
+                    }
+                    else
+                    {
+                        pointdif = pointsValue;
+                    }
+
+                    //add cash transfer for point
+                    row.points = finalpoint;
+                    if (pointsValue > 0)
+                    {
+                        row.pointsHistory = row.pointsHistory + pointsValue;
+                    }
+                    row.updateUserId = updateUserId;
+
+                    cashTransfer newcashtr = new cashTransfer();
+                    newcashtr.agentId = agentId;
+                    newcashtr.createUserId = updateUserId;
+                    newcashtr.updateUserId = updateUserId;
+                    newcashtr.points = pointdif;
+                    newcashtr.posId = posId;
+                    newcashtr.processType = "point";
+                    newcashtr.side = "c";
+                 string num=   ctctrlr.generateTransNumber("pnt");
+
+                    newcashtr.transNum = num;
+                    newcashtr.transType = "point";
+                    int resId = cashctrlr.Save(newcashtr);
+                    if (resId == 0)
+                    {
+                        message = 0;
+                        return message;
+                    }
+
+                    //}
+
+                    entity.SaveChanges();
+                    //}
+
+                }
+                message = 1;
+                return message;
+            }
+
+            catch
+            {
+                message = 0;
+                return message;
+            }
+
+        }
+
+        public int ResetPointAndHistory(int agentId, int pointsValue, int updateUserId, int? posId, string transNum)
+        {
+            CashTransferController ctctrlr = new CashTransferController();
+            int message = 0;
+            try
+            {
+                int pointdif = 0;
+                //List<agents> agentlist;
+                CashTransferController cashctrlr = new CashTransferController();
+                using (incposdbEntities entity = new incposdbEntities())
+                {
+                    var agentEntity = entity.Set<agents>();
+                    agents row = entity.agents.Where(p => p.agentId == agentId).ToList().First();
+
+                    //foreach (agents row in agentlist)
+                    //{
+                    //if (row.points != points)
+                    //{
+
+                    int finalpoint = pointsValue + row.points;
+                    if (finalpoint < 0)
+                    {
+                        finalpoint = 0;
+                        // decrease value is all db points
+                        pointdif = -1 * row.points;
+                    }
+                    else
+                    {
+                        pointdif = pointsValue;
+                    }
+
+                    //add cash transfer for point
+                    row.points = finalpoint;
+
+                    row.pointsHistory = 0;
+
+                    row.updateUserId = updateUserId;
+
+                    cashTransfer newcashtr = new cashTransfer();
+                    newcashtr.agentId = agentId;
+                    newcashtr.createUserId = updateUserId;
+                    newcashtr.updateUserId = updateUserId;
+                    newcashtr.points = pointdif;
+                    newcashtr.posId = posId;
+                    newcashtr.processType = "point";
+                    newcashtr.side = "c";
+                    string num = ctctrlr.generateTransNumber("pnt");
+                    newcashtr.transNum = num;
+                    newcashtr.transType = "point";
+                    int resId = cashctrlr.Save(newcashtr);
+                    if (resId == 0)
+                    {
+                        message = 0;
+                        return message;
+                    }
+
+                    //}
+
+                    entity.SaveChanges();
+                    //}
+
+                }
+                message = 1;
+                return message;
+            }
+
+            catch
+            {
+                message = 0;
+                return message;
+            }
+
+        }
+
+
+        public int UpdateAgentPoints(int agentId, int points, int updateUserId, int? posId, string transNum)
+        {
+            CashTransferController ctctrlr = new CashTransferController();
             int message = 0;
             try
             {
@@ -833,31 +1302,32 @@ namespace POS_Server.Controllers
 
                     //foreach (agents row in agentlist)
                     //{
-                        if (row.points!=points)
-                        {
-                         
-                                int pointdif = points - row.points;
-                       
-                           //add cash transfer for point
-                            row.points = points;
+                    if (row.points != points)
+                    {
+
+                        int pointdif = points - row.points;
+
+                        //add cash transfer for point
+                        row.points = points;
                         if (pointdif > 0)
                         {
-                            row.pointsHistory = row.pointsHistory+pointdif;
+                            row.pointsHistory = row.pointsHistory + pointdif;
                         }
                         row.updateUserId = updateUserId;
-                        
-                            cashTransfer newcashtr = new cashTransfer();
-                            newcashtr.agentId = agentId;
-                            newcashtr.createUserId = updateUserId;
-                            newcashtr.updateUserId = updateUserId;
-                            newcashtr.points = pointdif;
-                            newcashtr.posId = posId;
-                            newcashtr.processType = "point";
-                            newcashtr.side = "c";
-                            newcashtr.transNum = transNum;
-                            newcashtr.transType = "point";
+
+                        cashTransfer newcashtr = new cashTransfer();
+                        newcashtr.agentId = agentId;
+                        newcashtr.createUserId = updateUserId;
+                        newcashtr.updateUserId = updateUserId;
+                        newcashtr.points = pointdif;
+                        newcashtr.posId = posId;
+                        newcashtr.processType = "point";
+                        newcashtr.side = "c";
+                        string num = ctctrlr.generateTransNumber("pnt");
+                        newcashtr.transNum = num;
+                        newcashtr.transType = "point";
                         int resId = cashctrlr.Save(newcashtr);
-                        if ( resId == 0)
+                        if (resId == 0)
                         {
                             message = 0;
                             return message;
@@ -880,5 +1350,6 @@ namespace POS_Server.Controllers
             }
 
         }
+
     }
 }

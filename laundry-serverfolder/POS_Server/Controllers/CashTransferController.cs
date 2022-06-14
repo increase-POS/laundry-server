@@ -3796,7 +3796,49 @@ namespace POS_Server.Controllers
             }
         }
 
+     
+        public int GetLastTransNum(string cashCode)
+        {
+            try
+                {
 
+                    List<string> numberList;
+                    int lastNum = 0;
+                    using (incposdbEntities entity = new incposdbEntities())
+                    {
+                        numberList = entity.cashTransfer.Where(b => b.transNum.Contains(cashCode + "-")).Select(b => b.transNum).ToList();
+
+                        for (int i = 0; i < numberList.Count; i++)
+                        {
+                            string code = numberList[i];
+                            string s = code.Substring(code.LastIndexOf("-") + 1);
+                            numberList[i] = s;
+                        }
+                        if (numberList.Count > 0)
+                        {
+                            numberList.Sort();
+                            lastNum = int.Parse(numberList[numberList.Count - 1]);
+                        }
+                    }
+                  
+                    return lastNum ;
+                }
+                catch
+                {
+                    return 0;
+                }
+             
+        }
+        public  string generateTransNumber(string  firstcode)
+        {
+            int sequence = GetLastTransNum(firstcode);
+            sequence++;
+            string strSeq = sequence.ToString();
+            if (sequence <= 999999)
+                strSeq = sequence.ToString().PadLeft(6, '0');
+            string transNum = firstcode + "-" + strSeq;
+            return transNum;
+        }
     }
 }
 
